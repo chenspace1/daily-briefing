@@ -1,0 +1,65 @@
+/* 日报样式 */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:#f8f6f3;color:#2c2c2c;line-height:1.7;padding:2rem 1.5rem;max-width:1100px;margin:0 auto
+}
+header{text-align:center;margin-bottom:2.5rem}
+header h1{font-size:1.6rem;font-weight:600;letter-spacing:.02em}
+header time{font-size:.85rem;color:#888;margin-top:.25rem;display:block}
+.back{display:inline-block;font-size:.85rem;color:#888;text-decoration:none;margin-bottom:1rem;transition:color .15s}
+.back:hover{color:#2563eb}
+
+/* 首页网格 */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.card{
+  background:#fff;border-radius:12px;padding:1.5rem;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid #f0ede8;
+  display:flex;flex-direction:column;transition:box-shadow .2s
+}
+.card:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card h2{font-size:1rem;font-weight:600;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.card h2 .icon{font-size:1.15rem}
+.card .summary{
+  font-size:.82rem;color:#666;line-height:1.6;margin:.5rem 0 .75rem;
+  padding:.6rem .7rem;background:#faf9f7;border-radius:8px;flex:1
+}
+.card .meta{font-size:.78rem;color:#aaa;display:flex;justify-content:space-between;align-items:center}
+.card .meta a{color:#2563eb;text-decoration:none;font-weight:500}
+.card .meta a:hover{text-decoration:underline}
+.card.wide{grid-column:1/-1}
+
+/* 详情页 */
+.detail{margin-top:1rem}
+.detail-item{
+  background:#fff;border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1rem;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid #f0ede8
+}
+.detail-item h3{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
+.detail-item h3 a{color:#2c2c2c;text-decoration:none}
+.detail-item h3 a:hover{color:#2563eb}
+.detail-item .source-line{font-size:.75rem;color:#aaa;margin-bottom:.6rem}
+.detail-item .conclusion{
+  font-size:.85rem;color:#444;padding:.55rem .7rem;background:#f0f7ff;
+  border-left:3px solid #2563eb;border-radius:0 6px 6px 0;margin:.5rem 0
+}
+.detail-item .conclusion::before{content:"💡 ";font-size:.75rem}
+
+/* 折叠 */
+.toggle{display:none}
+.toggle-btn{
+  display:inline-block;font-size:.8rem;color:#2563eb;cursor:pointer;
+  margin:.35rem 0;user-select:none;text-decoration:none
+}
+.toggle-btn:hover{text-decoration:underline}
+.toggle-content{display:none;font-size:.82rem;color:#555;padding:.5rem .7rem;background:#faf9f7;border-radius:8px;margin:.3rem 0;line-height:1.65}
+.toggle:checked+.toggle-btn+.toggle-content{display:block}
+
+/* 关联素材列表 */
+.related-list{list-style:none}
+.related-list li{padding:.25rem 0;font-size:.82rem}
+.related-list li a{color:#555;text-decoration:none}
+.related-list li a:hover{color:#2563eb}
+
+footer{text-align:center;margin-top:2.5rem;font-size:.75rem;color:#bbb}
+@media(max-width:700px){.grid{grid-template-columns:1fr}body{padding:1rem .75rem}}
