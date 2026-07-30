@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📰 日报</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:#f8f6f3;color:#2c2c2c;line-height:1.6;padding:2rem 1.5rem;max-width:1100px;margin:0 auto
+  }
+  header{text-align:center;margin-bottom:2.5rem}
+  header h1{font-size:1.6rem;font-weight:600;letter-spacing:.02em}
+  header time{font-size:.85rem;color:#888;margin-top:.25rem;display:block}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+  .card{background:#fff;border-radius:12px;padding:1.35rem 1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid #f0ede8}
+  .card.wide{grid-column:1/-1}
+  .card h2{font-size:1rem;font-weight:600;margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:1px solid #f0ede8;display:flex;align-items:center;gap:.4rem}
+  .card h2 .icon{font-size:1.1rem}
+  .card ol{list-style:none;counter-reset:item}
+  .card li{counter-increment:item;font-size:.9rem;padding:.35rem 0;border-bottom:1px solid #faf8f5}
+  .card li:last-child{border-bottom:none}
+  .card li a{color:#2c2c2c;text-decoration:none;display:block;transition:color .15s}
+  .card li a:hover{color:#2563eb}
+  .card li a::before{content:counter(item)".";color:#bbb;font-size:.75rem;margin-right:.5rem;font-variant-numeric:tabular-nums}
+  .card .source{font-size:.72rem;color:#aaa;margin-left:1.2rem}
+  .empty{color:#bbb;font-size:.85rem;font-style:italic}
+  .card li.empty a{display:inline}
+  .card li.empty a::before{content:none}
+  footer{text-align:center;margin-top:2rem;font-size:.75rem;color:#bbb}
+  @media(max-width:700px){.grid{grid-template-columns:1fr}body{padding:1rem .75rem}}
+</style>
+</head>
+<body>
+<header>
+  <h1>📰 日报</h1>
+  <time>2026年7月29日星期三</time>
+</header>
+<div class="grid">
+  <div class="card"><h2><span class="icon">🤖</span> AI 动态</h2><ol><li><a href="https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research" target="_blank" rel="noopener">人工智能的顶级创业公司几乎没有发表他们的研究成果</a><span class="source">HN · AI's top startups are barely publishing their research</span></li><li><a href="https://llm2human.pages.dev/" target="_blank" rel="noopener">LLM蜜罐</a><span class="source">HN · LLM Honeypot</span></li><li><a href="https://frantic.im/mirage/" target="_blank" rel="noopener">生产力海市蜃楼</a><span class="source">HN · The Productivity Mirage</span></li><li><a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" target="_blank" rel="noopener">前沿实验室特工入侵剖析： 2026年7月事件时间表</a><span class="source">HN · Anatomy of a Frontier Lab Agent Intrusion: A Timeline of the July 2026 Incident</span></li><li><a href="https://zachholman.com/posts/cold-email" target="_blank" rel="noopener">冷电子邮件</a><span class="source">HN · The Cold Email</span></li><li><a href="https://noelo.org/blog/kuna-release/" target="_blank" rel="noopener">KUNA ：编码代理时代的反编译器开发</a><span class="source">HN · Kuna: Decompiler Development in the Age of Coding Agents</span></li><li><a href="https://blog.cryptographyengineering.com/2026/07/29/some-notes-about-anthropics-new-results/" target="_blank" rel="noopener">关于Anthropic新密码分析结果的一些想法</a><span class="source">HN · Some thoughts about Anthropic's new cryptanalysis results</span></li><li><a href="https://usetokenless.com/" target="_blank" rel="noopener">启动HN ：无令牌（ YC S26 ） –自动模型切换以节省资金</a><span class="source">HN · Launch HN: Tokenless (YC S26) – Automatic model switching to save money</span></li></ol></div>
+  <div class="card"><h2><span class="icon">📄</span> 前沿论文</h2><ol><li><a href="http://arxiv.org/abs/2607.27201v1" target="_blank" rel="noopener">心理世界建模</a><span class="source">arXiv · Mental World Modeling</span></li><li><a href="http://arxiv.org/abs/2607.27191v1" target="_blank" rel="noopener">人工智能代理可以进行开放式的人工智能研究吗？两个案例研究的早期证据</a><span class="source">arXiv · Can AI agents conduct open-ended AI research? Early evidence from two case studies</span></li><li><a href="http://arxiv.org/abs/2607.27189v1" target="_blank" rel="noopener">APEX-会计</a><span class="source">arXiv · APEX-Accounting</span></li><li><a href="http://arxiv.org/abs/2607.27183v1" target="_blank" rel="noopener">Pangram 4技术报告</a><span class="source">arXiv · Pangram 4 Technical Report</span></li><li><a href="http://arxiv.org/abs/2607.27179v1" target="_blank" rel="noopener">人工智能团队成员的社会成本：人工智能团队成员如何在小团队决策中重塑人与人之间的沟通</a><span class="source">arXiv · The Social Cost of an AI Teammate: How an Artificial Teammate Reshapes Human-Human Communication in Small-Team Decision-Making</span></li><li><a href="http://arxiv.org/abs/2607.27178v1" target="_blank" rel="noopener">DenseOn与LateOn ：完全开放的密集和后期交互模型，用于多语言、长上下文和代码搜索</a><span class="source">arXiv · DenseOn with the LateOn: Fully Open Dense and Late-Interaction Models for Multilingual, Long-Context, and Code Search</span></li><li><a href="http://arxiv.org/abs/2607.27177v1" target="_blank" rel="noopener">临时团队合作中与任务无关的适应的合作伙伴能力估计</a><span class="source">arXiv · Partner Capability Estimation for Task-Agnostic Adaptation in Ad-Hoc Teamwork</span></li><li><a href="http://arxiv.org/abs/2607.27172v1" target="_blank" rel="noopener">通过相关意图生成提高电子商务搜索中的项目可发现性</a><span class="source">arXiv · Improving Item Discoverability in e-Commerce Search via Related Intent Generation</span></li></ol></div>
+  <div class="card"><h2><span class="icon">📊</span> 经济</h2><ol><li><a href="https://www.bbc.co.uk/news/articles/c4g4dkr40deo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Burnham说，线上面试不会向老板展示你的个性</a><span class="source">BBC · Virtual interviews don't show bosses your personality, says Burnham</span></li><li><a href="https://www.bbc.co.uk/news/articles/cpq8n45r5e8o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">由于伊朗战争导致油价上涨，壳牌的利润翻了一番</a><span class="source">BBC · Shell profits double as oil prices rise due to Iran war</span></li><li><a href="https://www.bbc.co.uk/news/videos/ckg4jxwkn2lo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">这里发生的事情会对您的资金产生重大影响</a><span class="source">BBC · What happens here has a big impact on your money</span></li><li><a href="https://www.bbc.co.uk/news/articles/c8jngmk93p9o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Beauty Pie创始人讲述她如何从大学辍学并建立了五家美容企业</a><span class="source">BBC · Beauty Pie founder on how she dropped out of university and built five beauty businesses</span></li><li><a href="https://www.bbc.co.uk/news/articles/c0jl8v23qwgo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">中国机器人大军改造英国零售业</a><span class="source">BBC · The Chinese robot army transforming the UK's retail industry</span></li><li><a href="https://www.bbc.co.uk/news/articles/cp8e6m4rndgo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">预计英格兰银行将再次持有利率</a><span class="source">BBC · Interest rates expected to be held again by Bank of England</span></li><li><a href="https://www.bbc.co.uk/news/articles/ckgd31l5yrdo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">随着对人工智能支出计划的沮丧情绪加剧， Meta股价下跌</a><span class="source">BBC · Meta shares fall as frustration grows over AI spending plans</span></li><li><a href="https://www.bbc.co.uk/news/articles/crl70x0nxr9o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">伯纳姆表示，核潜艇投资将保护英国并促进就业</a><span class="source">BBC · Burnham says nuclear sub investment will protect UK and boost jobs</span></li></ol></div>
+  <div class="card"><h2><span class="icon">🌍</span> 领导人动态</h2><ol><li><a href="https://www.bbc.co.uk/news/articles/c0m78xl1k2po?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">他的妻子说，资深的乌干达反对派领导人在法庭上和在重症监护室垮台</a><span class="source">BBC · Veteran Ugandan opposition leader collapses in court and in ICU, his wife says</span></li><li><a href="https://www.bbc.co.uk/news/articles/cdx85vkk0gko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">安东尼·福奇（ Anthony Fauci ）在美国参议院关于新冠肺炎疫情起源的紧张听证会上拒绝回答问题</a><span class="source">BBC · Anthony Fauci refuses to answer questions during tense US Senate hearing about Covid origins</span></li><li><a href="https://www.bbc.co.uk/news/articles/c9q90qvwe14o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">“Delulu” ， “Clock it” ： “蟑螂”抗议将Z世代的俚语带到印度议会</a><span class="source">BBC · 'Delulu', 'Clock it': 'Cockroach' protest brings Gen Z slang to India's parliament</span></li></ol></div>
+  <div class="card wide">
+    <h2><span class="icon">📚</span> 知识学习</h2>
+    <ol><li><a href="https://docs.espressif.com/projects/rust/book/" target="_blank" rel="noopener">ESP书上的锈迹</a><span class="source">HN · The Rust on ESP Book</span></li><li><a href="https://archive.org/details/mancomputerbyjoh0000john" target="_blank" rel="noopener">约翰· G ·凯门尼（ John G. Kemeny ）的《人与计算机》（ 1972年， BASIC的共同创作者）</a><span class="source">HN · Man and the Computer by John G. Kemeny (1972 book by the co-creator of BASIC)</span></li></ol>
+  </div>
+</div>
+<footer>生成时间：18:19</footer>
+</body>
+</html>
