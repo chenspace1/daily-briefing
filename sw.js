@@ -1,22 +1,11 @@
 // 八点日报 — Service Worker
-const CACHE = 'daily-briefing-v1';
-const SHELL = [
-  '.',
-  'index.html',
-  'style.css',
-  'manifest.json',
-  'icon.svg',
-  'ai.html',
-  'paper.html',
-  'econ.html',
-  'leaders.html',
-  'learn.html',
-];
+const CACHE = 'daily-briefing-v2';
+const STATIC = ['style.css', 'manifest.json', 'icon.svg'];
 
-// 安装：预缓存核心文件
+// 安装：预缓存静态资源
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(SHELL)).catch(() => {})
+    caches.open(CACHE).then(c => c.addAll(STATIC)).catch(() => {})
   );
   self.skipWaiting();
 });
@@ -31,9 +20,24 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
-// 请求：缓存优先，网络回退
+// HTML 网络优先（每天更新），静态资源缓存优先
 self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request))
-  );
+  const url = new URL(e.request.url);
+  // HTML 页面：网络优先，离线回退缓存
+  if (e.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname.endsWith('/')) {
+    e.respondWith(
+      fetch(e.request)
+        .then(res => {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(e.request))
+    );
+  } else {
+    // 静态资源：缓存优先
+    e.respondWith(
+      caches.match(e.request).then(cached => cached || fetch(e.request))
+    );
+  }
 });
