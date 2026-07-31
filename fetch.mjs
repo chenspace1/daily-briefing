@@ -1,9 +1,69 @@
 #!/usr/bin/env node
 // 日报生成器 v2 —— 首页概览 + 详情页（结论/背景/关联素材）
-import { writeFileSync } from 'fs';
+import { writeFileSync, existsSync, mkdirSync, readdirSync, rmSync, copyFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// ── 存档 ──
+const ARCHIVE_DIR = resolve(__dirname, 'archive');
+const KEEP_DAYS = 7;
+const HTML_FILES = ['index.html', 'ai.html', 'paper.html', 'econ.html', 'leaders.html', 'learn.html'];
+
+function archiveCurrent() {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const folder = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,'0')}-${String(yesterday.getDate()).padStart(2,'0')}`;
+  const dir = resolve(ARCHIVE_DIR, folder);
+  if (existsSync(dir)) return; // 已经存过
+  mkdirSync(dir, { recursive: true });
+  for (const f of HTML_FILES) {
+    const src = resolve(__dirname, f);
+    if (existsSync(src)) copyFileSync(src, resolve(dir, f));
+  }
+  copyFileSync(resolve(__dirname, 'style.css'), resolve(dir, 'style.css'));
+  console.log(`📦 已存档: ${folder}`);
+}
+
+function cleanOldArchives() {
+  if (!existsSync(ARCHIVE_DIR)) return;
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - KEEP_DAYS);
+  cutoff.setHours(0,0,0,0);
+  for (const entry of readdirSync(ARCHIVE_DIR, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.name)) continue;
+    const d = new Date(entry.name + 'T00:00:00');
+    if (isNaN(d.getTime()) || d < cutoff) {
+      rmSync(resolve(ARCHIVE_DIR, entry.name), { recursive: true, force: true });
+      console.log(`🗑 已清理: ${entry.name}`);
+    }
+  }
+}
+
+function buildArchiveIndex() {
+  if (!existsSync(ARCHIVE_DIR)) { mkdirSync(ARCHIVE_DIR, { recursive: true }); }
+  const dirs = readdirSync(ARCHIVE_DIR, { withFileTypes: true })
+    .filter(e => e.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(e.name))
+    .map(e => e.name)
+    .sort()
+    .reverse();
+
+  let html = pageHeader('📅 往期日报', `最近 ${KEEP_DAYS} 天`, true, '../');
+  if (!dirs.length) {
+    html += '<div class="detail"><div class="card"><div class="summary">暂无往期存档</div></div></div>';
+  } else {
+    html += '<div class="detail">';
+    for (const d of dirs) {
+      const [y, m, day] = d.split('-');
+      html += `<div class="card archive-card"><a href="${d}/" class="archive-link-item">📰 ${y}年${Number(m)}月${Number(day)}日</a></div>`;
+    }
+    html += '</div>';
+  }
+  html += pageFooter();
+  writeFileSync(resolve(ARCHIVE_DIR, 'index.html'), html, 'utf-8');
+  console.log('✅ archive/index.html');
+}
 
 // ── 配置 ──
 const CATEGORIES = [
@@ -130,8 +190,8 @@ function generateSummary(cat, items) {
 // ── HTML 生成 ──
 function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-function pageHeader(title, date, back) {
-  return `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${esc(title)}</title><link rel="stylesheet" href="style.css"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg"><meta name="theme-color" content="#f8f6f3"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="八点日报"><link rel="apple-touch-icon" href="icon.svg"></head><body>${back ? `<a href="index.html" class="back">← 返回</a>` : ''}<header><h1>${esc(title)}</h1><time>${esc(date)}</time></header>`;
+function pageHeader(title, date, back, prefix='') {
+  return `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${esc(title)}</title><link rel="stylesheet" href="${prefix}style.css"><link rel="manifest" href="${prefix}manifest.json"><link rel="icon" href="${prefix}icon.svg"><meta name="theme-color" content="#f8f6f3"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="八点日报"><link rel="apple-touch-icon" href="${prefix}icon.svg"></head><body>${back ? `<a href="${prefix}index.html" class="back">← 返回</a>` : ''}<header><h1>${esc(title)}</h1><time>${esc(date)}</time></header>`;
 }
 
 function pageFooter() {
@@ -231,6 +291,9 @@ for (const cat of CATEGORIES) {
 
 // ── 输出 ──
 
+// 先把昨天的内容存档
+archiveCurrent();
+
 // 首页
 let home = pageHeader(titleH1, dateStr, false);
 home += '<div class="grid">';
@@ -238,7 +301,7 @@ for (const cat of CATEGORIES) {
   const cls = cat.key === 'learn' ? 'card wide' : 'card';
   home += `<div class="${cls}">${indexCard(cat, allData[cat.key], summaries[cat.key].summary)}</div>`;
 }
-home += '</div>' + pageFooter();
+home += '</div><div class="archive-link"><a href="archive/">📅 往期日报</a></div>' + pageFooter();
 writeFileSync(resolve(__dirname, 'index.html'), home, 'utf-8');
 console.log('✅ index.html');
 
@@ -260,5 +323,9 @@ for (const cat of CATEGORIES) {
   writeFileSync(resolve(__dirname, `${cat.key}.html`), page, 'utf-8');
   console.log(`✅ ${cat.key}.html`);
 }
+
+// 生成往期索引 + 清理过期存档
+buildArchiveIndex();
+cleanOldArchives();
 
 console.log('🎉 全部生成完成');
