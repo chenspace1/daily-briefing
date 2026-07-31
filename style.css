@@ -53,7 +53,7 @@ header time{font-size:.85rem;color:#888;margin-top:.25rem;display:block}
 }
 .toggle-btn:hover{text-decoration:underline}
 .toggle-content{display:none;font-size:.82rem;color:#555;padding:.5rem .7rem;background:#faf9f7;border-radius:8px;margin:.3rem 0;line-height:1.65}
-.toggle:checked+.toggle-btn+.toggle-content{display:block}
+.toggle:checked+.toggle-content{display:block}
 
 /* 关联素材列表 */
 .related-list{list-style:none}
@@ -62,4 +62,28 @@ header time{font-size:.85rem;color:#888;margin-top:.25rem;display:block}
 .related-list li a:hover{color:#2563eb}
 
 footer{text-align:center;margin-top:2.5rem;font-size:.75rem;color:#bbb}
-@media(max-width:700px){.grid{grid-template-columns:1fr}body{padding:1rem .75rem}}
+/* ── 移动端适配 ── */
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  body{padding:1rem .75rem}
+  .card{padding:1.1rem}
+  .detail-item{padding:1rem 1.1rem}
+  header{margin-bottom:1.8rem}
+  footer{margin-top:1.8rem}
+}
+@media(max-width:480px){
+  body{padding:.6rem .5rem}
+  .card{padding:.9rem;border-radius:10px}
+  .detail-item{padding:.85rem;margin-bottom:.7rem;border-radius:10px}
+  header h1{font-size:1.35rem}
+  .card h2{font-size:.95rem}
+  .card .summary{font-size:.8rem}
+  .detail-item h3{font-size:.9rem}
+  .detail-item .source-line{font-size:.72rem}
+  /* 触控目标 ≥ 44px */
+  .toggle-btn{padding:.35rem 0;font-size:.85rem;line-height:2}
+  .related-list li{padding:.35rem 0}
+  .related-list li a,.detail-item h3 a{padding:.2rem 0;display:inline-block}
+  .card .meta a{padding:.3rem 0}
+  .back{padding:.3rem 0}
+}

@@ -131,11 +131,11 @@ function generateSummary(cat, items) {
 function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 function pageHeader(title, date, back) {
-  return `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${esc(title)}</title><link rel="stylesheet" href="style.css"></head><body>${back ? `<a href="index.html" class="back">← 返回</a>` : ''}<header><h1>${esc(title)}</h1><time>${esc(date)}</time></header>`;
+  return `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${esc(title)}</title><link rel="stylesheet" href="style.css"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg"><meta name="theme-color" content="#f8f6f3"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="八点日报"><link rel="apple-touch-icon" href="icon.svg"></head><body>${back ? `<a href="index.html" class="back">← 返回</a>` : ''}<header><h1>${esc(title)}</h1><time>${esc(date)}</time></header>`;
 }
 
 function pageFooter() {
-  return `<footer>生成时间：${new Date().toLocaleString('zh-CN',{hour:'2-digit',minute:'2-digit'})}</footer></body></html>`;
+  return `<footer>生成时间：${new Date().toLocaleString('zh-CN',{hour:'2-digit',minute:'2-digit'})}</footer><script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}</script></body></html>`;
 }
 
 function indexCard(cat, items, summary) {
