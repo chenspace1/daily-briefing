@@ -1,0 +1,363 @@
+{
+  "date": "7月27日 — 8月2日",
+  "dayOfWeek": "7月27日 — 8月2日",
+  "isWeekly": true,
+  "categories": [
+    {
+      "key": "ai",
+      "icon": "🤖",
+      "name": "AI 动态",
+      "commentary": "今日集中在AI落地真实场景：从代码认知债务到老系统迁移，警惕AI能力被高估，也别忽略小工具和硬核探索带来的机会。",
+      "articleCount": 8,
+      "articles": [
+        {
+          "id": "d97d1465",
+          "title": "Prevent cognitive debt by manually retyping LLM-generated code",
+          "zh": "Prevent cognitive debt by manually retyping LLM-generated code",
+          "summary": "",
+          "source": "HN",
+          "url": "https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "3eb15d54",
+          "title": "Bonsai: Janestreet's UI Library",
+          "zh": "Bonsai: Janestreet's UI Library",
+          "summary": "",
+          "source": "HN",
+          "url": "https://github.com/janestreet/bonsai",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "3a365d38",
+          "title": "Octane – React's programming model, compiled",
+          "zh": "Octane – React's programming model, compiled",
+          "summary": "",
+          "source": "HN",
+          "url": "https://octanejs.dev",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "4998e756",
+          "title": "PISIGuard: Protect your personal and sensitive info when you chat with AI",
+          "zh": "PISIGuard: Protect your personal and sensitive info when you chat with AI",
+          "summary": "",
+          "source": "HN",
+          "url": "https://github.com/mohamed--abdel-maksoud/pisiguard",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "4bdf67f8",
+          "title": "Train Simulator Controller",
+          "zh": "Train Simulator Controller",
+          "summary": "",
+          "source": "HN",
+          "url": "https://z80.me/blog/tsc-2026-july/",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "717fb7c2",
+          "title": "Autoregressive Language Model on the 6502 Processor",
+          "zh": "Autoregressive Language Model on the 6502 Processor",
+          "summary": "",
+          "source": "HN",
+          "url": "https://mattbeton.com/blog/bitnet-6502.html",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "3ab44a53",
+          "title": "The AI Productivity Gap",
+          "zh": "The AI Productivity Gap",
+          "summary": "",
+          "source": "HN",
+          "url": "https://bjorg.bjornroche.com/management/ai-productivity-gap/",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "e72ef72c",
+          "title": "AI migrated legacy COBOL programs to Java, bugs included",
+          "zh": "AI migrated legacy COBOL programs to Java, bugs included",
+          "summary": "",
+          "source": "HN",
+          "url": "https://arxiv.org/abs/2607.28271",
+          "category": "ai",
+          "breaking": false
+        }
+      ]
+    },
+    {
+      "key": "paper",
+      "icon": "📄",
+      "name": "前沿论文",
+      "commentary": "今天这批论文集中在为 Agent 应用补基础设施（Token 状态、评测基准），另有几个偏理论的概念框架，落地前先看基准再选型。",
+      "articleCount": 8,
+      "articles": [
+        {
+          "id": "000dd78f",
+          "title": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
+          "zh": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29678v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "8962d2b5",
+          "title": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
+          "zh": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29677v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "16e8e4a2",
+          "title": "Development of FDD-ON: an Ontology for VAV HVAC System Fault Detection and Diagnostics",
+          "zh": "Development of FDD-ON: an Ontology for VAV HVAC System Fault Detection and Diagnostics",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29657v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "db517ce1",
+          "title": "Evolving language compositionality in a frequency-structured meaning space",
+          "zh": "Evolving language compositionality in a frequency-structured meaning space",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29642v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "09f74ad0",
+          "title": "AgentHPOBench: A Benchmark For Evaluating LLM Agents as Sequential Hyperparameter Optimizers",
+          "zh": "AgentHPOBench: A Benchmark For Evaluating LLM Agents as Sequential Hyperparameter Optimizers",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29626v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "3889d0a7",
+          "title": "The Theoretical Foundation of Socratic Tests: Dynamic, Multimodal, Conversational Examinations",
+          "zh": "The Theoretical Foundation of Socratic Tests: Dynamic, Multimodal, Conversational Examinations",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29624v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "00472762",
+          "title": "CENDRe: Concept Extraction with Natural Domain Representations",
+          "zh": "CENDRe: Concept Extraction with Natural Domain Representations",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29621v1",
+          "category": "paper",
+          "breaking": false
+        },
+        {
+          "id": "6683f229",
+          "title": "When Does On-Policy Interaction Help? Representational Tradeoffs in Value-Based Imitation Learning",
+          "zh": "When Does On-Policy Interaction Help? Representational Tradeoffs in Value-Based Imitation Learning",
+          "summary": "",
+          "source": "arXiv",
+          "url": "http://arxiv.org/abs/2607.29617v1",
+          "category": "paper",
+          "breaking": false
+        }
+      ]
+    },
+    {
+      "key": "econ",
+      "icon": "📊",
+      "name": "经济",
+      "commentary": "今天经济板块集中在冲突催生通胀犯罪、汇率干预、房市松动等现实议题，同时科技商业责任问题开始抢戏。",
+      "articleCount": 8,
+      "articles": [
+        {
+          "id": "4320b553",
+          "title": "Almost £200,000 of fuel stolen from UK forecourts every day since Iran war began",
+          "zh": "Almost £200,000 of fuel stolen from UK forecourts every day since Iran war began",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cy8mrrlkjppo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "09eb4539",
+          "title": "US and Japan take action to prop up yen in rare joint move",
+          "zh": "US and Japan take action to prop up yen in rare joint move",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cglj1pr0wjwo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "60ac27ee",
+          "title": "It may be easier to get your first mortgage than you think - here's why",
+          "zh": "It may be easier to get your first mortgage than you think - here's why",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cp3rkzpl7ngo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "fd40a8bf",
+          "title": "New Spider-Man film sees second-biggest ever global opening weekend",
+          "zh": "New Spider-Man film sees second-biggest ever global opening weekend",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c3w052le2elo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "3073a225",
+          "title": "Faisal Islam: Four reasons why Fifa's World Cup plan never stacked up",
+          "zh": "Faisal Islam: Four reasons why Fifa's World Cup plan never stacked up",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/clyvd8363wlo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "75534b5a",
+          "title": "Snapchat joins other popular platforms in fight against 'AI slop'",
+          "zh": "Snapchat joins other popular platforms in fight against 'AI slop'",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c77g6dm5pr8o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "1ede255e",
+          "title": "Passenger on British Airways mayday flight describes fear and shout of 'I don't want to die'",
+          "zh": "Passenger on British Airways mayday flight describes fear and shout of 'I don't want to die'",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cn9n2v3lwr0o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "549d9665",
+          "title": "AI firms must answer for rogue bots, says boss of hacked company",
+          "zh": "AI firms must answer for rogue bots, says boss of hacked company",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cr7k49xjzzeo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        }
+      ]
+    },
+    {
+      "key": "leaders",
+      "icon": "🌍",
+      "name": "领导人动态",
+      "commentary": "今天该板块聚焦安全与冲突事件，从克什米尔抗议到莫斯科爆炸再到华盛顿野火，风险形势是主线。",
+      "articleCount": 5,
+      "articles": [
+        {
+          "id": "83d94332",
+          "title": "'My only son was shot standing up for justice' - inside city gripped by deadly protests in Pakistan-administered Kashmir",
+          "zh": "'My only son was shot standing up for justice' - inside city gripped by deadly protests in Pakistan-administered Kashmir",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c5yvqk69enko?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false
+        },
+        {
+          "id": "f27e9e2c",
+          "title": "Three killed after bomb detonated at Moscow restaurant, state media say",
+          "zh": "Three killed after bomb detonated at Moscow restaurant, state media say",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c86n4ljxp63o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false
+        },
+        {
+          "id": "d5112840",
+          "title": "Outside the Moscow restaurant where bomb killed three",
+          "zh": "Outside the Moscow restaurant where bomb killed three",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cdx8qp451lko?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false
+        },
+        {
+          "id": "823d19a5",
+          "title": "At the scene of deadly Moscow bomb blast",
+          "zh": "At the scene of deadly Moscow bomb blast",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/videos/c1719pk0xq8o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false
+        },
+        {
+          "id": "3be0270e",
+          "title": "Wildfires scorch Washington state as thousands evacuated and emergency declared",
+          "zh": "Wildfires scorch Washington state as thousands evacuated and emergency declared",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/videos/cpd7912xyq4o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false
+        }
+      ]
+    },
+    {
+      "key": "learn",
+      "icon": "📚",
+      "name": "知识学习",
+      "commentary": "今天两条都在讲“数据回流与语言演变”，值得关注的是：不盲目同步才是负责任的社区行为。\"",
+      "articleCount": 2,
+      "articles": [
+        {
+          "id": "42beb7db",
+          "title": "Why Book Corners won't sync contributions back to OpenStreetMap",
+          "zh": "Why Book Corners won't sync contributions back to OpenStreetMap",
+          "summary": "",
+          "source": "HN",
+          "url": "https://www.andreagrandi.it/posts/why-book-corners-wont-sync-contributions-back-to-openstreetmap/",
+          "category": "learn",
+          "breaking": false
+        },
+        {
+          "id": "0bd97f73",
+          "title": "How the words we teach English language learners changed",
+          "zh": "How the words we teach English language learners changed",
+          "summary": "",
+          "source": "HN",
+          "url": "https://pudding.cool/2026/07/essential-words/",
+          "category": "learn",
+          "breaking": false
+        }
+      ]
+    }
+  ],
+  "breakingNews": []
+}
