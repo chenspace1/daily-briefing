@@ -1,9 +1,208 @@
 #!/usr/bin/env node
-// 日报生成器 v2 —— 首页概览 + 详情页（结论/背景/关联素材）
+// 日报生成器 v3 —— LLM 翻译+概括 + data.json 输出
 import { writeFileSync, existsSync, mkdirSync, readdirSync, rmSync, copyFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+import { createHash } from 'crypto';
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// ── 风格 Prompt（few-shot 训练样本）──
+const STYLE_PROMPT = `你是一个视频创作者的选题助手。你的任务是翻译英文新闻标题并写一句概括。
+
+## 规则
+- 标题翻译：严谨专业，技术名词保留英文（LLM、Agent、fine-tune等），不要花哨表达
+- 概括：第一人称"如果你..."开头，一句话说清这条信息的实际价值或需要警惕的地方
+- 不要新闻腔，不要"本文介绍了..."，像是在给做自媒体的朋友提个醒
+- 如果文章纯技术硬核、没有发挥空间，直接准确翻译，不用硬凹风格
+- 每条必须输出 JSON 格式
+
+## 参考样本
+原文: The AI Aesthetic
+翻译: AI美学（科技改变界面，界面美学又将何去何从）
+概括: 如果你关心AI生成内容长什么样、未来界面会怎么变，这篇给你一个框架
+
+原文: Gemini Robotics 2 brings whole body intelligence to robots
+翻译: Gemini Robotics 2 赋予机器人全身级别的智能能力
+概括: 如果你还在想大模型怎么落地硬件，Google这波把视觉+语言+动作塞进了一个机器人
+
+原文: 2x, not 10x: coding with LLMs in 2026
+翻译: 2倍，不是10倍——2026年用LLM写代码的真实体验
+概括: 如果你还在指望LLM让你一天写十天的代码，这篇文章会用一年的真实数据告诉你，2倍已经是天花板了
+
+原文: Does Speaking to Agents Like Cavemen Save 65% of Tokens? We Test
+翻译: 用"原始人英语"跟AI说话，Token消耗真能省65%？JetBrains团队实测
+概括: 如果你日常用GPT写代码但嫌Token烧太快，这个取巧的办法实测有效，但代价是代码质量会掉
+
+## 板块总评
+处理完一个板块的全部文章后，用一句话（50字以内）总结这个板块今天值得关注的方向，格式：板块总评: xxxx`;
+
+// ── LLM 处理（翻译 + 概括 + 总评）──
+const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
+const ANTHROPIC_BASE_URL = process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com';
+const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
+
+async function llmProcessCategory(cat, items) {
+  if (!items.length || !ANTHROPIC_KEY) {
+    // 无 API key 时回退：保留原标题，空概括
+    return {
+      commentary: '',
+      articles: items.map(i => ({
+        ...i,
+        zh: i.title,
+        summary: '',
+        id: createHash('md5').update(i.link || i.title).digest('hex').slice(0, 8),
+        category: cat.key,
+        breaking: false
+      }))
+    };
+  }
+
+  const articleList = items.map((a, i) => `${i + 1}. ${a.title}\n   URL: ${a.link}`).join('\n\n');
+
+  try {
+    const apiUrl = `${ANTHROPIC_BASE_URL}/v1/messages`;
+    console.log('  LLM API:', apiUrl, 'model:', ANTHROPIC_MODEL);
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_KEY,
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: ANTHROPIC_MODEL,
+        max_tokens: 4096,
+        system: STYLE_PROMPT,
+        messages: [{
+          role: 'user',
+          content: `处理「${cat.label}」板块的 ${items.length} 篇文章。\n\n对每条输出：\n翻译: <中文标题>\n概括: <如果你...>\n\n全部处理完后，写一句板块总评。\n\n${articleList}`
+        }]
+      }),
+      signal: AbortSignal.timeout(60000)
+    });
+
+    const data = await res.json();
+    if (!data.content) throw new Error('API 返回异常: ' + JSON.stringify(data).slice(0, 200));
+
+    const text = data.content.map(c => c.text).join('');
+
+    // 解析 LLM 输出
+    const articles = [];
+    let commentary = '';
+
+    const blocks = text.split(/(?=^\d+\.\s|[^\n]+板块总评[:：])/m);
+    for (const block of blocks) {
+      if (/板块总评[:：]\s*(.+)/.test(block)) {
+        commentary = RegExp.$1.trim();
+        continue;
+      }
+      const zhMatch = block.match(/翻译[:：]\s*(.+)/);
+      const summaryMatch = block.match(/概括[:：]\s*(.+)/);
+      if (zhMatch || summaryMatch) {
+        const idx = articles.length;
+        const item = items[idx] || items[articles.length] || {};
+        articles.push({
+          ...item,
+          zh: zhMatch ? zhMatch[1].trim() : item.title,
+          summary: summaryMatch ? summaryMatch[1].trim() : '',
+          id: createHash('md5').update(item.link || item.title).digest('hex').slice(0, 8),
+          category: cat.key,
+          breaking: false
+        });
+      }
+    }
+
+    // 补齐：如果 LLM 没有返回足够条目，用原文填充
+    while (articles.length < items.length) {
+      const item = items[articles.length];
+      articles.push({
+        ...item,
+        zh: item.title,
+        summary: '',
+        id: createHash('md5').update(item.link || item.title).digest('hex').slice(0, 8),
+        category: cat.key,
+        breaking: false
+      });
+    }
+
+    console.log(`  🤖 ${cat.label}: ${articles.length}条, 总评: ${commentary.slice(0, 30)}...`);
+    return { commentary, articles };
+  } catch (e) {
+    console.error(`  ❌ ${cat.label} LLM 失败:`, e.message);
+    // 回退：直接翻译，空概括
+    return {
+      commentary: '',
+      articles: items.map(i => ({
+        ...i,
+        zh: i.title,
+        summary: '',
+        id: createHash('md5').update(i.link || i.title).digest('hex').slice(0, 8),
+        category: cat.key,
+        breaking: false
+      }))
+    };
+  }
+}
+
+// ── Breaking 判断（关键词加权）──
+const BREAKING_KWS = [
+  { re: /openai|anthropic|deepseek|google\s*deepmind|meta\s*ai|microsoft\s*ai/i, weight: 2 },
+  { re: /gpt-?\d|claude\s*\d|gemini\s*\d|llama\s*\d/i, weight: 3 },
+  { re: /release|launch|publish|announce|reveal|unveil|introduce/i, weight: 1 },
+  { re: /breakthrough|revolutionary|first.?ever|state.?of.?the.?art|record.?breaking/i, weight: 2 },
+  { re: /open\s*source|开源/i, weight: 1 },
+  { re: /billion|trillion|acquisition|acquired|ipo/i, weight: 1 },
+  { re: /ban|blocked|sanction|regulation|illegal/i, weight: 1 },
+  { re: /security|vulnerability|hack|breach|attack|exploit|critical/i, weight: 2 },
+];
+
+function checkBreaking(article) {
+  const text = (article.title + ' ' + (article.zh || '')).toLowerCase();
+  let score = 0;
+  for (const { re, weight } of BREAKING_KWS) {
+    if (re.test(text)) score += weight;
+  }
+  return score >= 3;
+}
+
+// ── data.json 生成 ──
+function generateDataJSON(allData, summaries) {
+  const breakingNews = [];
+  const categories = [];
+
+  for (const cat of CATEGORIES) {
+    const items = allData[cat.key];
+    const articles = items.map(a => {
+      const b = checkBreaking(a);
+      if (b) {
+        breakingNews.push({ zh: a.zh || a.title, summary: a.summary || '', url: a.link || '' });
+      }
+      return {
+        id: a.id || createHash('md5').update(a.link || a.title).digest('hex').slice(0, 8),
+        title: a.title,
+        zh: a.zh || a.title,
+        summary: a.summary || '',
+        source: a.source,
+        url: a.link || '',
+        category: cat.key,
+        breaking: b
+      };
+    });
+
+    categories.push({
+      key: cat.key,
+      icon: cat.icon,
+      name: cat.label,
+      commentary: summaries[cat.key]?.commentary || '',
+      articleCount: articles.length,
+      articles
+    });
+  }
+
+  return { date: dateStr, dayOfWeek: dateStr, isWeekly: titleH1.includes('周报'), categories, breakingNews };
+}
+
+
 
 // ── 存档 ──
 const ARCHIVE_DIR = resolve(__dirname, 'archive');
@@ -126,67 +325,6 @@ async function fetchRSS(url, label) {
   } catch (e) { console.error(`${label} RSS 失败:`, e.message); return []; }
 }
 
-// ── 翻译 ──
-async function translateAll(items) {
-  const need = items.filter(i => /[a-zA-Z]{3,}/.test(i.title));
-  for (const item of need) {
-    try {
-      const res = await fetch(
-        `https://api.mymemory.translated.net/get?q=${encodeURIComponent(item.title)}&langpair=en|zh-CN&de=demo@example.com`
-      );
-      const data = await res.json();
-      const zh = data.responseData?.translatedText?.trim();
-      if (zh && zh !== item.title) item.zh = zh;
-    } catch {}
-  }
-}
-
-// ── 智能摘要（规则引擎）──
-const TOPIC_DICT = {
-  ai:     { re:[/模型|model|大模型|LLM/i, /开源|open.?source/i, /Agent|智能体/i, /安全|攻击|入侵|hack/i, /发布|推出|launch|release/i, /API|接口/i, /芯片|GPU|chip|算力/i, /巨头|ChatGPT|Claude|GPT|Gemini|KIMI|DeepSeek/i], labels:['模型能力','开源生态','Agent 智能体','安全与攻击','产品发布','API 接口','芯片算力','巨头竞争'] },
-  paper:  { re:[/模型|model|LLM/i, /训练|train/i, /推理|reasoning|inference/i, /Agent|智能体|multi.?agent/i, /基准|benchmark|数据集|dataset/i, /搜索|search|RAG/i, /对齐|安全|align/i, /多模态|视觉|vision|image/i], labels:['模型架构','训练方法','推理能力','Agent 系统','基准评测','检索增强','安全对齐','多模态'] },
-  econ:   { re:[/利率|interest.?rate|加息|降息/i, /通胀|inflation|CPI|物价/i, /关税|tariff|贸易战/i, /油价|oil|能源/i, /股票|股市|stock|下跌|上涨/i, /AI|科技|tech/i, /央行|Fed|ECB/i, /就业|job|失业/i], labels:['货币政策','通胀物价','贸易关税','能源市场','股市动态','科技影响','央行动向','就业市场'] },
-  leaders:{ re:[/总统|president|主席/i, /总理|prime.?minister/i, /外交|访问|条约|treaty/i, /制裁|sanction/i, /选举|election|投票/i, /北约|NATO|联合国|UN/i, /冲突|战争|军事/i, /峰会|summit|G7|G20/i], labels:['首脑动态','政府更迭','外交访问','制裁博弈','选举政治','国际组织','军事冲突','多边峰会'] },
-  learn:  { re:[/教程|tutorial|guide/i, /架构|architecture|design/i, /最佳实践|best.?practice/i, /手册|handbook|reference/i, /深入|deep.?dive|under.?the.?hood/i, /Rust|Python|Go|TypeScript/i, /系统|system|分布式/i, /书|book/i], labels:['实战教程','架构设计','最佳实践','参考手册','深度解析','编程语言','系统设计','好书推荐'] },
-};
-
-function generateSummary(cat, items) {
-  if (!items.length) return { summary: '暂无内容。', conclusions: [] };
-
-  const titles = items.map(i => i.zh || i.title);
-  const patterns = TOPIC_DICT[cat.key]?.re || [];
-  const labels = TOPIC_DICT[cat.key]?.labels || [];
-  const hits = {};
-
-  for (const t of titles) {
-    for (const [idx, re] of patterns.entries()) {
-      if (re.test(t)) hits[idx] = (hits[idx] || 0) + 1;
-    }
-  }
-
-  const topHits = Object.entries(hits).sort((a,b) => b[1]-a[1]).slice(0, 3);
-
-  let summary = '';
-  if (topHits.length) {
-    const topics = topHits.map(([idx]) => labels[idx] || `话题${idx}`).join('、');
-    summary = `今日共 ${items.length} 条，集中关注：${topics}等方向。`;
-  } else {
-    summary = `今日共 ${items.length} 条，涉及多个方向，点击查看详情。`;
-  }
-
-  const conclusions = titles.map(t => {
-    const matched = [];
-    for (const [idx, re] of patterns.entries()) {
-      const m = t.match(re);
-      if (m) matched.push(labels[idx]);
-    }
-    if (matched.length) return `涉及 ${matched.slice(0, 3).join('、')}`;
-    return '值得关注';
-  });
-
-  return { summary, conclusions };
-}
-
 // ── HTML 生成 ──
 function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
@@ -198,20 +336,21 @@ function pageFooter() {
   return `<footer>生成时间：${new Date().toLocaleString('zh-CN',{hour:'2-digit',minute:'2-digit'})}</footer><script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}</script></body></html>`;
 }
 
-function indexCard(cat, items, summary) {
+function indexCard(cat, items, commentary) {
   return `<h2><span class="icon">${cat.icon}</span> ${cat.label}</h2>
-  <div class="summary">${esc(summary)}</div>
+  <div class="summary">${esc(commentary || `共 ${items.length} 条`)}</div>
   <div class="meta">
     <span>共 ${items.length} 条</span>
     <a href="${cat.key}.html">查看详情 →</a>
   </div>`;
 }
 
-function detailItem(item, idx, conclusions, allItems) {
+function detailItem(item, idx, allItems) {
   const cn = item.zh || item.title;
   const sub = item.zh && item.zh !== item.title ? `${item.source} · ${item.title}` : item.source;
-  const conclusion = conclusions[idx] || '';
-  // 关联素材：同板块其他条目中标题相关的
+  // LLM 生成的概括
+  const conclusion = item.summary ? `💡 ${item.summary}` : '';
+  // 关联素材：同板块其他条目
   const related = allItems.filter((_, j) => j !== idx).slice(0, 3);
 
   return `<div class="detail-item">
@@ -278,15 +417,19 @@ const allData = {
   learn:   (hnData.learn || []).slice(0, 8),
 };
 
-// 翻译
-console.log('🌐 翻译中...');
-const allItems = Object.values(allData).flat();
-await translateAll(allItems);
-
-// 智能摘要
+// LLM 翻译 + 概括 + 总评（逐板块处理，避免超时）
+console.log('🤖 LLM 处理中...');
 const summaries = {};
+const processedData = {};
 for (const cat of CATEGORIES) {
-  summaries[cat.key] = generateSummary(cat, allData[cat.key]);
+  const items = allData[cat.key];
+  const result = await llmProcessCategory(cat, items);
+  processedData[cat.key] = result.articles;
+  summaries[cat.key] = { commentary: result.commentary };
+}
+// 用 LLM 处理后的数据替换原始数据
+for (const cat of CATEGORIES) {
+  allData[cat.key] = processedData[cat.key];
 }
 
 // ── 输出 ──
@@ -299,7 +442,7 @@ let home = pageHeader(titleH1, dateStr, false);
 home += '<div class="grid">';
 for (const cat of CATEGORIES) {
   const cls = cat.key === 'learn' ? 'card wide' : 'card';
-  home += `<div class="${cls}">${indexCard(cat, allData[cat.key], summaries[cat.key].summary)}</div>`;
+  home += `<div class="${cls}">${indexCard(cat, allData[cat.key], summaries[cat.key]?.commentary)}</div>`;
 }
 home += '</div><div class="archive-link"><a href="archive/">📅 往期日报</a></div>' + pageFooter();
 writeFileSync(resolve(__dirname, 'index.html'), home, 'utf-8');
@@ -308,7 +451,6 @@ console.log('✅ index.html');
 // 各板块详情页
 for (const cat of CATEGORIES) {
   const items = allData[cat.key];
-  const conclusions = summaries[cat.key].conclusions;
 
   let page = pageHeader(`${cat.icon} ${cat.label} · ${dateStr}`, dateStr, true);
   page += '<div class="detail">';
@@ -316,7 +458,7 @@ for (const cat of CATEGORIES) {
     page += '<div class="card"><div class="summary">暂无数据</div></div>';
   } else {
     items.forEach((item, idx) => {
-      page += detailItem(item, idx, conclusions, items);
+      page += detailItem(item, idx, items);
     });
   }
   page += '</div>' + pageFooter();
@@ -327,5 +469,9 @@ for (const cat of CATEGORIES) {
 // 生成往期索引 + 清理过期存档
 buildArchiveIndex();
 cleanOldArchives();
+
+// data.json 输出（供 Flutter App 消费）
+writeFileSync(resolve(__dirname, 'data.json'), JSON.stringify(generateDataJSON(allData, summaries), null, 2), 'utf-8');
+console.log('✅ data.json');
 
 console.log('🎉 全部生成完成');
