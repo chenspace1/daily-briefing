@@ -37,13 +37,17 @@ const STYLE_PROMPT = `你是一个视频创作者的选题助手。你的任务�
 处理完一个板块的全部文章后，用一句话（50字以内）总结这个板块今天值得关注的方向，格式：板块总评: xxxx`;
 
 // ── LLM 处理（翻译 + 概括 + 总评）──
-const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
-const ANTHROPIC_BASE_URL = process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com';
-const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
+// 支持 OpenAI 兼容 API（DeepSeek / 通义千问 / 智谱 等国内 AI）
+// 环境变量：LLM_API_KEY / LLM_BASE_URL / LLM_MODEL（优先），
+// 向后兼容旧名 ANTHROPIC_API_KEY / ANTHROPIC_BASE_URL / ANTHROPIC_MODEL
+const LLM_API_KEY = process.env.LLM_API_KEY || process.env.ANTHROPIC_API_KEY;
+const LLM_BASE_URL = process.env.LLM_BASE_URL || process.env.ANTHROPIC_BASE_URL || 'https://api.deepseek.com';
+const LLM_MODEL = process.env.LLM_MODEL || process.env.ANTHROPIC_MODEL || 'deepseek-chat';
+let LLM_AVAILABLE = !!LLM_API_KEY; // 全局标记，任一块失败即设 false
 
 async function llmProcessCategory(cat, items) {
-  if (!items.length || !ANTHROPIC_KEY) {
-    // 无 API key 时回退：保留原标题，空概括
+  if (!items.length || !LLM_API_KEY) {
+    if (!LLM_API_KEY) LLM_AVAILABLE = false;
     return {
       commentary: '',
       articles: items.map(i => ({
@@ -60,31 +64,35 @@ async function llmProcessCategory(cat, items) {
   const articleList = items.map((a, i) => `${i + 1}. ${a.title}\n   URL: ${a.link}`).join('\n\n');
 
   try {
-    const apiUrl = `${ANTHROPIC_BASE_URL}/v1/messages`;
-    console.log('  LLM API:', apiUrl, 'model:', ANTHROPIC_MODEL);
+    // OpenAI 兼容 API（DeepSeek / 通义千问 / 智谱 等均支持此格式）
+    const apiUrl = `${LLM_BASE_URL}/v1/chat/completions`;
+    console.log('  LLM API:', apiUrl, 'model:', LLM_MODEL);
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': ANTHROPIC_KEY,
-        'anthropic-version': '2023-06-01'
+        'Authorization': `Bearer ${LLM_API_KEY}`
       },
       body: JSON.stringify({
-        model: ANTHROPIC_MODEL,
+        model: LLM_MODEL,
         max_tokens: 4096,
-        system: STYLE_PROMPT,
-        messages: [{
-          role: 'user',
-          content: `处理「${cat.label}」板块的 ${items.length} 篇文章。\n\n对每条输出：\n翻译: <中文标题>\n概括: <如果你...>\n\n全部处理完后，写一句板块总评。\n\n${articleList}`
-        }]
+        temperature: 0.7,
+        messages: [
+          { role: 'system', content: STYLE_PROMPT },
+          { role: 'user', content: `处理「${cat.label}」板块的 ${items.length} 篇文章。\n\n对每条输出：\n翻译: <中文标题>\n概括: <如果你...>\n\n全部处理完后，写一句板块总评。\n\n${articleList}` }
+        ]
       }),
-      signal: AbortSignal.timeout(60000)
+      signal: AbortSignal.timeout(120000)
     });
 
-    const data = await res.json();
-    if (!data.content) throw new Error('API 返回异常: ' + JSON.stringify(data).slice(0, 200));
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '');
+      throw new Error(`HTTP ${res.status}: ${errText.slice(0, 200)}`);
+    }
 
-    const text = data.content.map(c => c.text).join('');
+    const data = await res.json();
+    const text = data.choices?.[0]?.message?.content;
+    if (!text) throw new Error('API 返回异常: ' + JSON.stringify(data).slice(0, 200));
 
     // 解析 LLM 输出
     const articles = [];
@@ -129,7 +137,7 @@ async function llmProcessCategory(cat, items) {
     return { commentary, articles };
   } catch (e) {
     console.error(`  ❌ ${cat.label} LLM 失败:`, e.message);
-    // 回退：直接翻译，空概括
+    LLM_AVAILABLE = false;
     return {
       commentary: '',
       articles: items.map(i => ({
@@ -199,7 +207,7 @@ function generateDataJSON(allData, summaries) {
     });
   }
 
-  return { date: dateStr, dayOfWeek: dateStr, isWeekly: titleH1.includes('周报'), categories, breakingNews };
+  return { date: dateStr, dayOfWeek: dateStr, isWeekly: titleH1.includes('周报'), categories, breakingNews, llmAvailable: LLM_AVAILABLE };
 }
 
 
@@ -439,6 +447,9 @@ archiveCurrent();
 
 // 首页
 let home = pageHeader(titleH1, dateStr, false);
+if (!LLM_AVAILABLE) {
+  home += '<div class="alert" style="text-align:center;padding:12px 16px;margin:12px 16px;background:#fff3cd;border:1px solid #ffc107;border-radius:8px;font-size:14px;color:#856404;">⚠️ 今日 AI 翻译暂不可用，标题显示为英文原文。请检查 API Key 配置。</div>';
+}
 home += '<div class="grid">';
 for (const cat of CATEGORIES) {
   const cls = cat.key === 'learn' ? 'card wide' : 'card';
