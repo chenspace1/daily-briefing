@@ -1,15 +1,35 @@
 {
-  "date": "7月27日 — 8月2日",
-  "dayOfWeek": "7月27日 — 8月2日",
-  "isWeekly": true,
+  "date": "2026年8月3日星期一",
+  "dayOfWeek": "2026年8月3日星期一",
+  "isWeekly": false,
   "categories": [
     {
       "key": "ai",
       "icon": "🤖",
       "name": "AI 动态",
-      "commentary": "今日集中在AI落地真实场景：从代码认知债务到老系统迁移，警惕AI能力被高估，也别忽略小工具和硬核探索带来的机会。",
+      "commentary": "今天AI动态集中在LLM的实际落地：从编码技巧到视频理解，小处见真章。",
       "articleCount": 8,
       "articles": [
+        {
+          "id": "8c698391",
+          "title": "LLMs reward expertise",
+          "zh": "LLMs reward expertise",
+          "summary": "",
+          "source": "HN",
+          "url": "https://www.seangoedecke.com/llms-reward-expertise/",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "86bf0a01",
+          "title": "Windows XP 2002 for the Itanium: Unbridled rage",
+          "zh": "Windows XP 2002 for the Itanium: Unbridled rage",
+          "summary": "",
+          "source": "HN",
+          "url": "https://virtuallyfun.com/2026/08/03/windows-xp-2002-for-the-itanium-unbridled-rage/",
+          "category": "ai",
+          "breaking": false
+        },
         {
           "id": "d97d1465",
           "title": "Prevent cognitive debt by manually retyping LLM-generated code",
@@ -17,6 +37,26 @@
           "summary": "",
           "source": "HN",
           "url": "https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "82ebd7de",
+          "title": "Launch HN: Hoplite (YC S26) – Effortlessly deploy cloud coding agents",
+          "zh": "Launch HN: Hoplite (YC S26) – Effortlessly deploy cloud coding agents",
+          "summary": "",
+          "source": "HN",
+          "url": "https://hoplite.sh",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "b944566a",
+          "title": "Frame selection is the whole game: notes on making LLMs watch video",
+          "zh": "Frame selection is the whole game: notes on making LLMs watch video",
+          "summary": "",
+          "source": "HN",
+          "url": "https://leoaido.com/how-llms-watch-video/",
           "category": "ai",
           "breaking": false
         },
@@ -31,62 +71,22 @@
           "breaking": false
         },
         {
-          "id": "3a365d38",
-          "title": "Octane – React's programming model, compiled",
-          "zh": "Octane – React's programming model, compiled",
+          "id": "cef11b5e",
+          "title": "AirLLM 70B inference with single 4GB GPU",
+          "zh": "AirLLM 70B inference with single 4GB GPU",
           "summary": "",
           "source": "HN",
-          "url": "https://octanejs.dev",
+          "url": "https://github.com/lyogavin/airllm",
           "category": "ai",
           "breaking": false
         },
         {
-          "id": "4998e756",
-          "title": "PISIGuard: Protect your personal and sensitive info when you chat with AI",
-          "zh": "PISIGuard: Protect your personal and sensitive info when you chat with AI",
+          "id": "224033ee",
+          "title": "What's the largest software project AI can complete on its own?",
+          "zh": "What's the largest software project AI can complete on its own?",
           "summary": "",
           "source": "HN",
-          "url": "https://github.com/mohamed--abdel-maksoud/pisiguard",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "4bdf67f8",
-          "title": "Train Simulator Controller",
-          "zh": "Train Simulator Controller",
-          "summary": "",
-          "source": "HN",
-          "url": "https://z80.me/blog/tsc-2026-july/",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "717fb7c2",
-          "title": "Autoregressive Language Model on the 6502 Processor",
-          "zh": "Autoregressive Language Model on the 6502 Processor",
-          "summary": "",
-          "source": "HN",
-          "url": "https://mattbeton.com/blog/bitnet-6502.html",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "3ab44a53",
-          "title": "The AI Productivity Gap",
-          "zh": "The AI Productivity Gap",
-          "summary": "",
-          "source": "HN",
-          "url": "https://bjorg.bjornroche.com/management/ai-productivity-gap/",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "e72ef72c",
-          "title": "AI migrated legacy COBOL programs to Java, bugs included",
-          "zh": "AI migrated legacy COBOL programs to Java, bugs included",
-          "summary": "",
-          "source": "HN",
-          "url": "https://arxiv.org/abs/2607.28271",
+          "url": "https://epoch.ai/MirrorCode",
           "category": "ai",
           "breaking": false
         }
@@ -96,86 +96,86 @@
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "今天这批论文集中在为 Agent 应用补基础设施（Token 状态、评测基准），另有几个偏理论的概念框架，落地前先看基准再选型。",
+      "commentary": "",
       "articleCount": 8,
       "articles": [
         {
-          "id": "000dd78f",
-          "title": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
-          "zh": "TokTier: Exact Stateful Tokenization for Agentic LLM Serving",
+          "id": "eee4caa2",
+          "title": "Role-Decoupled Attention Residuals: Separating Matching and Content Retrieval Across Depth",
+          "zh": "Role-Decoupled Attention Residuals: Separating Matching and Content Retrieval Across Depth",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29678v1",
+          "url": "http://arxiv.org/abs/2608.01075v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "8962d2b5",
-          "title": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
-          "zh": "ExtractBench: A Benchmark for Schema-Guided Enterprise Document Extraction",
+          "id": "eeb21667",
+          "title": "Control Under Compression: Reliability Frontiers for Tool-Using Agents",
+          "zh": "Control Under Compression: Reliability Frontiers for Tool-Using Agents",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29677v1",
+          "url": "http://arxiv.org/abs/2608.01056v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "16e8e4a2",
-          "title": "Development of FDD-ON: an Ontology for VAV HVAC System Fault Detection and Diagnostics",
-          "zh": "Development of FDD-ON: an Ontology for VAV HVAC System Fault Detection and Diagnostics",
+          "id": "a93e3e4d",
+          "title": "Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception",
+          "zh": "Credit the Right Box: Marginal Contribution Assignment for Structured Visual Perception",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29657v1",
+          "url": "http://arxiv.org/abs/2608.01055v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "db517ce1",
-          "title": "Evolving language compositionality in a frequency-structured meaning space",
-          "zh": "Evolving language compositionality in a frequency-structured meaning space",
+          "id": "aea1e9e1",
+          "title": "Don't Offer What Can't Be Done: Deterministic Executability Gating for LLM Skill Selection at Scale",
+          "zh": "Don't Offer What Can't Be Done: Deterministic Executability Gating for LLM Skill Selection at Scale",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29642v1",
+          "url": "http://arxiv.org/abs/2608.01050v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "09f74ad0",
-          "title": "AgentHPOBench: A Benchmark For Evaluating LLM Agents as Sequential Hyperparameter Optimizers",
-          "zh": "AgentHPOBench: A Benchmark For Evaluating LLM Agents as Sequential Hyperparameter Optimizers",
+          "id": "ff26023a",
+          "title": "FactorJEPA: Factorizing Monolithic Futures into Layout-Agent-Interaction Channels for Crowded and Chaotic Global South Urban Worlds",
+          "zh": "FactorJEPA: Factorizing Monolithic Futures into Layout-Agent-Interaction Channels for Crowded and Chaotic Global South Urban Worlds",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29626v1",
+          "url": "http://arxiv.org/abs/2608.01049v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "3889d0a7",
-          "title": "The Theoretical Foundation of Socratic Tests: Dynamic, Multimodal, Conversational Examinations",
-          "zh": "The Theoretical Foundation of Socratic Tests: Dynamic, Multimodal, Conversational Examinations",
+          "id": "dd8cdffa",
+          "title": "DeBERTa-Sentinel: Toward Transparent and Trustworthy Detection of AI-Generated Text",
+          "zh": "DeBERTa-Sentinel: Toward Transparent and Trustworthy Detection of AI-Generated Text",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29624v1",
+          "url": "http://arxiv.org/abs/2608.01046v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "00472762",
-          "title": "CENDRe: Concept Extraction with Natural Domain Representations",
-          "zh": "CENDRe: Concept Extraction with Natural Domain Representations",
+          "id": "d842eefa",
+          "title": "Decoy Images Amplify Caption-Mediated Defenses Against Encoded Jailbreaks",
+          "zh": "Decoy Images Amplify Caption-Mediated Defenses Against Encoded Jailbreaks",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29621v1",
+          "url": "http://arxiv.org/abs/2608.01043v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "6683f229",
-          "title": "When Does On-Policy Interaction Help? Representational Tradeoffs in Value-Based Imitation Learning",
-          "zh": "When Does On-Policy Interaction Help? Representational Tradeoffs in Value-Based Imitation Learning",
+          "id": "91f13360",
+          "title": "What Could the Agent See at 19:05? Generating Temporal Enterprise Scenarios from Real Research and Replaying Them to Evaluate Agents",
+          "zh": "What Could the Agent See at 19:05? Generating Temporal Enterprise Scenarios from Real Research and Replaying Them to Evaluate Agents",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2607.29617v1",
+          "url": "http://arxiv.org/abs/2608.01042v1",
           "category": "paper",
           "breaking": false
         }
@@ -185,9 +185,49 @@
       "key": "econ",
       "icon": "📊",
       "name": "经济",
-      "commentary": "今天经济板块集中在冲突催生通胀犯罪、汇率干预、房市松动等现实议题，同时科技商业责任问题开始抢戏。",
+      "commentary": "今日关键词是“成本与机会”：地缘风险、芯片涨价和燃料失窃推高物价，而房贷放宽和AI付费争议则在重新分配机会。",
       "articleCount": 8,
       "articles": [
+        {
+          "id": "168c9dd1",
+          "title": "Half price rail travel extended to 18-year-olds",
+          "zh": "Half price rail travel extended to 18-year-olds",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cy0jyln07r7o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "85e4c033",
+          "title": "Why is Trump Media selling early access to Trump's Truth Social posts?",
+          "zh": "Why is Trump Media selling early access to Trump's Truth Social posts?",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/videos/c74g0q8eey9o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "eda9a61d",
+          "title": "Threat to oil tankers in Middle East  worst since start of Iran war, analysts say",
+          "zh": "Threat to oil tankers in Middle East  worst since start of Iran war, analysts say",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cjrv0dy2e90o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
+        {
+          "id": "42b0ce77",
+          "title": "Tokenomics: Why making AI pay is tricky",
+          "zh": "Tokenomics: Why making AI pay is tricky",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c872r52x7jgo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false
+        },
         {
           "id": "4320b553",
           "title": "Almost £200,000 of fuel stolen from UK forecourts every day since Iran war began",
@@ -199,12 +239,12 @@
           "breaking": false
         },
         {
-          "id": "09eb4539",
-          "title": "US and Japan take action to prop up yen in rare joint move",
-          "zh": "US and Japan take action to prop up yen in rare joint move",
+          "id": "ae8146c2",
+          "title": "What heatwaves mean for summer weddings – and how to plan for one",
+          "zh": "What heatwaves mean for summer weddings – and how to plan for one",
           "summary": "",
           "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cglj1pr0wjwo?at_medium=RSS&amp;at_campaign=rss",
+          "url": "https://www.bbc.co.uk/news/articles/cgr7qrdx4qwo?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
           "breaking": false
         },
@@ -219,52 +259,12 @@
           "breaking": false
         },
         {
-          "id": "fd40a8bf",
-          "title": "New Spider-Man film sees second-biggest ever global opening weekend",
-          "zh": "New Spider-Man film sees second-biggest ever global opening weekend",
+          "id": "4c15680e",
+          "title": "Xbox Series X price hiked by £170 due to rising memory chip costs",
+          "zh": "Xbox Series X price hiked by £170 due to rising memory chip costs",
           "summary": "",
           "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/c3w052le2elo?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "3073a225",
-          "title": "Faisal Islam: Four reasons why Fifa's World Cup plan never stacked up",
-          "zh": "Faisal Islam: Four reasons why Fifa's World Cup plan never stacked up",
-          "summary": "",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/clyvd8363wlo?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "75534b5a",
-          "title": "Snapchat joins other popular platforms in fight against 'AI slop'",
-          "zh": "Snapchat joins other popular platforms in fight against 'AI slop'",
-          "summary": "",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/c77g6dm5pr8o?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "1ede255e",
-          "title": "Passenger on British Airways mayday flight describes fear and shout of 'I don't want to die'",
-          "zh": "Passenger on British Airways mayday flight describes fear and shout of 'I don't want to die'",
-          "summary": "",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cn9n2v3lwr0o?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "549d9665",
-          "title": "AI firms must answer for rogue bots, says boss of hacked company",
-          "zh": "AI firms must answer for rogue bots, says boss of hacked company",
-          "summary": "",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cr7k49xjzzeo?at_medium=RSS&amp;at_campaign=rss",
+          "url": "https://www.bbc.co.uk/news/articles/czjlvrd9e43o?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
           "breaking": false
         }
@@ -274,8 +274,8 @@
       "key": "leaders",
       "icon": "🌍",
       "name": "领导人动态",
-      "commentary": "今天该板块聚焦安全与冲突事件，从克什米尔抗议到莫斯科爆炸再到华盛顿野火，风险形势是主线。",
-      "articleCount": 5,
+      "commentary": "今天的报道聚焦突发危机现场，从抗议、爆炸到野火，建议优先考虑安全预警和民众视角。",
+      "articleCount": 3,
       "articles": [
         {
           "id": "83d94332",
@@ -284,26 +284,6 @@
           "summary": "",
           "source": "BBC",
           "url": "https://www.bbc.co.uk/news/articles/c5yvqk69enko?at_medium=RSS&amp;at_campaign=rss",
-          "category": "leaders",
-          "breaking": false
-        },
-        {
-          "id": "f27e9e2c",
-          "title": "Three killed after bomb detonated at Moscow restaurant, state media say",
-          "zh": "Three killed after bomb detonated at Moscow restaurant, state media say",
-          "summary": "",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/c86n4ljxp63o?at_medium=RSS&amp;at_campaign=rss",
-          "category": "leaders",
-          "breaking": false
-        },
-        {
-          "id": "d5112840",
-          "title": "Outside the Moscow restaurant where bomb killed three",
-          "zh": "Outside the Moscow restaurant where bomb killed three",
-          "summary": "",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cdx8qp451lko?at_medium=RSS&amp;at_campaign=rss",
           "category": "leaders",
           "breaking": false
         },
@@ -333,30 +313,9 @@
       "key": "learn",
       "icon": "📚",
       "name": "知识学习",
-      "commentary": "今天两条都在讲“数据回流与语言演变”，值得关注的是：不盲目同步才是负责任的社区行为。\"",
-      "articleCount": 2,
-      "articles": [
-        {
-          "id": "42beb7db",
-          "title": "Why Book Corners won't sync contributions back to OpenStreetMap",
-          "zh": "Why Book Corners won't sync contributions back to OpenStreetMap",
-          "summary": "",
-          "source": "HN",
-          "url": "https://www.andreagrandi.it/posts/why-book-corners-wont-sync-contributions-back-to-openstreetmap/",
-          "category": "learn",
-          "breaking": false
-        },
-        {
-          "id": "0bd97f73",
-          "title": "How the words we teach English language learners changed",
-          "zh": "How the words we teach English language learners changed",
-          "summary": "",
-          "source": "HN",
-          "url": "https://pudding.cool/2026/07/essential-words/",
-          "category": "learn",
-          "breaking": false
-        }
-      ]
+      "commentary": "",
+      "articleCount": 0,
+      "articles": []
     }
   ],
   "breakingNews": []
