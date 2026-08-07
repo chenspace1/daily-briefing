@@ -14,7 +14,8 @@ const STYLE_PROMPT = `你是一个视频创作者的选题助手。你的任务�
 - 概括：第一人称"如果你..."开头，一句话说清这条信息的实际价值或需要警惕的地方
 - 不要新闻腔，不要"本文介绍了..."，像是在给做自媒体的朋友提个醒
 - 如果文章纯技术硬核、没有发挥空间，直接准确翻译，不用硬凹风格
-- 每条必须输出 JSON 格式
+- 输出格式：每条文章占一段，段内第一行写「原文: <英文原题>」，第二行写「翻译: <中文标题>」，第三行写「概括: <一句话概括>」；不同文章段之间用空行隔开
+- 全部文章处理完后，最后单独输出一行：板块总评: <一句话总结>
 
 ## 参考样本
 原文: The AI Aesthetic
@@ -94,25 +95,44 @@ async function llmProcessCategory(cat, items) {
     const text = data.choices?.[0]?.message?.content;
     if (!text) throw new Error('API 返回异常: ' + JSON.stringify(data).slice(0, 200));
 
-    // 解析 LLM 输出
+    // 解析 LLM 输出 —— 兼容 逐行格式 / JSON 数组
     const articles = [];
     let commentary = '';
 
-    const blocks = text.split(/(?=^\d+\.\s|[^\n]+板块总评[:：])/m);
-    for (const block of blocks) {
-      if (/板块总评[:：]\s*(.+)/.test(block)) {
-        commentary = RegExp.$1.trim();
-        continue;
-      }
-      const zhMatch = block.match(/翻译[:：]\s*(.+)/);
-      const summaryMatch = block.match(/概括[:：]\s*(.+)/);
-      if (zhMatch || summaryMatch) {
-        const idx = articles.length;
-        const item = items[idx] || items[articles.length] || {};
+    // 板块总评
+    const cm = text.match(/板块总评[:：]\s*(.+)/);
+    if (cm) commentary = cm[1].trim();
+
+    // 尝试 JSON 数组（少数模型可能仍输出 JSON，兜底）
+    let jsonList = null;
+    try {
+      const jm = text.match(/```json\s*([\s\S]*?)```/i) || text.match(/\[\s*\{[\s\S]*\}\s*\]/s);
+      if (jm) jsonList = JSON.parse(jm[1] || jm[0]);
+    } catch { jsonList = null; }
+
+    if (Array.isArray(jsonList) && jsonList.length) {
+      jsonList.forEach((j, i) => {
+        const item = items[i] || {};
         articles.push({
           ...item,
-          zh: zhMatch ? zhMatch[1].trim() : item.title,
-          summary: summaryMatch ? summaryMatch[1].trim() : '',
+          zh: String(j.zh || j.translation || j.title || item.title || '').trim(),
+          summary: String(j.summary || j.概括 || '').trim(),
+          id: createHash('md5').update(item.link || item.title).digest('hex').slice(0, 8),
+          category: cat.key,
+          breaking: false
+        });
+      });
+    } else {
+      // 逐行格式：全局收集所有 翻译/概括，按出现顺序一一对应到文章
+      const zhAll = [...text.matchAll(/翻译[:：]\s*([^\n]+)/g)].map(m => m[1].trim());
+      const sumAll = [...text.matchAll(/概括[:：]\s*([^\n]+)/g)].map(m => m[1].trim());
+      const n = Math.max(zhAll.length, sumAll.length);
+      for (let i = 0; i < n; i++) {
+        const item = items[i] || {};
+        articles.push({
+          ...item,
+          zh: zhAll[i] || item.title,
+          summary: sumAll[i] || '',
           id: createHash('md5').update(item.link || item.title).digest('hex').slice(0, 8),
           category: cat.key,
           breaking: false
@@ -120,7 +140,7 @@ async function llmProcessCategory(cat, items) {
       }
     }
 
-    // 补齐：如果 LLM 没有返回足够条目，用原文填充
+    // 补齐：LLM 返回不足用原文填充
     while (articles.length < items.length) {
       const item = items[articles.length];
       articles.push({
