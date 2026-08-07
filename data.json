@@ -7,9 +7,19 @@
       "key": "ai",
       "icon": "🤖",
       "name": "AI 动态",
-      "commentary": "",
+      "commentary": "Agent安全与推理优化是今天主线，硬件刻芯片、软件拆vLLM，加上免费模型开放，值得持续跟。",
       "articleCount": 8,
       "articles": [
+        {
+          "id": "34784b5b",
+          "title": "I won't read LLM authored fiction",
+          "zh": "I won't read LLM authored fiction",
+          "summary": "",
+          "source": "HN",
+          "url": "https://mccormick.cx/news/entries/why-i-won-t-read-llm-authored-fiction",
+          "category": "ai",
+          "breaking": false
+        },
         {
           "id": "dac781ad",
           "title": "AMD acquires Taalas to boost inference performance by etching models in silicon",
@@ -17,26 +27,6 @@
           "summary": "",
           "source": "HN",
           "url": "https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "24353d58",
-          "title": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System (2025)",
-          "zh": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System (2025)",
-          "summary": "",
-          "source": "HN",
-          "url": "https://www.aleksagordic.com/blog/vllm",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "88b44b79",
-          "title": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
-          "zh": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
-          "summary": "",
-          "source": "HN",
-          "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/",
           "category": "ai",
           "breaking": false
         },
@@ -51,12 +41,12 @@
           "breaking": false
         },
         {
-          "id": "8344b8b7",
-          "title": "The Sylvester–Gallai Theorem",
-          "zh": "The Sylvester–Gallai Theorem",
+          "id": "88b44b79",
+          "title": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
+          "zh": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
           "summary": "",
           "source": "HN",
-          "url": "https://www.futilitycloset.com/2026/07/26/the-sylvester-gallai-theorem/",
+          "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/",
           "category": "ai",
           "breaking": false
         },
@@ -71,22 +61,32 @@
           "breaking": false
         },
         {
+          "id": "796742e5",
+          "title": "New Orleans is testing Carbyne’s AI-powered Emergency Call Triage software",
+          "zh": "New Orleans is testing Carbyne’s AI-powered Emergency Call Triage software",
+          "summary": "",
+          "source": "HN",
+          "url": "https://www.shreveporttimes.com/story/news/local/louisiana/2026/07/28/is-new-orleans-using-ai-to-answer-911-calls-instead-of-human-dispatchers-impacts-emergencies-crime/91065014007/",
+          "category": "ai",
+          "breaking": false
+        },
+        {
+          "id": "24353d58",
+          "title": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System (2025)",
+          "zh": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System (2025)",
+          "summary": "",
+          "source": "HN",
+          "url": "https://www.aleksagordic.com/blog/vllm",
+          "category": "ai",
+          "breaking": false
+        },
+        {
           "id": "8b8d2b42",
           "title": "Show HN: The Channels SDK – Bring Any Agent to Any Channel (Slack, MS Teams)",
           "zh": "Show HN: The Channels SDK – Bring Any Agent to Any Channel (Slack, MS Teams)",
           "summary": "",
           "source": "HN",
           "url": "https://github.com/CopilotKit/channels-sdk",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "9242020d",
-          "title": "Qwen3.8 Max now ranked as the best overall model by agentic index",
-          "zh": "Qwen3.8 Max now ranked as the best overall model by agentic index",
-          "summary": "",
-          "source": "HN",
-          "url": "https://artificialanalysis.ai/?intelligence=agentic-index",
           "category": "ai",
           "breaking": false
         }
@@ -96,86 +96,86 @@
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "今天前沿论文有几条值得盯：RAG开始吃时间序列、手语识别走向轻量落地、数字孪生升级为主动Agent，多模态和推理效率仍是主线。",
+      "commentary": "",
       "articleCount": 8,
       "articles": [
         {
-          "id": "dc367868",
-          "title": "The Illusion of Visual Tool-Use: A Causal Audit of Thinking with Images",
-          "zh": "The Illusion of Visual Tool-Use: A Causal Audit of Thinking with Images",
+          "id": "40001a00",
+          "title": "Learning When to Trust via Selective Context Preference Optimization",
+          "zh": "Learning When to Trust via Selective Context Preference Optimization",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06270v1",
+          "url": "http://arxiv.org/abs/2608.06377v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "c49299ea",
-          "title": "Improving the Realism of Synthetic Clinical Benchmarks Under Utility Constraints",
-          "zh": "Improving the Realism of Synthetic Clinical Benchmarks Under Utility Constraints",
+          "id": "973cd398",
+          "title": "The Bitter Lesson of Tool Calling",
+          "zh": "The Bitter Lesson of Tool Calling",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06265v1",
+          "url": "http://arxiv.org/abs/2608.06370v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "a0862d30",
-          "title": "Toward Deployable Bangla Sign Language Recognition with Expert-Validated Data and a Lightweight Attention-Based Model",
-          "zh": "Toward Deployable Bangla Sign Language Recognition with Expert-Validated Data and a Lightweight Attention-Based Model",
+          "id": "cea39be3",
+          "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
+          "zh": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06252v1",
+          "url": "http://arxiv.org/abs/2608.06366v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "713b9298",
-          "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
-          "zh": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
+          "id": "c8505d58",
+          "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
+          "zh": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06243v1",
+          "url": "http://arxiv.org/abs/2608.06364v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "88ef2da9",
-          "title": "PRISM: Distribution-Gated Flow Matching for Controllable Unpaired Image Translation",
-          "zh": "PRISM: Distribution-Gated Flow Matching for Controllable Unpaired Image Translation",
+          "id": "0783f689",
+          "title": "An Optimal Agnostic PAC Algorithm",
+          "zh": "An Optimal Agnostic PAC Algorithm",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06240v1",
+          "url": "http://arxiv.org/abs/2608.06363v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "a505d3fa",
-          "title": "Depth-Guided Video Object Counting in Crowded Scenes",
-          "zh": "Depth-Guided Video Object Counting in Crowded Scenes",
+          "id": "e92aa8df",
+          "title": "AV-AIVAT: 74x Cheaper Agent Evaluation with Certified Anytime-Valid Stopping in Imperfect-Information Games",
+          "zh": "AV-AIVAT: 74x Cheaper Agent Evaluation with Certified Anytime-Valid Stopping in Imperfect-Information Games",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06236v1",
+          "url": "http://arxiv.org/abs/2608.06362v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "67294d35",
-          "title": "From Passive Mirrors to Active Agents: Holonic Digital Twins for Physical AI over Networks",
-          "zh": "From Passive Mirrors to Active Agents: Holonic Digital Twins for Physical AI over Networks",
+          "id": "71c1d435",
+          "title": "The Low Frequency Trap: Video Language Models Fail at Simple Event Bookkeeping",
+          "zh": "The Low Frequency Trap: Video Language Models Fail at Simple Event Bookkeeping",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06227v1",
+          "url": "http://arxiv.org/abs/2608.06361v1",
           "category": "paper",
           "breaking": false
         },
         {
-          "id": "ab1c87a1",
-          "title": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
-          "zh": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
+          "id": "ca42ee6e",
+          "title": "Resourced Authority A Mechanism-Design Model for Participatory Governance of Deployed AI Agents",
+          "zh": "Resourced Authority A Mechanism-Design Model for Participatory Governance of Deployed AI Agents",
           "summary": "",
           "source": "arXiv",
-          "url": "http://arxiv.org/abs/2608.06223v1",
+          "url": "http://arxiv.org/abs/2608.06353v1",
           "category": "paper",
           "breaking": false
         }
@@ -185,7 +185,7 @@
       "key": "econ",
       "icon": "📊",
       "name": "经济",
-      "commentary": "今日以风险信号为主：罚单、关税、海峡协议、电池警告都指向成本与合规压力，谨慎为上。",
+      "commentary": "监管、关税与地缘政治主导今日经济板块，AI 安全和能源运输的交叉风险最值得留意。",
       "articleCount": 8,
       "articles": [
         {
@@ -274,8 +274,8 @@
       "key": "leaders",
       "icon": "🌍",
       "name": "领导人动态",
-      "commentary": "今天领导人动态聚焦制裁、司法审判与国际组织博弈，非洲立场成关键看点。",
-      "articleCount": 5,
+      "commentary": "今天的领导人动态充满对抗和不确定性：关税反制、政治清算、深夜撤离，权力博弈是主线。",
+      "articleCount": 6,
       "articles": [
         {
           "id": "0c9270e1",
@@ -326,6 +326,16 @@
           "url": "https://www.bbc.co.uk/news/articles/c78g3glpl8wo?at_medium=RSS&amp;at_campaign=rss",
           "category": "leaders",
           "breaking": false
+        },
+        {
+          "id": "6489c085",
+          "title": "Why was Taiwan’s president evacuated in the middle of the night?",
+          "zh": "Why was Taiwan’s president evacuated in the middle of the night?",
+          "summary": "",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/videos/cly83vm923go?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false
         }
       ]
     },
@@ -333,7 +343,7 @@
       "key": "learn",
       "icon": "📚",
       "name": "知识学习",
-      "commentary": "两篇文章都指向“用好玩的方式学技术”，一个可视化芯片制造，一个复古游戏开发，动手党值得关注。",
+      "commentary": "今日知识学习板块偏向硬件复古与芯片原理，动手玩和动手做是理解技术的好路径。",
       "articleCount": 2,
       "articles": [
         {
@@ -365,5 +375,6 @@
       "summary": "",
       "url": "https://www.bbc.co.uk/news/articles/cp30989ee1wo?at_medium=RSS&amp;at_campaign=rss"
     }
-  ]
+  ],
+  "llmAvailable": true
 }
