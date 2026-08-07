@@ -238,9 +238,8 @@ const KEEP_DAYS = 7;
 const HTML_FILES = ['index.html', 'ai.html', 'paper.html', 'econ.html', 'leaders.html', 'learn.html'];
 
 function archiveCurrent() {
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  const folder = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,'0')}-${String(yesterday.getDate()).padStart(2,'0')}`;
+  const d = bjDate(Date.now());
+  const folder = `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
   const dir = resolve(ARCHIVE_DIR, folder);
   if (existsSync(dir)) return; // 已经存过
   mkdirSync(dir, { recursive: true });
@@ -301,19 +300,22 @@ const CATEGORIES = [
   { key:'learn',   icon:'📚', label:'知识学习',   kw:/tutorial|guide|book|learn|how.?to|deep.?dive|handbook|cheatsheet|best.?practice|architecture|under.?the.?hood|internals/i },
 ];
 
-// ── 日期 ──
-const now = new Date();
-const dow = now.getDay();
+// ── 日期（北京时间 UTC+8）──
+const TZ_OFFSET = 8 * 3600 * 1000;
+function bjDate(ms) { return new Date(ms + TZ_OFFSET); } // 其 getUTC* 方法即北京墙钟时间
+const now = bjDate(Date.now());
+const dow = now.getUTCDay();
 let titleH1, dateStr;
 if (dow === 1) {
-  const lastMon = new Date(now); lastMon.setDate(now.getDate() - 7);
-  const lastSun = new Date(now); lastSun.setDate(now.getDate() - 1);
-  const fmt = d => d.toLocaleDateString('zh-CN', { month:'long', day:'numeric' });
+  const lastMon = new Date(now.getTime() - 7 * 864e5); // 上周一
+  const lastSun = new Date(now.getTime() - 1 * 864e5); // 上周日
+  const fmt = d => `${d.getUTCMonth() + 1}月${d.getUTCDate()}日`;
   titleH1 = '📰 周报'; dateStr = `${fmt(lastMon)} — ${fmt(lastSun)}`;
 } else {
-  const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
+  const y = now.getUTCFullYear(), m = now.getUTCMonth() + 1, dd = now.getUTCDate();
+  const wk = ['日','一','二','三','四','五','六'][now.getUTCDay()];
   titleH1 = '📰 日报';
-  dateStr = yesterday.toLocaleDateString('zh-CN', { year:'numeric', month:'long', day:'numeric', weekday:'long' });
+  dateStr = `${y}年${m}月${dd}日星期${wk}`;
 }
 
 // ── 数据获取 ──
