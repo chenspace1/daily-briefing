@@ -172,6 +172,38 @@ async function llmProcessCategory(cat, items) {
   }
 }
 
+// ── BBC 正文抓取（仅 econ/leaders；生成正文 + 免费快照链接）──
+// 抓取的是公开网页正文，非绕过付费墙；快照链接用 archive.org 免费快照，便于地区受限用户阅读
+const BBC_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36';
+const BBC_NAV_RE = /Homepage|Skip to content|Accessibility Help|Your account/i;
+
+function extractArticleBody(html) {
+  const paras = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)]
+    .map(m => m[1].replace(/<[^>]+>/g, '')
+      .replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'")
+      .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').trim())
+    .filter(p => p.length > 60 && !BBC_NAV_RE.test(p));
+  return paras.slice(0, 12).join('\n\n').slice(0, 3000);
+}
+
+async function crawlArticle(item) {
+  const url = item.link || '';
+  if (url) item.freeLink = `https://web.archive.org/web/2/${url}`;
+  if (!url || !/bbc\.(co\.uk|com)/i.test(url)) return; // 只处理 BBC 链接
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': BBC_UA, 'Accept-Language': 'en-GB,en;q=0.8' },
+      signal: AbortSignal.timeout(15000),
+      redirect: 'follow'
+    });
+    if (!res.ok) { console.log(`  ⚠️ 抓取失败 ${res.status}: ${url}`); return; }
+    const body = extractArticleBody(await res.text());
+    if (body) item.body = body;
+  } catch {
+    console.log(`  ⚠️ 抓取异常: ${url}`);
+  }
+}
+
 // ── Breaking 判断（关键词加权）──
 const BREAKING_KWS = [
   { re: /openai|anthropic|deepseek|google\s*deepmind|meta\s*ai|microsoft\s*ai/i, weight: 2 },
@@ -213,7 +245,9 @@ function generateDataJSON(allData, summaries) {
         source: a.source,
         url: a.link || '',
         category: cat.key,
-        breaking: b
+        breaking: b,
+        body: a.body || '',
+        freeLink: a.freeLink || ''
       };
     });
 
@@ -387,6 +421,15 @@ function detailItem(item, idx, allItems) {
   <h3><a href="${esc(item.link)}" target="_blank" rel="noopener">${idx+1}. ${esc(cn)}</a></h3>
   <div class="source-line">${esc(sub)}</div>
   ${conclusion ? `<div class="conclusion">${esc(conclusion)}</div>` : ''}
+  ${item.freeLink ? `
+  <div class="card-links" style="margin:8px 0;display:flex;gap:14px;flex-wrap:wrap;font-size:13px;">
+    <a href="${esc(item.link)}" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">🔗 原文链接</a>
+    <a href="${esc(item.freeLink)}" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">📦 免费快照</a>
+  </div>` : ''}
+  ${item.body ? `
+  <label class="toggle-btn" for="toggle-body-${idx}">▶ 展开正文</label>
+  <input type="checkbox" class="toggle" id="toggle-body-${idx}">
+  <div class="toggle-content">${esc(item.body).split(/\n+/).filter(Boolean).map(p => `<p style="margin:6px 0;">${p}</p>`).join('')}</div>` : ''}
   <label class="toggle-btn" for="toggle-bg-${idx}">▶ 展开背景</label>
   <input type="checkbox" class="toggle" id="toggle-bg-${idx}">
   <div class="toggle-content">${esc(item.zh && item.zh !== item.title ? `原文：${item.title}` : '暂无更多背景信息。')}</div>
@@ -460,6 +503,16 @@ for (const cat of CATEGORIES) {
 // 用 LLM 处理后的数据替换原始数据
 for (const cat of CATEGORIES) {
   allData[cat.key] = processedData[cat.key];
+}
+
+// ── 抓取 BBC 文章正文 + 生成免费快照链接（仅 econ/leaders）──
+console.log('🕷 抓取 BBC 正文...');
+for (const cat of CATEGORIES) {
+  if (cat.key !== 'econ' && cat.key !== 'leaders') continue;
+  for (const item of allData[cat.key]) {
+    await crawlArticle(item);
+    await new Promise(r => setTimeout(r, 250)); // 礼貌限速
+  }
 }
 
 // ── 输出 ──
