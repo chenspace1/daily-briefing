@@ -1,94 +1,110 @@
 {
-  "date": "2026年8月6日星期四",
-  "dayOfWeek": "2026年8月6日星期四",
+  "date": "2026年8月8日星期六",
+  "dayOfWeek": "2026年8月8日星期六",
   "isWeekly": false,
   "categories": [
     {
       "key": "ai",
       "icon": "🤖",
       "name": "AI 动态",
-      "commentary": "今天聚焦AI应用落地：从模型升级、推理加速，到Agent安全与接入渠道，核心是让技术更可靠地走进真实场景。",
+      "commentary": "今天从开源评测到芯片收购，信号是 AI 竞争正从模型能力转向推理成本、安全隔离和基础设施优化。",
       "articleCount": 8,
       "articles": [
         {
-          "id": "34784b5b",
-          "title": "I won't read LLM authored fiction",
-          "zh": "我不会读LLM写的小说",
-          "summary": "如果你还在为AI生成内容辩护，这篇文章给出了一个资深技术人拒绝阅读AI小说的理由，值得听听",
+          "id": "7072d9c4",
+          "title": "DeepSeek V4 Flash 0731",
+          "zh": "DeepSeek V4 Flash 0731（Arc Prize 评测结果）",
+          "summary": "如果你在关注开源模型的推理能力，这个评测能让你看到 V4 Flash 在抽象推理基准上的真实表现。",
           "source": "HN",
-          "url": "https://mccormick.cx/news/entries/why-i-won-t-read-llm-authored-fiction",
+          "url": "https://arcprize.org/results/deepseek-v4-flash-0731",
           "category": "ai",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
+          "id": "8cef76c4",
+          "title": "U.S. Department of Energy Launches the Genesis Open Models Initiative",
+          "zh": "美国能源部启动 Genesis 开放模型计划",
+          "summary": "如果你做科研或能源相关应用，这个计划意味着官方开放模型资源与算力支持，值得留意合作机会。",
+          "source": "HN",
+          "url": "https://genesisopenmodels.anl.gov/",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
+          "id": "6ed73fb0",
+          "title": "What happens if an entire class of workers loses faith in their careers",
+          "zh": "当整个行业的从业者对职业失去信心，会发生什么",
+          "summary": "如果你在科技行业感到倦怠或迷茫，这篇文章用数据解释这种集体情绪，以及它可能带来的连锁反应。",
+          "source": "HN",
+          "url": "https://www.noemamag.com/why-is-everyone-in-tech-so-sad/",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
+          "id": "05b5c328",
+          "title": "Managing AI Coding Costs at Scale",
+          "zh": "规模化管控 AI 编码成本",
+          "summary": "如果你在用 AI 写代码且担心预算失控，Databricks 这篇从工具链和指标层面给你一套控制成本的办法。",
+          "source": "HN",
+          "url": "https://www.databricks.com/blog/managing-ai-coding-costs-scale",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
+          "id": "99c5fc17",
+          "title": "Oracle bans AI-generated code from OpenJDK",
+          "zh": "Oracle 禁止 OpenJDK 接受 AI 生成的代码",
+          "summary": "如果你向 Java 社区提交代码，注意 AI 生成的补丁可能被拒，这会直接影响你的提交策略。",
+          "source": "HN",
+          "url": "https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
+          "id": "8c1f4fb4",
+          "title": "Kitesurf: Agent-first browser that runs in V8 isolates",
+          "zh": "Kitesurf：运行在 V8 隔离环境中的 Agent 优先浏览器",
+          "summary": "如果你在开发浏览器端 AI 代理，这个方案用 V8 隔离解决了安全沙箱问题，值得参考。",
+          "source": "HN",
+          "url": "https://blog.cloudflare.com/kitesurf/",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
+          "id": "c68d9aee",
+          "title": "Captain Bible Reverse Engineering",
+          "zh": "Captain Bible 逆向工程（从零拆解复古游戏）",
+          "summary": "如果你喜欢逆向工程或游戏破解，这个开源项目可以当成一份完整案例来学习。",
+          "source": "HN",
+          "url": "https://github.com/peterkelly/captain-bible-re",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "dac781ad",
           "title": "AMD acquires Taalas to boost inference performance by etching models in silicon",
-          "zh": "AMD收购Taalas，将模型蚀刻进硅片以提升推理性能",
-          "summary": "如果你在关注AI芯片竞争，AMD这步棋意味着推理性能可能要再上一个台阶，但也要看生态整合",
+          "zh": "AMD 收购 Taalas：把模型蚀刻进硅片以提升推理性能",
+          "summary": "如果你关注 AI 芯片竞争，AMD 这步棋是在赌硬件直接变成模型，推理成本和速度可能被重新定义。",
           "source": "HN",
           "url": "https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344",
           "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "87fe43f8",
-          "title": "GitHub Actions and Pages are experiencing degraded availability",
-          "zh": "GitHub Actions 和 Pages 正经历可用性降级",
-          "summary": "如果你在用GitHub做CI/CD或托管静态网站，今天要注意构建和部署可能不稳定",
-          "source": "HN",
-          "url": "https://www.githubstatus.com/incidents/qcvjkzcs7j74",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "88b44b79",
-          "title": "Improving GPT‑5.6 Sol in ChatGPT, expanding GPT‑5.6 Luna access for free users",
-          "zh": "改进ChatGPT中的GPT-5.6 Sol，并向免费用户开放GPT-5.6 Luna",
-          "summary": "如果你用ChatGPT，这次更新把更强的Luna模型给免费用户了，但Sol的改进细节可能影响你的使用体验",
-          "source": "HN",
-          "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/",
-          "category": "ai",
-          "breaking": true
-        },
-        {
-          "id": "750c7bd2",
-          "title": "Humans missed 1 in 3 threats approving AI agent commands across 40k game runs",
-          "zh": "在4万次游戏运行中，人类批准AI代理命令时漏掉了三分之一的安全威胁",
-          "summary": "如果你在让AI agent自动干活，这个实测数据告诉你，人手审批根本拦不住恶意操作，得想想别的防线",
-          "source": "HN",
-          "url": "https://scalex.dev/blog/ai-agent-permissions-stats/",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "796742e5",
-          "title": "New Orleans is testing Carbyne’s AI-powered Emergency Call Triage software",
-          "zh": "新奥尔良正在测试Carbyne的AI紧急呼叫分诊软件",
-          "summary": "如果你关心AI在公共安全领域的应用，这篇提到了911呼叫用AI先筛一遍的真实案例，效率和风险并存",
-          "source": "HN",
-          "url": "https://www.shreveporttimes.com/story/news/local/louisiana/2026/07/28/is-new-orleans-using-ai-to-answer-911-calls-instead-of-human-dispatchers-impacts-emergencies-crime/91065014007/",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "24353d58",
-          "title": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System (2025)",
-          "zh": "vLLM内部解析：高吞吐LLM推理系统的解剖（2025）",
-          "summary": "如果你在部署LLM服务，这篇把vLLM的核心机制拆得很细，适合想优化推理性能的人",
-          "source": "HN",
-          "url": "https://www.aleksagordic.com/blog/vllm",
-          "category": "ai",
-          "breaking": false
-        },
-        {
-          "id": "8b8d2b42",
-          "title": "Show HN: The Channels SDK – Bring Any Agent to Any Channel (Slack, MS Teams)",
-          "zh": "Show HN：Channels SDK——让任意Agent接入任意渠道（Slack、MS Teams）",
-          "summary": "如果你在给自己的Agent找分发渠道，这个开源SDK能省掉一堆对接工作，建议看看",
-          "source": "HN",
-          "url": "https://github.com/CopilotKit/channels-sdk",
-          "category": "ai",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         }
       ]
     },
@@ -96,88 +112,104 @@
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "今天论文板块值得关注的是Agent评估与治理，以及视频大模型的可靠性短板。",
+      "commentary": "今天的关键词是信任与验证：模型何时可信、Agent评估如何省钱、视频模型为何在简单任务上翻车。",
       "articleCount": 8,
       "articles": [
         {
           "id": "40001a00",
           "title": "Learning When to Trust via Selective Context Preference Optimization",
-          "zh": "通过选择性上下文偏好优化学习何时信任（Selective Context Preference Optimization）",
-          "summary": "如果你在调LLM但总拿不准该信模型哪句话，这篇给出了一种按上下文挑着信任的优化方法。",
+          "zh": "通过选择性上下文偏好优化学会何时信任",
+          "summary": "如果你在调LLM的上下文或做对齐，这篇给了一个思路：让模型自己判断该信任哪些上下文，而不是无脑喂信息。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06377v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "973cd398",
           "title": "The Bitter Lesson of Tool Calling",
-          "zh": "工具调用的惨痛教训（The Bitter Lesson of Tool Calling）",
-          "summary": "如果你在做Agent调工具的功能，这篇文章会用历史规律提醒你，通用算力比花哨设计更可能赢。",
+          "zh": "工具调用的苦涩教训",
+          "summary": "如果你在给Agent设计工具调用，少堆手工规则，让模型自己学会调用才是长期方向，别跟历史教训对着干。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06370v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "cea39be3",
           "title": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
-          "zh": "追踪心脏：一种证据关联的心衰特征工程流水线",
-          "summary": "如果你在搞医疗AI或特征工程，这篇把心衰预测里的特征提取和临床证据挂上了钩，值得参考。",
+          "zh": "追踪心脏：证据关联的心力衰竭特征工程流水线",
+          "summary": "如果你在做医疗AI或结构化特征工程，这篇的看点是临床证据链怎么嵌进特征筛选，而不是黑箱堆特征。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06366v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "c8505d58",
           "title": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
-          "zh": "移动购物应用中的AI数字主权调查：尼日利亚案例研究",
-          "summary": "如果你关心AI出海或本地化产品，这篇用尼日利亚的案例提醒你，数字主权是个绕不开的坑。",
+          "zh": "移动购物应用中的人工智能数字主权调查：以尼日利亚为例",
+          "summary": "如果你关心AI推荐背后的控制权，这个案例会提醒你，购物App里的算法主权基本不在用户手里。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06364v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "0783f689",
           "title": "An Optimal Agnostic PAC Algorithm",
           "zh": "一种最优的不可知PAC学习算法",
-          "summary": "如果你在研究学习理论或算法复杂度，这篇给出了一个最优的通用算法，属于硬核理论，专业对口才推荐。",
+          "summary": "如果你在研究学习理论，这篇给出了样本复杂度最优的通用算法，理论推导是硬骨头，但值得啃。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06363v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "e92aa8df",
           "title": "AV-AIVAT: 74x Cheaper Agent Evaluation with Certified Anytime-Valid Stopping in Imperfect-Information Games",
-          "zh": "AV-AIVAT：不完全信息博弈中带认证随时有效停止的智能体评估，成本降低74倍",
-          "summary": "如果你在评估Agent或者做博弈类游戏AI，这个带严格停止条件的评估方法能省下大笔算力成本。",
+          "zh": "AV-AIVAT：不完全信息博弈中74倍低成本的Agent评估，支持经过认证的随时有效停止",
+          "summary": "如果你在评测博弈类Agent，跑完整对局又贵又慢，这个方法能在不牺牲统计有效性的前提下提前停止。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06362v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "71c1d435",
           "title": "The Low Frequency Trap: Video Language Models Fail at Simple Event Bookkeeping",
-          "zh": "低频陷阱：视频语言模型在简单事件记账上集体翻车",
-          "summary": "如果你拿视频大模型做内容审核或视频理解，这篇提醒你，它们连最基本的“发生了几次”都可能数错。",
+          "zh": "低频陷阱：视频语言模型在简单事件记录任务上也会翻车",
+          "summary": "如果你做视频理解，别光盯着高频动作，模型可能连最基本的数次数、记事件都做不好。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06361v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         },
         {
           "id": "ca42ee6e",
           "title": "Resourced Authority A Mechanism-Design Model for Participatory Governance of Deployed AI Agents",
           "zh": "资源化权威：面向已部署AI智能体参与式治理的机制设计模型",
-          "summary": "如果你在做AI治理或Agent合规，这篇给出了一套让多方参与控制已部署智能体的机制框架，值得看看。",
+          "summary": "如果你在想AI Agent部署后谁来管，这篇把治理参与权当作可分配资源来建模，比空谈“共同治理”更可落地。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.06353v1",
           "category": "paper",
-          "breaking": false
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
         }
       ]
     },
@@ -185,88 +217,104 @@
       "key": "econ",
       "icon": "📊",
       "name": "经济",
-      "commentary": "今日经济板块集中在监管重罚、并购与能源地缘，建议重点关注合规成本和供应链变数。",
+      "commentary": "今天经济板块的主线是政策与风险的连锁反应——从就业数据、关税到儿童安全罚款，每一条都在帮你算清成本在哪里。",
       "articleCount": 8,
       "articles": [
         {
+          "id": "78e7eeab",
+          "title": "How a 90-second power outage sparked chaos for rail commuters",
+          "zh": "90秒停电如何让铁路通勤陷入混乱",
+          "summary": "如果你以为基础设施断电只是小插曲，这次90秒停电掀翻整条铁路的连锁反应值得你警惕",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c3ekd5784k5o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false,
+          "body": "But after commuters were left facing chaos, it has raised questions about how a short outage at one operating centre could have a widespread impact.\n\nNetwork Rail will face scrutiny for how its systems coped and responded to the outage.\n\nThat's the publicly-owned body whose job it is to operate and maintain Britain's railway infrastructure. That means the tracks, signals, embankments and major stations.\n\nIt was at Network Rail's operating centre in Manchester that the problem started. Its operating centres are where crucial controls are housed that let trains run safely across the country, with Manchester's centre responsible for large parts of the North West.\n\nIt was hit by a power cut in the area, which was resolved within 90 seconds. Given the centre's importance, backups are in place. But questions have been raised about how they responded.\n\nChris Wright, north-west route director at Network Rail, told the BBC \"we didn't experience a 90-second interruption,\" insisting its systems were back online sooner.\n\nBut he said some of Network Rail's communications systems \"did not respond how we would have expected, and then needed reconfiguring and replacing\".\n\n\"We've got to work really hard very quickly now to understand why that's the case,\" he added.\n\nBecause signalling was affected - think of that essentially as the traffic lights of the railway - trains had to stop.\n\nSystems had to be rebooted. But there was some damage to those that control signalling, which took time to fix because of the need to replace certain parts.\n\nThinking about how busy parts of the rail network are, and how many trains and crews were left out of position across the North West of England and beyond, helps explain why the impact was so big.\n\nNetwork Rail has apologised to customers and opened an investigation.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c3ekd5784k5o?at_medium=RSS&amp;at_campaign=rss"
+        },
+        {
+          "id": "d6377e78",
+          "title": "Goodwin considers selling part of defence business",
+          "zh": "Goodwin 考虑出售部分防务业务",
+          "summary": "如果你在追踪英国国防供应链的资本动向，这家老牌工程公司剥离防务板块是一个重要信号",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c20dgpl0z4jo?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false,
+          "body": "British engineering company Goodwin has said it is considering selling off parts of its business, which supplies components to major defence and nuclear programmes.\n\nThe Stoke-on-Trent-based group said it was exploring a possible sale of a \"substantial part\" of its mechanical engineering division, which includes Goodwin Steel Castings (GSC), Goodwin International (GI), Noreva, Easat and Pumps.\n\nIn a statement on Friday, the firm's board confirmed it had commenced a strategic review to \"consider a range of potential options to maximise value for shareholders\".\n\nGoodwin said discussions were ongoing and that there was no certainty of a sale taking place.\n\n\"The board of Goodwin confirms that it has commenced a strategic review to consider a range of potential options to maximise value for shareholders whilst ensuring continuity for all stakeholders, including customers, and the long-term prosperity of its businesses,\" the company said.\n\n\"Discussions are ongoing and there can be no certainty that a transaction will be entered into. Rothschild & Co is advising the board of Goodwin on the strategic review.\"\n\nImage source, Royal NavyImage caption, The Dreadnought-class submarines are set to replace the UK's Vanguard-class submarines (pictured)\n\nGoodwin's mechanical engineering division is a key supplier of components to UK and US frigate and submarine programmes.\n\nThis includes Britain's Dreadnought programme, which is building the Royal Navy's next-generation nuclear deterrent submarines, and the Type 26 frigate programme, which is developing a fleet of advanced anti-submarine warships.\n\nAccording to its latest annual report, Goodwin Steel Castings and Goodwin International have delivered a boost to the company's profits, having benefited from economies increasing their defence spending.\n\nA report in the Financial Times said several potential buyers that have records in defence had expressed interest in Goodwin in recent weeks.\n\nThe company, which was founded in 1883, is majority owned and managed by the Goodwin family, while it has shares listed on the London Stock Exchange.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c20dgpl0z4jo?at_medium=RSS&amp;at_campaign=rss"
+        },
+        {
+          "id": "2a4ce405",
+          "title": "Surprise fall in US jobs last month as slow summer continues",
+          "zh": "美国上月就业意外下滑，夏季就业低迷延续",
+          "summary": "如果你关心美联储降息节奏，这次意外下滑的非农数据会直接影响市场对利率走向的押注",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c20j5rle717o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "econ",
+          "breaking": false,
+          "body": "There was a surprise shedding of 23,000 jobs last month, with declines driven by cuts in local government education and retail roles, despite analysts predicting growth.\n\nThe Bureau of Labor Statistics also revised down the number of jobs added in May and June by 103,000, signalling a slow summer of job creation.\n\nAnalysts said the latest figures could reduce pressure on the US central bank, the Federal Reserve, to raise interest rates next month, despite high inflation.\n\nNancy Vanden Houten, lead economist at Oxford Economics, said expectations of interest rates being raised had been \"scaled back\", since the decision last month.\n\nUS stock markets opened higher on Friday following the release of the latest jobs figures on the prospect that the weaker data might prevent any rate hikes.\n\nAnalysts had expected an uptick in the number of jobs being added to the economy last month of 80,000, as opposed to a loss of 23,000.\n\nAs well as falls in local government education there were also declines in retail roles, including in wholesale stores, hypermarkets, gas stations and general mechanise shops.\n\nDespite fewer jobs being created, the Bureau of Labor Statistics said the unemployment rate actually dipped to 4.1% from 4.2%, as the number of people in work or looking for work declined slightly.\n\nAverage hourly earnings rose by 3.2% in the year to July, compared with the 3.5% economists expected, with average hourly earnings for all employees on private non-farm payrolls at $37.62.\n\nPayrolls do have a tendency to be softer in July, but chief investment officer of Premier Miton Neil Birrell said the US jobs market was weaker \"by some distance\".\n\n\"Labour force participation is back at levels not seen since the days of Covid, meaning jobs just aren't being created,\" he said.\n\n\"This does leave the Fed with the problem of a weak jobs market providing a read across to growth, all at a time when inflation is a problem, but this data will ease the pressure to hike rates. It's a big call in September.\"",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c20j5rle717o?at_medium=RSS&amp;at_campaign=rss"
+        },
+        {
           "id": "bfe69ff7",
           "title": "Meta fined $567m in largest child safety ruling against social media giant",
-          "zh": "Meta因儿童安全违规被罚5.67亿美元，为同类案件中最高金额",
-          "summary": "如果你运营内容平台，这个罚款规模意味着未成年保护合规的代价已至极点，早做风控比事后补救便宜。",
+          "zh": "Meta 被罚5.67亿美元，创下社交媒体儿童安全案最大罚单",
+          "summary": "如果你在做面向未成年人的平台或内容，这个天价罚单说明儿童安全合规已经是踩线就死的高压区",
           "source": "BBC",
           "url": "https://www.bbc.co.uk/news/articles/cd7lz3wr2rlo?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
-          "breaking": false
+          "breaking": false,
+          "body": "A US judge in New Mexico has ordered Meta to pay another $567m (£421m) for its failure to warn the public about dangers its platforms posed to children, marking the largest fine against the company over child safety.\n\nJudge Bryan Biedscheid said the social media giant is a \"public nuisance\" akin to air pollution and that it must put the money in a fund aimed at reducing future harms.\n\nThursday's ruling is in addition to $375m in fines Meta was already ordered to pay in the case, for a total of $942m.\n\nJudge Biedscheid compared Meta to a factory, with advertising and content as its product and \"the psychological harm and sexual exploitation of children to be the pollution that must be abated\".\n\nA spokesman for Meta, which owns and operates Instagram, Facebook, WhatsApp and Threads, said Thursday: \"We disagree with the ruling and will appeal.\"\n\n\"We work hard to keep people safe on our platforms and have been transparent about the challenges of identifying and removing bad actors and harmful content,\" they added.\n\n\"We remain confident in our record of protecting teens online and will continue to defend ourselves against claims that misrepresent the facts.\"\n\nRegarding the earlier $375m verdict in the case, Meta had said it intended to appeal the ruling and gave a similar explanation. It was the first time that a state had successfully sued Meta over child safety issues.\n\nMeta is currently facing thousands of lawsuits in the US over similar issues. In addition to the New Mexico rulings, Meta earlier this year lost a landmark case in Los Angeles which found it could be held liable for building addictive platforms.\n\nBruce Daisley, a former European vice president of Twitter (now X), told BBC Radio 4's Today programme the New Mexico fine, while large, was \"a drop in the ocean\" for Meta.\n\nIn its latest financial results, the social media giant posted $61bn in revenue from April to June - up 28% on the same period a year ago.\n\n\"But it's an indication that we are moving to a stage where social media is going to be tackled around the world,\" he said.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/cd7lz3wr2rlo?at_medium=RSS&amp;at_campaign=rss"
         },
         {
           "id": "db3a712e",
           "title": "Argos is getting a makeover - but can it attract new shoppers?",
-          "zh": "Argos迎来形象改造，但能否吸引新顾客仍是疑问",
-          "summary": "如果你做零售，这家老牌百货的转型动作值得观察，看它如何用新形象对抗纯电商。",
+          "zh": "Argos 品牌大改造——但能吸引新顾客吗？",
+          "summary": "如果你关注传统零售怎么转型，Argos这次换脸能不能拉来年轻人，是一个值得拆解的样本",
           "source": "BBC",
           "url": "https://www.bbc.co.uk/news/articles/c2lqvwewgp2o?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "4ffbb017",
-          "title": "Trump imposes 15% tariff on key chip material to counter China",
-          "zh": "特朗普对关键芯片材料加征15%关税，意在反制中国",
-          "summary": "如果你在半导体产业链上，这个关税会直接影响成本和供应，建议提前找替代方案。",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "839bbdcc",
-          "title": "EasyJet agrees to £5.7bn takeover by US firm",
-          "zh": "EasyJet同意美国公司57亿英镑收购",
-          "summary": "如果你关注廉价航空或持有相关股票，这笔交易可能改变欧洲市场格局，但先等反垄断表态。",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cjejzjpy98wo?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": false
-        },
-        {
-          "id": "a53051bb",
-          "title": "First OpenAI, now Meta - why do AI hacks keep happening?",
-          "zh": "先是OpenAI，现在又是Meta——AI为何屡遭入侵？",
-          "summary": "如果你用AI处理业务或做AI产品，别以为大厂就安全，这篇会告诉你攻击为什么会发生。",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cp30989ee1wo?at_medium=RSS&amp;at_campaign=rss",
-          "category": "econ",
-          "breaking": true
+          "breaking": false,
+          "body": "The chain has been a fixture of the British High Street for more than 50 years and is still used by around half of all UK households.\n\nBut it has struggled to thrive in recent years amid fierce competition from online giants like Amazon, with sales stagnating.\n\nIts owner Sainsbury's recently announced it was selling the chain for a lot less than it paid for it just 10 years ago.\n\nBut the new owners say they see \"real opportunities\" for growth, including opening new standalone shops. Can they succeed where Sainsbury's did not?\n\nImage caption, Enrico has fond memories of using Argos's now-discontinued print catalogue\n\nWhen the BBC spoke to shoppers in central London this week, the retailer seemed to divide opinion.\n\nSome, like Enrico, 28, said they loved the convenience of same-day collection, and felt nostalgic towards a brand which unlocked fond childhood memories.\n\n\"It was a great way of doing your Christmas shopping,\" he told the BBC. \"We'd go into our local Argos and we'd get the massive print catalogue.\"\n\nArgos's encyclopedia-like catalogue was once dubbed \"the laminated book of dreams\", but the company stopped printing it in 2021.\n\nAt one point it was Europe's most widely printed publication.\n\nImage source, Bloomberg/Getty ImagesImage caption, Many Britons have fond memories of the Argos catalogue, which the company stopped making in 2021\n\nImage source, Bloomberg/Getty ImagesFor others, though, Argos has not moved with the times and is at odds with the seemingly endless online choice.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c2lqvwewgp2o?at_medium=RSS&amp;at_campaign=rss"
         },
         {
           "id": "2f364be1",
           "title": "Why airlines are warning over lithium-ion batteries",
-          "zh": "航空公司为何集体警告锂电池风险",
-          "summary": "如果你常带电子设备出行，锂电池新规可能限制你带什么上飞机，出发前最好查一下。",
+          "zh": "航空公司为何对锂离子电池发出警告",
+          "summary": "如果你常带充电宝或电子设备出行，这条锂电池警告关系到你行李箱里哪些东西可能被禁",
           "source": "BBC",
           "url": "https://www.bbc.co.uk/news/articles/cwyl6yz719jo?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
-          "breaking": false
+          "breaking": false,
+          "body": "Ben Wodecki is used to travelling the globe and is used to seeing airline crew at work.\n\nBut flying into Las Vegas in June, the technology journalist saw something he'd never seen before, as worried looking flight crew dashed to the rear of the plane. \"There was a glint of fear. They were dour. This was something more than someone being ill. It was something that affected them.\"\n\nAs smoke, then distressed passengers emerged from the rear of the plane, it because clear what had happened. A passenger had been using a battery pack during the flight, and it had overheated before bursting into flames with a seat catching fire.\n\nFlight crew dropped the device into a container of water, Wodecki says. The plane then landed \"fast and aggressively\" at Harry Reid International Airport in Las Vegas, he explains, where it was met by fire crews on the runway.\n\nIt was a dramatic end to a routine flight – and it illustrates why flyers are hearing more frequent and more insistent warnings about the dangers of bringing battery powered devices and specifically lithium-ion batteries on flights.\n\nThese include warnings about trying to retrieve devices that slip into seat and pleas not to put lithium-ion devices in checked luggage.\n\nImage source, Yonhap via ReutersImage caption, A battery fire caused the destruction of an Air Busan plane last year\n\nAccording to Jonathan Nicholson at the UK's Civil Aviation Authority (CAA), for the airline industry, lithium-ion batteries are \"if not number one, within the top three risks for a good few years now\".\n\nA US recent study showed, external the industry was affected by two lithium-ion battery related incidents a week worldwide, he adds. Those incidents could range from passengers belatedly realising they'd left a device in checked baggage, to devices smoking or catching fire in airport baggage halls, or on flights.\n\nBut the results can be far more extreme. In January 2025 an Air Busan plane was destroyed on the tarmac in Gimhae Airport in South Korea, with investigators concluding a power bank battery pack left in an overhead luggage compartment was the culprit.\n\nThis prompted the International Air Transport Association (IATA) to launch a global campaign, external to encourage passengers to \"Travel Smart with Lithium Batteries\".\n\nThere is nothing about flying that makes lithium-ion technology more dangerous, explains Nicholson. Rather, he said \"it's a lot harder to deal with at 32,000 feet in an aircraft cabin\".",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/cwyl6yz719jo?at_medium=RSS&amp;at_campaign=rss"
         },
         {
-          "id": "3569cc7e",
-          "title": "Cashing in on SpaceX: 'Every chance I get, I'll sell a little more'",
-          "zh": "SpaceX员工套现：“一有机会我就会多卖一点”",
-          "summary": "如果你投资未上市公司或关心SpaceX估值，内部人这种卖法可能是你评估流动性的信号。",
+          "id": "c953dddc",
+          "title": "Trump administration to pay German firm $1.2bn to halt US wind projects",
+          "zh": "特朗普政府将向德国公司支付12亿美元以叫停美国风电项目",
+          "summary": "如果你在关注美国新能源政策走向，这12亿美元补偿金把政策反复的成本写得明明白白",
           "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cm2g0j3y339o?at_medium=RSS&amp;at_campaign=rss",
+          "url": "https://www.bbc.co.uk/news/articles/c1e1vg0gjl5o?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
-          "breaking": false
+          "breaking": false,
+          "body": "RWE said that it will now reinvest the sum into conventional gas projects, including $900m (£669m) in a liquefied natural gas (LNG) export terminal project in Louisiana.\n\n\"After careful consideration, it was determined there is no path forward to permit these projects in the US for the foreseeable future,\" the company said in a statement.\n\nTrump has derided wind power for years and often uses his rally speeches to rail against \"ugly\" turbines.\n\nPublished26 September 2023Six possible effects of Trump's climate policy change\n\nPublished13 FebruaryRWE said it has agreed to relinquish its leases off the California and Louisiana coasts as well as in the New York Bight.\n\nOverall, the German firm plans to invest approximately €17bn (£14.5bn; $19.6bn) in the US over the next six years \"to grow its generation capacity\".\n\nInterior Secretary Doug Burgum said in a statement posted on X that Americans deserve an energy system built on common sense and not one dependent on \"costly subsidies\".\n\n\"We welcome RWE's agreement and voluntary investment in projects that strengthen our nation's energy security,\" he added.\n\nThe deal is the latest the Trump administration has reached this year as Trump, a vocal supporter of the fossil fuel industry, continues his push to halt offshore wind projects.\n\nTrump has sought to boost government support for fossil fuels after campaigning for the presidency under the slogan \"drill, baby, drill\".\n\nDays after his return to office, he said \"we're not going to do the wind thing\" and called them \"big, ugly windmills\" that were dangerous to wildlife.\n\nAnd this week, he said that \"any country with windmills is a loser\".",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c1e1vg0gjl5o?at_medium=RSS&amp;at_campaign=rss"
         },
         {
-          "id": "900b6735",
-          "title": "Iran says deal with Oman on Strait of Hormuz is in final stages",
-          "zh": "伊朗称与阿曼的霍尔木兹海峡协议已进入最后阶段",
-          "summary": "如果你做能源交易或关注油价，霍尔木兹海峡的任何协议进展都可能扰动市场，值得盯紧。",
+          "id": "4ffbb017",
+          "title": "Trump imposes 15% tariff on key chip material to counter China",
+          "zh": "特朗普对关键芯片材料加征15%关税以反制中国",
+          "summary": "如果你的生意涉及电子制造或半导体供应链，这条关税会直接改变你的采购成本与合规策略",
           "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/ckg9d3eyeggo?at_medium=RSS&amp;at_campaign=rss",
+          "url": "https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&amp;at_campaign=rss",
           "category": "econ",
-          "breaking": false
+          "breaking": false,
+          "body": "US President Donald Trump signed an executive order on Thursday that imposes a 15% tariff on imported products made from polysilicon, a crucial material used in semiconductors and solar panels.\n\nThe order also set minimum import prices on polysilicon and related products. It comes after a national security investigation into the production of the material overseas.\n\nThe move is intended to help protect US manufacturers as they face increasing competition from China's chip industry - a key source of friction between the world's two largest economies.\n\nThe Chinese embassy in Washington said the move \"seriously disrupts\" trade between the two countries and Beijing will act to protect its companies.\n\nWashington is \"abusing state power to go after Chinese businesses,\" the embassy said, adding that protectionism will not make the US more competitive.\n\nTrump said in the order, external that he had accepted recommendations by Secretary of Commerce Howard Lutnick to set minimum import prices as well as a 15% tariff on polysilicon and related imports.\n\nThe US will also offer incentives to boost domestic production, it added.\n\nFor decades, the US has allowed \"foreign firms to weaken United States producers in the polysilicon sector,\" said Trump, who has long advocated for the use of tariffs to protect American jobs and boost the economy.\n\nThe material is critical in military equipment and electronics, yet imports have led to the US' share of global polysilicon production to fall from 50% in 2005 to less than 2% in 2024, Trump said.\n\nChina holds a near monopoly on the production of polysilicon.\n\nThe order is likely to benefit Hemlock Semiconductor and Wacker Chemie, which are the main producers of the material in the US.\n\nThe production of computer chips is central to the race between the US and China to develop artificial intelligence (AI). Washington and Beijing have also been locked in a tit-for-tat tariffs war, which has been on hold since May 2025.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&amp;at_campaign=rss"
         }
       ]
     },
@@ -274,68 +322,68 @@
       "key": "leaders",
       "icon": "🌍",
       "name": "领导人动态",
-      "commentary": "领导人动态今天聚焦边境危机、贸易关税、政坛清算与地缘紧张，适合做短平快的时政解读。",
-      "articleCount": 6,
+      "commentary": "今天的领导人动态横跨枪支管制、外交修复、移民危机与FIFA权力博弈，泰国和拉美的变动值得关注。",
+      "articleCount": 5,
       "articles": [
+        {
+          "id": "4e2aef51",
+          "title": "Thai PM vows to introduce stricter gun laws after eight killed in shooting",
+          "zh": "泰国总理承诺在8人遇难枪击案后收紧枪支法",
+          "summary": "如果你在关注东南亚安全局势或做泰国相关的内容，这次表态意味着泰国枪支管控可能迎来实质变局",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cdewx6rew04o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false,
+          "body": "Thailand's prime minister has vowed to introduce new gun control laws in the wake of a shooting by a teenager on the outskirts of Bangkok that left eight people dead and 22 injured.\n\nThe 14-year-old killed his grandparents at the home they shared, before travelling to Debsirin School in Nonthaburi, where he was a student. There, he killed five teachers before taking his own life. Later, Thai media reported that a student had also died from their injuries.\n\nSpeaking after the attack, Prime Minister Anutin Charnvirakul said he plans to introduce laws that restrict the carrying of firearms in public, with the new legislation only allowing government officials on duty to carry guns.\n\nI was standing in front of my teacher when she was shot, Thai pupil says\n\nPublished10 hours agoPolice Colonel Thadsakorn Konthong said that the gun and bullets used in the attack belonged to the teen's grandfather, with an initial inspection finding signs that the firearm had been searched for inside the grandfather's bedroom.\n\nInternational and local media have reported that the gun was legally registered and had a permit.\n\nThailand has one of the highest rates of civilian gun ownership in South East Asia, with around 10.3 million firearms in civilian possession, around four million of which are believed to be owned illegally.\n\nThe country has strict gun laws, which punish the illegal possession of arms with up to 10 years in jail, but enforcement of these laws has been an issue.\n\nDuring his time as interior minister, Anutin introduced a number of gun control laws, including a short-term ban on new gun licenses and import restrictions.\n\nSpeaking on Friday, the prime minister said the tragedy \"shouldn't have happened\".\n\n\"I don't just feel sorry for the victims but I feel sorry that this happened. How can this happen in our country,\" Anutin added.\n\nImage source, Getty ImagesThe teenager is believed to have shot his 73-year-old grandfather and 74-year-old grandmother at their two-storey flat at around 05:00 local time on Friday (22:00 GMT on Thursday).",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/cdewx6rew04o?at_medium=RSS&amp;at_campaign=rss"
+        },
+        {
+          "id": "c93bcba8",
+          "title": "Mexico and Peru restore diplomatic relations after asylum row",
+          "zh": "墨西哥与秘鲁在庇护权争端后恢复外交关系",
+          "summary": "如果你在做拉美市场或关注区域政治风向，墨秘复交说明这场外交危机已经降温，但潜在摩擦还在",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cz7dy1l3e77o?at_medium=RSS&amp;at_campaign=rss",
+          "category": "leaders",
+          "breaking": false,
+          "body": "Mexico and Peru have agreed to re-establish diplomatic relations following a row over the granting of asylum to a former Peruvian prime minister who was charged for a 2022 coup attempt.\n\nIn a joint statement released on 7 August, Lima and Mexico City said \"historic ties of brotherhood, friendship and cooperation\" prompted the reconciliation.\n\nThe two countries also reaffirmed \"their respect for international law and the principles of the Charter of the United Nations\".\n\nRelations broke down after former Peruvian Prime Minister Betssy Chávez sought asylum in the Mexican embassy in November 2025.\n\nPeru cuts diplomatic ties with Mexico over ex-PM's asylum claim\n\nPublished4 November 2025Peru Congress declares Mexican president 'persona non grata'\n\nPublished7 November 2025Peruvian Foreign Minister Carlos Espá told local media outlet RPP that Chávez had been granted safe passage and had \"already left Peru\".\n\nWhile allowed to travel to Mexico, Peru maintains the right \"to request the eventual extradition\" of Chávez, the Peruvian Foreign Ministry added in a statement.\n\nSpeaking at her daily media briefing, Mexican President Claudia Sheinbaum welcomed Chávez to Mexico as she reiterated her government's support for ousted Peruvian President Pedro Castillo.\n\nCastillo was arrested in December 2022 on charges of rebellion, after he attempted to dismiss Peruvian congress members and install an emergency government. Hours after the attempt, Castillo was impeached.\n\nChávez had been imprisoned in June 2023 over her alleged role in Castillo's plan to dissolve congress. She had been released by a judge on bail in September 2025 and had denied the charges against her.\n\nShe and Castillo were both sentenced to more than 11 years in prison last November.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/cz7dy1l3e77o?at_medium=RSS&amp;at_campaign=rss"
+        },
         {
           "id": "0c9270e1",
           "title": "Thousands of migrants still in Ceuta after border crisis, local leader says",
-          "zh": "地方领导人称边境危机后仍有数千移民滞留休达",
-          "summary": "如果你在做欧洲边境或移民议题的内容，这个数字提醒你危机远没有解除，别被“已解决”的说法带偏",
+          "zh": "地方领导人称边境危机过后仍有数千移民滞留休达",
+          "summary": "如果你关注欧洲移民政策走向，休达的滞留问题可能成为西班牙和摩洛哥关系的新导火索",
           "source": "BBC",
           "url": "https://www.bbc.co.uk/news/articles/c0ejdj22zq9o?at_medium=RSS&amp;at_campaign=rss",
           "category": "leaders",
-          "breaking": false
-        },
-        {
-          "id": "4ffbb017",
-          "title": "Trump imposes 15% tariff on key chip material to counter China",
-          "zh": "特朗普对关键芯片材料加征15%关税，反制中国",
-          "summary": "如果你关注半导体供应链，这条关税消息会直接冲击芯片成本，做产业解读时值得提前铺路",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&amp;at_campaign=rss",
-          "category": "leaders",
-          "breaking": false
-        },
-        {
-          "id": "9b8b6078",
-          "title": "US Senate committee votes to hold Fauci in contempt over Covid hearing",
-          "zh": "美参议院委员会投票认定福奇在新冠听证问题上藐视国会",
-          "summary": "如果你在跟美国疫情政治这条线，这标志着福奇与共和党人的对抗正式升级，后续听证会还有戏",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/c1m18158my9o?at_medium=RSS&amp;at_campaign=rss",
-          "category": "leaders",
-          "breaking": false
-        },
-        {
-          "id": "6f382bd4",
-          "title": "Indian journalist Tarun Tejpal sentenced to 10 years in jail for rape",
-          "zh": "印度记者塔伦·泰帕尔因强奸罪被判10年监禁",
-          "summary": "如果你在做印度社会或媒体伦理内容，这起#MeToo标志性案件终于落地，是个很好的叙事节点",
-          "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/articles/cx2v551w9v8o?at_medium=RSS&amp;at_campaign=rss",
-          "category": "leaders",
-          "breaking": false
+          "breaking": false,
+          "body": "Watch: Migrants started to return to Morocco after thousands entered Spain's Ceuta on 30 July\n\nBetween 3,000 and 5,000 migrants remain in the Spanish territory of Ceuta following the arrival of many times that number of people last week, the north African exclave's leader has said.\n\nJuan Jesús Vivas told the European Parliament of his \"profound sorrow\" over the \"irreparable tragedy\" of 100 deaths that had occurred after roughly 78,000 migrants from neighbouring Morocco arrived by sea in a matter of hours.\n\nHis comments come as new calls for mass crossings circulate on social media, according to Moroccan media.\n\nThe crisis has created tensions among EU nations who share open borders and has sparked criticism of the Spanish government.\n\nHowever the EU Commission has commended Spain's \"swift response\" to the crisis, which has included deploying armed forces to Ceuta and its other territory on the north African coast, Melilla.\n\nVivas, a conservative, was critical of the national government's response while addressing the European Parliament on Thursday, saying that he had personally told Socialist Prime Minister Pedro Sánchez that it had been late and insufficient.\n\n\"The fact that we don't have numbers on how many are still in Ceuta shows how few resources we have to deal with this situation,\" Ceuta's mayor-president said. Previous warnings by local officials of an increase in migrant crossings by sea had been ignored, he said.\n\nImage source, ReutersImage caption, Thousands of migrant children are thought to remain in Ceuta, where they are being registered by the authorities\n\nVivas said that while the return of nearly 75,000 migrants to Morocco had \"considerably alleviated\" the situation, Ceuta had not yet returned to normal.\n\nThere was still a humanitarian emergency and disturbances to public order in the territory, he said, while it was \"basically impossible\" to return the minors who had crossed because this required their consent.\n\nSpain's interior minister has said the government had allocated €25m (£21.4m; $28.8m) to assist minors in Ceuta.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c0ejdj22zq9o?at_medium=RSS&amp;at_campaign=rss"
         },
         {
           "id": "b833ff2b",
           "title": "Does Africa still back Infantino as Fifa president?",
-          "zh": "非洲还支持因凡蒂诺执掌国际足联吗？",
-          "summary": "如果你做体育政治或国际组织选题，非洲的票仓立场直接决定因凡蒂诺的去留，值得拆解",
+          "zh": "非洲还会继续支持因凡蒂诺连任FIFA主席吗？",
+          "summary": "如果你关心FIFA权力格局或足球商业生态，这篇文章直接关系到下届主席竞选的胜负手",
           "source": "BBC",
           "url": "https://www.bbc.co.uk/news/articles/c78g3glpl8wo?at_medium=RSS&amp;at_campaign=rss",
           "category": "leaders",
-          "breaking": false
+          "breaking": false,
+          "body": "For now, beleaguered Fifa president Gianni Infantino still has some allies in world football, particularly in parts of the world where less well-off football associations have benefited from his presidency.\n\nInfantino's position has been under scrutiny since his controversial plan to sell stakes in Fifa's global competitions to private investors was scrapped having been opposed by some regional governing bodies.\n\nLate on Thursday, the executive committee of the African confederation (Caf) unanimously confirmed its support for Infantino, after leading African football administrators sent messages backing him.\n\nFive of the seven African countries on the Fifa Council - Egypt, Morocco, Niger, Mauritania and Comoros - have already supported him publicly.\n\nSupport from the continent largely stems from Fifa's Forward programme, a funding scheme Infantino introduced in 2016 that many African federations have become increasingly reliant on to fund football projects in areas where commercial and government investment in the sport is limited.\n\nOur reporters and correspondents have explained below where some of Africa's key footballing nations stand.\n\nFaisal Islam: Four reasons why Fifa's World Cup plan never stacked up\n\nPublished6 days agoCourting controversy and befriending Trump - the story of Fifa boss Infantino\n\nPublished6 days agoMoroccoImage source, Getty ImagesImage caption, Infantino got the backing of top football execs at a meeting in Morocco on Wednesday\n\nMorocco's rise as one of Africa's football success stories has largely been driven by government funding, but the country has also become a key partner for Fifa.\n\nMorocco's capital, Rabat, is home to Fifa's Africa regional office, they have hosted Fifa Club World Cups, a women's U17 World Cup and will co-host the men's 2030 World Cup alongside Spain and Portugal.\n\nMoroccan Football Federation (FRMF) president Fouzi Lekjaa reaffirmed his support for Infantino after he withdrew the controversial Fifa Forward Enterprise (FFE) proposal last week.",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/articles/c78g3glpl8wo?at_medium=RSS&amp;at_campaign=rss"
         },
         {
-          "id": "6489c085",
-          "title": "Why was Taiwan’s president evacuated in the middle of the night?",
-          "zh": "台湾地区领导人为何半夜被紧急撤离？",
-          "summary": "如果你在跟进台海局势，这个夜间撤离的细节需要交叉验证信息源，别被单一叙述带节奏",
+          "id": "14ec583c",
+          "title": "Watch: BBC asks Infantino if he will resign as Fifa president",
+          "zh": "视频：BBC当面问因凡蒂诺是否会辞去FIFA主席",
+          "summary": "如果你想知道因凡蒂诺面对辞职压力的真实反应，这条视频比文字报道更有信息量",
           "source": "BBC",
-          "url": "https://www.bbc.co.uk/news/videos/cly83vm923go?at_medium=RSS&amp;at_campaign=rss",
+          "url": "https://www.bbc.co.uk/news/videos/c0ejrdzx98wo?at_medium=RSS&amp;at_campaign=rss",
           "category": "leaders",
-          "breaking": false
+          "breaking": false,
+          "body": "CloseThe BBC has asked Fifa president Gianni Infantino if he has the support of football's South American governing body, Conmebol.\n\nThe Fifa head has faced multiple calls to resign after his highly controversial attempt to sell private stakes in the World Cup, which he later abandoned.\n\nInfantino, who did not answer the BBC's questions, was in Colombia for the inauguration of the country's new President Abelardo de la Espriella.\n\nThe BBC's South America correspondent Ione Wells later asked the Fifa president if he would step down.\n\nRead more: Politicians, private jets and power - the life of a Fifa president\n\nShareclose panelShare pageCopy linkAbout sharingRelated topicsColombiaFollow Colombia\n\n0:33Up Next. What we know so far about the deadly Thailand shooting. Video, 00:01:29What we know so far about the deadly Thailand shooting\n\n1:29Moment earthquake shakes hospital operating room in Japan. Video, 00:00:45Moment earthquake shakes hospital operating room in Japan\n\n0:45‘Wiped out’ - BBC reports from Spokane neighbourhood devastated by fires. Video, 00:01:12‘Wiped out’ - BBC reports from Spokane neighbourhood devastated by fires\n\n1:12Watch: Nasa astronauts conduct 6.5-hour spacewalk outside ISS. Video, 00:00:52Watch: Nasa astronauts conduct 6.5-hour spacewalk outside ISS\n\n0:52Why was Taiwan’s president evacuated in the middle of the night? Video, 00:00:43Why was Taiwan’s president evacuated in the middle of the night?\n\n0:43The Odyssey: Meet Matt Damon's stunt woman. Video, 00:00:58The Odyssey: Meet Matt Damon's stunt woman",
+          "freeLink": "https://web.archive.org/web/2/https://www.bbc.co.uk/news/videos/c0ejrdzx98wo?at_medium=RSS&amp;at_campaign=rss"
         }
       ]
     },
@@ -343,43 +391,11 @@
       "key": "learn",
       "icon": "📚",
       "name": "知识学习",
-      "commentary": "今天知识学习板块偏动手实操，一个讲芯片制造可视化，一个讲复古游戏开发，适合想从零搞懂底层原理的创作者。",
-      "articleCount": 2,
-      "articles": [
-        {
-          "id": "6db9bf6e",
-          "title": "Learn how chips are made with this Rollercoaster Tycoon-inspired animation",
-          "zh": "用《过山车大亨》风格的动画，看懂芯片是怎么造出来的",
-          "summary": "如果你一直搞不懂光刻、蚀刻这些芯片制造流程，这个动画能让你像玩经营游戏一样轻松看懂",
-          "source": "HN",
-          "url": "https://laurentiugabriel.github.io/ChipTycoon/",
-          "category": "learn",
-          "breaking": false
-        },
-        {
-          "id": "bfb4faa4",
-          "title": "How to Make a Nintendo 64 Game in 2026",
-          "zh": "2026年如何制作一款N64游戏",
-          "summary": "如果你怀念复古游戏、想挑战在老硬件上开发，这篇作者用实际项目讲清了从工具链到卡带烧录的全过程",
-          "source": "HN",
-          "url": "https://phoboslab.org/log/2026/08/xibalba64-making-of",
-          "category": "learn",
-          "breaking": false
-        }
-      ]
+      "commentary": "",
+      "articleCount": 0,
+      "articles": []
     }
   ],
-  "breakingNews": [
-    {
-      "zh": "改进ChatGPT中的GPT-5.6 Sol，并向免费用户开放GPT-5.6 Luna",
-      "summary": "如果你用ChatGPT，这次更新把更强的Luna模型给免费用户了，但Sol的改进细节可能影响你的使用体验",
-      "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/"
-    },
-    {
-      "zh": "先是OpenAI，现在又是Meta——AI为何屡遭入侵？",
-      "summary": "如果你用AI处理业务或做AI产品，别以为大厂就安全，这篇会告诉你攻击为什么会发生。",
-      "url": "https://www.bbc.co.uk/news/articles/cp30989ee1wo?at_medium=RSS&amp;at_campaign=rss"
-    }
-  ],
+  "breakingNews": [],
   "llmAvailable": true
 }
