@@ -7,14 +7,14 @@
       "key": "ai",
       "icon": "🤖",
       "name": "AI 动态",
-      "commentary": "",
+      "commentary": "今天关注两条线：DeepSeek推出视觉实验模型，AI agent开始自我修改；同时AI数据采集的伦理与效率问题仍是焦点。",
       "articleCount": 8,
       "articles": [
         {
           "id": "237fce0a",
           "title": "DeepSeek-v4-flash-vision-exp",
-          "zh": "DeepSeek-v4-flash-vision-exp",
-          "summary": "",
+          "zh": "DeepSeek-v4-flash-vision-exp（DeepSeek视觉实验模型）",
+          "summary": "如果你在做多模态应用，这个新模型已经开放API，可以拿真实图片测一把，但注意是实验版，别直接上生产。",
           "source": "HN",
           "url": "https://api-docs.deepseek.com/guides/vision/",
           "category": "ai",
@@ -25,8 +25,8 @@
         {
           "id": "c4ab815a",
           "title": "Flat Chair by Sara Paculdo",
-          "zh": "Flat Chair by Sara Paculdo",
-          "summary": "",
+          "zh": "Sara Paculdo设计的平板椅子",
+          "summary": "如果你关注家居设计或省空间方案，这把椅子展示了平板包装的极限，但坐感舒适度大概要打问号。",
           "source": "HN",
           "url": "https://www.toxel.com/tech/2026/08/07/flat-chair-by-sara-paculdo/",
           "category": "ai",
@@ -37,8 +37,8 @@
         {
           "id": "38184520",
           "title": "The case against a C alternative (2022)",
-          "zh": "The case against a C alternative (2022)",
-          "summary": "",
+          "zh": "反对C语言替代方案的理由（2022）",
+          "summary": "如果你在考虑用新系统语言替代C，这篇从工具链、生态和兼容性角度给你泼冷水，值得先看再决定。",
           "source": "HN",
           "url": "https://c3.handmade.network/blog/p/8486-the_case_against_a_c_alternative",
           "category": "ai",
@@ -47,10 +47,22 @@
           "freeLink": ""
         },
         {
+          "id": "8d09b2a8",
+          "title": "AI companies destroy physical books – let's scan rare books before it's too late",
+          "zh": "AI公司正在毁掉实体书——趁还来得及，赶紧扫描珍稀书籍",
+          "summary": "如果你关心AI训练数据的来源，这篇文章揭了AI公司为采数据破坏纸质书的底，并呼吁个人参与抢救扫描，但动手前先想清楚法律风险。",
+          "source": "HN",
+          "url": "https://annas-archive.pk/blog/physical-destruction.html",
+          "category": "ai",
+          "breaking": false,
+          "body": "",
+          "freeLink": ""
+        },
+        {
           "id": "2a3f3d03",
           "title": "Show HN: Huzzah – a novel approach to coding with AI",
-          "zh": "Show HN: Huzzah – a novel approach to coding with AI",
-          "summary": "",
+          "zh": "Huzzah：一种AI辅助编码的新方法",
+          "summary": "如果你对现有AI编程工具不满意，Huzzah提出的交互思路值得一看，但这是个人项目，谨慎参考。",
           "source": "HN",
           "url": "https://www.danielvaughn.dev/posts/huzzah/",
           "category": "ai",
@@ -61,8 +73,8 @@
         {
           "id": "6aad6153",
           "title": "Vomit: Clean up Claude 5's token output with a separate LLM",
-          "zh": "Vomit: Clean up Claude 5's token output with a separate LLM",
-          "summary": "",
+          "zh": "Vomit：用独立LLM清理Claude 5的token输出",
+          "summary": "如果你烧Claude的API token烧得心疼，这个工具用另一个模型压缩冗余输出能省成本，但多一次调用会带来延迟和不确定性。",
           "source": "HN",
           "url": "https://github.com/zachahn/vomit",
           "category": "ai",
@@ -73,8 +85,8 @@
         {
           "id": "b5637bc8",
           "title": "Captain Zilog",
-          "zh": "Captain Zilog",
-          "summary": "",
+          "zh": "Captain Zilog（Zilog船长）",
+          "summary": "如果你做复古芯片或硬件历史内容，Zilog官方推出的这个船长形象是个好素材，但注意别拿它编造没有依据的故事。",
           "source": "HN",
           "url": "https://www.zilog.com/captain_zilog/",
           "category": "ai",
@@ -85,22 +97,10 @@
         {
           "id": "42cf6b87",
           "title": "Seed: Minimal, self-modifying agent harness",
-          "zh": "Seed: Minimal, self-modifying agent harness",
-          "summary": "",
+          "zh": "Seed：极简可自我修改的Agent框架",
+          "summary": "如果你在搭自主Agent，Seed这种能改自己代码的框架很有潜力，但允许AI自我修改意味着失控风险，最好先在隔离环境里试。",
           "source": "HN",
           "url": "https://github.com/vivekhaldar/seed",
-          "category": "ai",
-          "breaking": false,
-          "body": "",
-          "freeLink": ""
-        },
-        {
-          "id": "e547fa31",
-          "title": "Anti-AI fonts are useless and harmful",
-          "zh": "Anti-AI fonts are useless and harmful",
-          "summary": "",
-          "source": "HN",
-          "url": "https://blog.yaros.ae/anti-ai-fonts-are-useless-and-harmful/",
           "category": "ai",
           "breaking": false,
           "body": "",
@@ -112,14 +112,14 @@
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "",
+      "commentary": "今天板块集中在Agent、模型评测与数据合成，最值得警惕的是“自我改进”光环下的假进步，做相关内容要先校准基线。",
       "articleCount": 8,
       "articles": [
         {
           "id": "ffa717aa",
           "title": "ConceptGuard: Benchmarking Context-Sensitive Unlearning in Large Language Models",
-          "zh": "ConceptGuard: Benchmarking Context-Sensitive Unlearning in Large Language Models",
-          "summary": "",
+          "zh": "ConceptGuard：面向大语言模型上下文敏感遗忘的基准测试",
+          "summary": "如果你在给LLM做隐私删除或概念清除，这个基准能帮你验证模型是否真把指定概念“忘了”。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20338v1",
           "category": "paper",
@@ -130,8 +130,8 @@
         {
           "id": "ecf3deca",
           "title": "G-CARL: Grounded Checklist-Aligned Reward Learning for Patient-Oriented Medical Report Interpretation",
-          "zh": "G-CARL: Grounded Checklist-Aligned Reward Learning for Patient-Oriented Medical Report Interpretation",
-          "summary": "",
+          "zh": "G-CARL：面向患者导向医疗报告解读的基于检查清单对齐的奖励学习",
+          "summary": "如果你在做医疗报告生成或可解释AI，这套把专业检查清单引入奖励设计的方法，能让模型输出更贴近临床要求。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20331v1",
           "category": "paper",
@@ -142,8 +142,8 @@
         {
           "id": "e7f963f2",
           "title": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
-          "zh": "An Agentic Approach for Active Data Collection, Travel Behavior Modeling, and Weather-Sensitive Demand Prediction",
-          "summary": "",
+          "zh": "基于Agent的主动数据收集、出行行为建模与天气敏感需求预测方法",
+          "summary": "如果你在做交通预测或城市计算，这篇用Agent主动采集数据，把天气因素嵌进需求模型，值得借鉴。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20320v1",
           "category": "paper",
@@ -154,8 +154,8 @@
         {
           "id": "36984c3f",
           "title": "Inducing Task Models from Computer-Use Traces",
-          "zh": "Inducing Task Models from Computer-Use Traces",
-          "summary": "",
+          "zh": "从计算机使用轨迹中归纳任务模型",
+          "summary": "如果你在研究GUI自动化或Agent操作电脑，这篇从人类操作痕迹反推任务结构，可能省掉大量手工标注。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20319v1",
           "category": "paper",
@@ -166,8 +166,8 @@
         {
           "id": "7cdaecad",
           "title": "AI4AI-Bench: Benchmarking LLM Agents in Algorithmic Design for Recursive Self-Improvement",
-          "zh": "AI4AI-Bench: Benchmarking LLM Agents in Algorithmic Design for Recursive Self-Improvement",
-          "summary": "",
+          "zh": "AI4AI-Bench：面向递归自我改进的LLM Agent算法设计基准测试",
+          "summary": "如果你关心AI自我改进是否真的能越变越强，这个基准专门考核Agent设计算法的能力。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20318v1",
           "category": "paper",
@@ -178,8 +178,8 @@
         {
           "id": "a453d84d",
           "title": "Pandora's AI Model Routing Box: Efficient Allocation with Costly Value Estimation",
-          "zh": "Pandora's AI Model Routing Box: Efficient Allocation with Costly Value Estimation",
-          "summary": "",
+          "zh": "潘多拉AI模型路由盒：在价值评估成本高昂下的高效分配方案",
+          "summary": "如果你在搭多模型路由或做模型选择，这篇给出一种评估成本高时仍能合理分配请求的方法。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20316v1",
           "category": "paper",
@@ -190,8 +190,8 @@
         {
           "id": "7a466801",
           "title": "MidTool: Mid-training Data Synthesis for Agentic Tool Use",
-          "zh": "MidTool: Mid-training Data Synthesis for Agentic Tool Use",
-          "summary": "",
+          "zh": "MidTool：面向Agent工具使用的中间训练数据合成",
+          "summary": "如果你在训练Agent调用工具，这篇用中间训练数据合成补上预训练到微调之间的缺口，值得一试。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20314v1",
           "category": "paper",
@@ -202,8 +202,8 @@
         {
           "id": "db0d3ec0",
           "title": "Phantom Gains: Auditing Self-Improvement Against a Measured Null",
-          "zh": "Phantom Gains: Auditing Self-Improvement Against a Measured Null",
-          "summary": "",
+          "zh": "幻影增益：对照可测零假设审计自我改进",
+          "summary": "如果你经常看到“自我改进”的AI论文，这篇教你用统计方法拆穿那些可能只是随机波动的假进步。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2608.20290v1",
           "category": "paper",
@@ -216,10 +216,10 @@
   ],
   "breakingNews": [
     {
-      "zh": "Vomit: Clean up Claude 5's token output with a separate LLM",
-      "summary": "",
+      "zh": "Vomit：用独立LLM清理Claude 5的token输出",
+      "summary": "如果你烧Claude的API token烧得心疼，这个工具用另一个模型压缩冗余输出能省成本，但多一次调用会带来延迟和不确定性。",
       "url": "https://github.com/zachahn/vomit"
     }
   ],
-  "llmAvailable": false
+  "llmAvailable": true
 }
