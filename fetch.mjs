@@ -172,38 +172,6 @@ async function llmProcessCategory(cat, items) {
   }
 }
 
-// ── BBC 正文抓取（仅 econ/leaders；生成正文 + 免费快照链接）──
-// 抓取的是公开网页正文，非绕过付费墙；快照链接用 archive.org 免费快照，便于地区受限用户阅读
-const BBC_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36';
-const BBC_NAV_RE = /Homepage|Skip to content|Accessibility Help|Your account/i;
-
-function extractArticleBody(html) {
-  const paras = [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)]
-    .map(m => m[1].replace(/<[^>]+>/g, '')
-      .replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'")
-      .replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').trim())
-    .filter(p => p.length > 60 && !BBC_NAV_RE.test(p));
-  return paras.slice(0, 12).join('\n\n').slice(0, 3000);
-}
-
-async function crawlArticle(item) {
-  const url = item.link || '';
-  if (url) item.freeLink = `https://web.archive.org/web/2/${url}`;
-  if (!url || !/bbc\.(co\.uk|com)/i.test(url)) return; // 只处理 BBC 链接
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': BBC_UA, 'Accept-Language': 'en-GB,en;q=0.8' },
-      signal: AbortSignal.timeout(15000),
-      redirect: 'follow'
-    });
-    if (!res.ok) { console.log(`  ⚠️ 抓取失败 ${res.status}: ${url}`); return; }
-    const body = extractArticleBody(await res.text());
-    if (body) item.body = body;
-  } catch {
-    console.log(`  ⚠️ 抓取异常: ${url}`);
-  }
-}
-
 // ── Breaking 判断（关键词加权）──
 const BREAKING_KWS = [
   { re: /openai|anthropic|deepseek|google\s*deepmind|meta\s*ai|microsoft\s*ai/i, weight: 2 },
@@ -269,7 +237,7 @@ function generateDataJSON(allData, summaries) {
 // ── 存档 ──
 const ARCHIVE_DIR = resolve(__dirname, 'archive');
 const KEEP_DAYS = 7;
-const HTML_FILES = ['index.html', 'ai.html', 'paper.html', 'econ.html', 'leaders.html', 'learn.html'];
+const HTML_FILES = ['index.html', 'ai.html', 'paper.html'];
 
 function archiveCurrent() {
   const d = bjDate(Date.now());
@@ -327,11 +295,8 @@ function buildArchiveIndex() {
 
 // ── 配置 ──
 const CATEGORIES = [
-  { key:'ai',      icon:'🤖', label:'AI 动态',   kw:/ai|llm|gpt|claude|openai|anthropic|deepseek|gemini|model|transformer|diffusion|agent|chatbot|neural|RAG|fine.?tun/i },
-  { key:'paper',   icon:'📄', label:'前沿论文',   kw:/arxiv|paper|research|benchmark|dataset|state.of.the.art|outperform/i },
-  { key:'econ',    icon:'📊', label:'经济',       kw:/economy|market|stock|fed|interest|inflation|gdp|crypto|bitcoin|tariff|trade|recession|bond|yield/i },
-  { key:'leaders', icon:'🌍', label:'领导人动态', kw:null },
-  { key:'learn',   icon:'📚', label:'知识学习',   kw:/tutorial|guide|book|learn|how.?to|deep.?dive|handbook|cheatsheet|best.?practice|architecture|under.?the.?hood|internals/i },
+  { key:'ai',    icon:'🤖', label:'AI 动态', kw:/ai|llm|gpt|chatgpt|codex|claude|openai|anthropic|deepseek|gemini|grok|qwen|llama|kimi|glm|minimax|gemma|mistral|doubao|seed|model|transformer|diffusion|agent|chatbot|neural|rag|fine.?tun|agi/i },
+  { key:'paper', icon:'📄', label:'前沿论文', kw:null },
 ];
 
 // ── 日期（北京时间 UTC+8）──
@@ -375,18 +340,6 @@ async function fetchArxiv() {
       link: (e.match(/<id>(.*?)<\/id>/)?.[1] || ''), source: 'arXiv'
     })).filter(i => i.title);
   } catch (e) { console.error('arXiv 失败:', e.message); return []; }
-}
-
-async function fetchRSS(url, label) {
-  try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
-    const xml = await res.text();
-    const items = xml.match(/<item>[\s\S]*?<\/item>/g) || [];
-    return items.map(e => ({
-      title: (e.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] || e.match(/<title>(.*?)<\/title>/)?.[1] || '').trim(),
-      link: (e.match(/<link>(.*?)<\/link>/)?.[1] || '').trim(), source: label
-    })).filter(i => i.title && i.link);
-  } catch (e) { console.error(`${label} RSS 失败:`, e.message); return []; }
 }
 
 // ── HTML 生成 ──
@@ -443,10 +396,8 @@ function detailItem(item, idx, allItems) {
 
 // ── 主流程 ──
 console.log('⏳ 拉取数据...');
-const [hnItems, arxivPapers, bbcWorld, bbcBiz] = await Promise.all([
+const [hnItems, arxivPapers] = await Promise.all([
   fetchHN(), fetchArxiv(),
-  fetchRSS('https://feeds.bbci.co.uk/news/world/rss.xml', 'BBC'),
-  fetchRSS('https://feeds.bbci.co.uk/news/business/rss.xml', 'BBC'),
 ]);
 
 // 分类 HN
@@ -469,25 +420,10 @@ const paperSeen = new Set(arxivPapers.map(p => p.title.slice(0,40)));
 const hnPapers = (hnData.paper || []).filter(p => !paperSeen.has(p.title.slice(0,40)));
 const paperItems = [...arxivPapers, ...hnPapers];
 
-// 经济 = BBC Business + HN
-const econSeen = new Set();
-const mergedEcon = [];
-for (const e of [...bbcBiz.map(i => ({...i})), ...(hnData.econ || [])]) {
-  const k = e.title.slice(0,50);
-  if (!econSeen.has(k)) { econSeen.add(k); mergedEcon.push(e); }
-}
-
-// 领导人 = BBC World 过滤
-const leaderKws = /president|prime.?minister|chancellor|minister|leader|Kremlin|NATO|G7|G20|summit|diplomat|sanction|treaty|tariff|Washington|Beijing|Moscow|Brussels|UN\b|United Nations|European Union|parliament|election|vote|Pentagon|Congress|Senate|embassy|foreign/i;
-const leaderItems = bbcWorld.filter(i => leaderKws.test(i.title)).map(i => ({...i}));
-
-// 汇总
+// 汇总（只 AI：ai + paper）
 const allData = {
-  ai:      (hnData.ai || []).slice(0, 8),
-  paper:   paperItems.slice(0, 8),
-  econ:    mergedEcon.slice(0, 8),
-  leaders: leaderItems.slice(0, 8),
-  learn:   (hnData.learn || []).slice(0, 8),
+  ai:    (hnData.ai || []).slice(0, 8),
+  paper: paperItems.slice(0, 8),
 };
 
 // LLM 翻译 + 概括 + 总评（逐板块处理，避免超时）
@@ -505,15 +441,7 @@ for (const cat of CATEGORIES) {
   allData[cat.key] = processedData[cat.key];
 }
 
-// ── 抓取 BBC 文章正文 + 生成免费快照链接（仅 econ/leaders）──
-console.log('🕷 抓取 BBC 正文...');
-for (const cat of CATEGORIES) {
-  if (cat.key !== 'econ' && cat.key !== 'leaders') continue;
-  for (const item of allData[cat.key]) {
-    await crawlArticle(item);
-    await new Promise(r => setTimeout(r, 250)); // 礼貌限速
-  }
-}
+// ── 正文抓取已移除（原仅服务于 econ/leaders 的 BBC 板块，现已砍掉）──
 
 // ── 输出 ──
 
