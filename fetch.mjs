@@ -217,6 +217,7 @@ function generateDataJSON(allData, summaries) {
         time: a.timeStr || '',
         author: a.author || '',
         body: a.body || '',
+        bodyZh: a.bodyZh || '',
         freeLink: a.freeLink || ''
       };
     });
@@ -383,7 +384,7 @@ async function fetchHtmlText(url, timeoutMs) {
   return text;
 }
 
-// 纯文本 + 分段 + 限长约 3000 字，不含图片
+// 纯文本 + 分段（不截断），不含图片
 function extractBody(html) {
   const cleaned = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -402,33 +403,71 @@ function extractBody(html) {
       .replace(/\s+/g, ' ').trim();
     if (t.length >= 20) paras.push(t); // 过滤超短 / 导航杂讯
   }
-  const MAX = 3000;
-  let out = '', total = 0;
-  for (const p of paras) {
-    if (total + p.length > MAX) {
-      const remain = MAX - total;
-      if (remain > 60) out += p.slice(0, remain);
-      break;
-    }
-    out += p + '\n\n'; total += p.length + 2;
-  }
-  return out.trim();
+  return paras.join('\n\n').trim();
 }
 
-// 主入口：原文失败 → archive.org 快照兜底
+// 正文长文阈值（字符）：超过则判定长文，丢弃正文只留链接
+const BODY_MAX_CHARS = 3000;
+
+// 主入口：原文失败 → archive.org 快照兜底；超长则丢弃正文
 async function fetchArticleBody(url) {
   const safe = safeUrl(url);
   if (!safe) return { body: '', freeLink: '' };
   try {                                   // 1. 直接抓原文
     const body = extractBody(await fetchHtmlText(safe, 12000));
-    if (body) return { body, freeLink: '' };
+    if (body) {
+      const tooLong = body.length > BODY_MAX_CHARS;
+      return { body: tooLong ? '' : body, freeLink: '' };
+    }
   } catch (e) { /* 兜底 */ }
   try {                                   // 2. archive.org 快照
     const snap = 'https://web.archive.org/web/2/' + encodeURI(safe);
     const body = extractBody(await fetchHtmlText(snap, 15000));
-    if (body) return { body, freeLink: snap };
+    if (body) {
+      const tooLong = body.length > BODY_MAX_CHARS;
+      return { body: tooLong ? '' : body, freeLink: snap };
+    }
   } catch (e) { /* 忽略 */ }
   return { body: '', freeLink: '' };
+}
+
+// ── 正文翻译（逐篇，通俗中文）──
+// 通俗化 prompt：口语、好懂、适合口播，保留段落
+const BODY_ZH_PROMPT = `你是一位帮人速读外网资讯的中文编辑。请把下面这段英文文章正文逐段翻译成通俗易懂的中文，要求：
+- 口语化、接地气，像读给观众听的口播稿，不要字面直译、不要翻译腔。
+- 保留原文的段落结构，段落之间用空行分隔。
+- 专业术语第一次出现时用括号注明英文。
+- 只输出中文译文，不要解释、不要加"翻译："前缀。
+直接输出译文正文：`;
+
+async function translateBody(enText) {
+  if (!enText || !LLM_API_KEY) return '';           // 无 key 不译
+  try {
+    const apiUrl = `${LLM_BASE_URL}/v1/chat/completions`;
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${LLM_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: LLM_MODEL,
+        max_tokens: 6000,
+        temperature: 0.5,
+        messages: [
+          { role: 'system', content: BODY_ZH_PROMPT },
+          { role: 'user', content: enText.slice(0, 3000) }  // 防超长输入
+        ]
+      }),
+      signal: AbortSignal.timeout(60000)
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    return (data.choices?.[0]?.message?.content || '').trim();
+  } catch (e) {
+    console.error('  正文翻译失败:', e.message);
+    return '';
+  }
 }
 
 // ── 时间 / 作者格式化（北京时间）──
@@ -545,9 +584,10 @@ for (const cat of CATEGORIES) {
   allData[cat.key] = processedData[cat.key];
 }
 
-// ── 富化：抓正文 + 计算时间/作者显示串（逐条容错，失败不影响整体）──
+// ── 富化：抓正文 + 计算时间/作者显示串 + 短文正文翻译（逐条容错）──
 async function enrichArticles(allData) {
   const tasks = [];
+  const toTranslate = [];
   for (const cat of CATEGORIES) {
     for (const a of allData[cat.key]) {
       if (a.source === 'arXiv') {
@@ -555,14 +595,30 @@ async function enrichArticles(allData) {
         a.author  = formatAuthors(a.authors);
         a.body    = a.abstract || '';         // 论文正文用摘要代替
         a.freeLink = '';
+        if (a.body) toTranslate.push(a);      // 摘要≤3000 视为短文，翻译
       } else {                                 // HN（含 paper 板块里的 HN 条目）
         a.timeStr = a.time ? beijingTimeStr(a.time * 1000) : '';   // HN time 是秒
         a.author  = '';                        // 作者仅 arXiv 显示
-        tasks.push(fetchArticleBody(a.link).then(r => { a.body = r.body; a.freeLink = r.freeLink; }));
+        tasks.push(fetchArticleBody(a.link).then(r => {
+          a.body = r.body; a.freeLink = r.freeLink;
+          if (r.body) toTranslate.push(a);    // 短文（≤3000）才翻译
+        }));
       }
     }
   }
   await Promise.allSettled(tasks);             // 任一条失败仅空 body，不阻断
+
+  // 分批并发翻译短文正文（每批 ≤4 篇，防 Actions 超时）
+  if (toTranslate.length) {
+    console.log(`🌐 翻译正文（${toTranslate.length} 篇短文）...`);
+    const BATCH = 4;
+    for (let i = 0; i < toTranslate.length; i += BATCH) {
+      const batch = toTranslate.slice(i, i + BATCH);
+      await Promise.allSettled(batch.map(async a => {
+        a.bodyZh = await translateBody(a.body);
+      }));
+    }
+  }
 }
 await enrichArticles(allData);
 
