@@ -214,6 +214,8 @@ function generateDataJSON(allData, summaries) {
         url: a.link || '',
         category: cat.key,
         breaking: b,
+        time: a.timeStr || '',
+        author: a.author || '',
         body: a.body || '',
         freeLink: a.freeLink || ''
       };
@@ -335,11 +337,116 @@ async function fetchArxiv() {
     const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
     const xml = await res.text();
     const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) || [];
-    return entries.slice(0, 8).map(e => ({
-      title: ((e.match(/<title>(.*?)<\/title>/)?.[1] || '').replace(/\s+/g, ' ').trim()),
-      link: (e.match(/<id>(.*?)<\/id>/)?.[1] || ''), source: 'arXiv'
-    })).filter(i => i.title);
+    return entries.slice(0, 8).map(e => {
+      const authors = [...e.matchAll(/<name>(.*?)<\/name>/g)]
+        .map(m => m[1].replace(/\s+/g, ' ').trim()).filter(Boolean);
+      return {
+        title: ((e.match(/<title>(.*?)<\/title>/)?.[1] || '').replace(/\s+/g, ' ').trim()),
+        link: (e.match(/<id>(.*?)<\/id>/)?.[1] || ''),
+        source: 'arXiv',
+        authors,
+        published: (e.match(/<published>(.*?)<\/published>/)?.[1] || ''),
+        abstract: (e.match(/<summary>(.*?)<\/summary>/)?.[1] || '')
+          .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+      };
+    }).filter(i => i.title);
   } catch (e) { console.error('arXiv 失败:', e.message); return []; }
+}
+
+// ── 正文抓取 ──
+// 仅放行 http/https（防 SSRF / 恶意协议）
+function safeUrl(u) {
+  try {
+    const p = new URL(u);
+    if (p.protocol !== 'http:' && p.protocol !== 'https:') return null;
+    return p.href;
+  } catch { return null; }
+}
+
+// 抓取并校验为 HTML 文本；超时防卡、拒 PDF/图片/JSON 等非 HTML 类型
+async function fetchHtmlText(url, timeoutMs) {
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      'Accept': 'text/html,application/xhtml+xml,*/*'
+    },
+    redirect: 'follow',
+    signal: AbortSignal.timeout(timeoutMs),
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const ct = (res.headers.get('content-type') || '').toLowerCase();
+  if (!ct.includes('text/html') && !ct.includes('application/xhtml')) {
+    throw new Error('not html: ' + ct);
+  }
+  const text = await res.text();
+  if (!text.trim()) throw new Error('empty body');
+  return text;
+}
+
+// 纯文本 + 分段 + 限长约 3000 字，不含图片
+function extractBody(html) {
+  const cleaned = html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<nav[\s\S]*?<\/nav>/gi, ' ')
+    .replace(/<header[\s\S]*?<\/header>/gi, ' ')
+    .replace(/<footer[\s\S]*?<\/footer>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ');
+  const paras = [];
+  for (const m of cleaned.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+    let t = m[1]
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&')
+      .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>')
+      .replace(/&quot;/gi, '"').replace(/&#\d+;/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+    if (t.length >= 20) paras.push(t); // 过滤超短 / 导航杂讯
+  }
+  const MAX = 3000;
+  let out = '', total = 0;
+  for (const p of paras) {
+    if (total + p.length > MAX) {
+      const remain = MAX - total;
+      if (remain > 60) out += p.slice(0, remain);
+      break;
+    }
+    out += p + '\n\n'; total += p.length + 2;
+  }
+  return out.trim();
+}
+
+// 主入口：原文失败 → archive.org 快照兜底
+async function fetchArticleBody(url) {
+  const safe = safeUrl(url);
+  if (!safe) return { body: '', freeLink: '' };
+  try {                                   // 1. 直接抓原文
+    const body = extractBody(await fetchHtmlText(safe, 12000));
+    if (body) return { body, freeLink: '' };
+  } catch (e) { /* 兜底 */ }
+  try {                                   // 2. archive.org 快照
+    const snap = 'https://web.archive.org/web/2/' + encodeURI(safe);
+    const body = extractBody(await fetchHtmlText(snap, 15000));
+    if (body) return { body, freeLink: snap };
+  } catch (e) { /* 忽略 */ }
+  return { body: '', freeLink: '' };
+}
+
+// ── 时间 / 作者格式化（北京时间）──
+// 输入 epoch 毫秒，输出："8月25日 14:30 · 下午"
+function beijingTimeStr(epochMs) {
+  const d = bjDate(epochMs);
+  const hh = String(d.getUTCHours()).padStart(2, '0');
+  const mm = String(d.getUTCMinutes()).padStart(2, '0');
+  const h = d.getUTCHours();
+  const slot = h < 6 ? '凌晨' : h < 12 ? '上午' : h < 18 ? '下午' : '晚上';
+  return `${d.getUTCMonth() + 1}月${d.getUTCDate()}日 ${hh}:${mm} · ${slot}`;
+}
+
+// 作者显示：前 N 个 + " 等"
+function formatAuthors(authors, max = 2) {
+  if (!authors || !authors.length) return '';
+  const str = authors.slice(0, max).join(', ');
+  return authors.length > max ? `${str} 等` : str;
 }
 
 // ── HTML 生成 ──
@@ -373,16 +480,13 @@ function detailItem(item, idx, allItems) {
   return `<div class="detail-item">
   <h3><a href="${esc(item.link)}" target="_blank" rel="noopener">${idx+1}. ${esc(cn)}</a></h3>
   <div class="source-line">${esc(sub)}</div>
+  ${item.timeStr ? `<div class="meta-line" style="font-size:12px;color:#8a8a8a;margin:2px 0 4px;">🕒 ${esc(item.timeStr)}${item.author ? `&nbsp; 👤 ${esc(item.author)}` : ''}</div>` : ''}
   ${conclusion ? `<div class="conclusion">${esc(conclusion)}</div>` : ''}
   ${item.freeLink ? `
   <div class="card-links" style="margin:8px 0;display:flex;gap:14px;flex-wrap:wrap;font-size:13px;">
     <a href="${esc(item.link)}" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">🔗 原文链接</a>
     <a href="${esc(item.freeLink)}" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none;">📦 免费快照</a>
   </div>` : ''}
-  ${item.body ? `
-  <label class="toggle-btn" for="toggle-body-${idx}">▶ 展开正文</label>
-  <input type="checkbox" class="toggle" id="toggle-body-${idx}">
-  <div class="toggle-content">${esc(item.body).split(/\n+/).filter(Boolean).map(p => `<p style="margin:6px 0;">${p}</p>`).join('')}</div>` : ''}
   <label class="toggle-btn" for="toggle-bg-${idx}">▶ 展开背景</label>
   <input type="checkbox" class="toggle" id="toggle-bg-${idx}">
   <div class="toggle-content">${esc(item.zh && item.zh !== item.title ? `原文：${item.title}` : '暂无更多背景信息。')}</div>
@@ -409,7 +513,7 @@ for (const cat of CATEGORIES) {
   for (const item of hnItems) {
     if (used.has(item.id)) continue;
     if (cat.kw.test((item.title||'').toLowerCase())) {
-      hnData[cat.key].push({ title:item.title, link:item.url, source:'HN' });
+      hnData[cat.key].push({ title:item.title, link:item.url, source:'HN', time:item.time, by:item.by });
       used.add(item.id);
     }
   }
@@ -441,7 +545,26 @@ for (const cat of CATEGORIES) {
   allData[cat.key] = processedData[cat.key];
 }
 
-// ── 正文抓取已移除（原仅服务于 econ/leaders 的 BBC 板块，现已砍掉）──
+// ── 富化：抓正文 + 计算时间/作者显示串（逐条容错，失败不影响整体）──
+async function enrichArticles(allData) {
+  const tasks = [];
+  for (const cat of CATEGORIES) {
+    for (const a of allData[cat.key]) {
+      if (a.source === 'arXiv') {
+        a.timeStr = a.published ? beijingTimeStr(new Date(a.published).getTime()) : '';
+        a.author  = formatAuthors(a.authors);
+        a.body    = a.abstract || '';         // 论文正文用摘要代替
+        a.freeLink = '';
+      } else {                                 // HN（含 paper 板块里的 HN 条目）
+        a.timeStr = a.time ? beijingTimeStr(a.time * 1000) : '';   // HN time 是秒
+        a.author  = '';                        // 作者仅 arXiv 显示
+        tasks.push(fetchArticleBody(a.link).then(r => { a.body = r.body; a.freeLink = r.freeLink; }));
+      }
+    }
+  }
+  await Promise.allSettled(tasks);             // 任一条失败仅空 body，不阻断
+}
+await enrichArticles(allData);
 
 // ── 输出 ──
 
