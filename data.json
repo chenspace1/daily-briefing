@@ -1,6 +1,6 @@
 {
-  "date": "2026年9月5日星期六",
-  "dayOfWeek": "2026年9月5日星期六",
+  "date": "2026年9月6日星期日",
+  "dayOfWeek": "2026年9月6日星期日",
   "isWeekly": false,
   "categories": [
     {
@@ -10,6 +10,21 @@
       "commentary": "",
       "articleCount": 8,
       "articles": [
+        {
+          "id": "2babf08e",
+          "title": "Finite time blowup for an averaged three-dimensional Navier-Stokes equation (2014)",
+          "zh": "平均化三维",
+          "summary": "",
+          "source": "HN",
+          "url": "https://terrytao.wordpress.com/2014/02/04/finite-time-blowup-for-an-averaged-three-dimensional-navier-stokes-equation/",
+          "category": "ai",
+          "breaking": false,
+          "time": "9月6日 04:25 · 凌晨",
+          "author": "",
+          "body": "",
+          "bodyZh": "",
+          "freeLink": ""
+        },
         {
           "id": "c826810d",
           "title": "Discovery of a new OpenAI agent message board",
@@ -26,17 +41,47 @@
           "freeLink": ""
         },
         {
-          "id": "a4ca6138",
-          "title": "GPT-6 Astra on OpenRouter",
-          "zh": "GPT-6 Astra on OpenRouter",
+          "id": "9c394541",
+          "title": "Visualizing Rust's Vtables: How dyn Trait Works In Memory",
+          "zh": "Visualizing Rust's Vtables: How dyn Trait Works In Memory",
           "summary": "",
           "source": "HN",
-          "url": "https://openrouter.ai/openai/gpt-6-astra",
+          "url": "https://sofiabelen.github.io/projects/visualizing-rusts-vtables-how-dyn-trait-works-in-memory/",
           "category": "ai",
-          "breaking": true,
-          "time": "9月5日 05:39 · 凌晨",
+          "breaking": false,
+          "time": "9月5日 21:31 · 晚上",
           "author": "",
           "body": "",
+          "bodyZh": "",
+          "freeLink": ""
+        },
+        {
+          "id": "9a7632de",
+          "title": "OKF Agent Memory – Git-native persistent memory for AI coding agents",
+          "zh": "OKF Agent Memory – Git-native persistent memory for AI coding agents",
+          "summary": "",
+          "source": "HN",
+          "url": "https://github.com/okf-memory/okf-agent-memory",
+          "category": "ai",
+          "breaking": false,
+          "time": "9月6日 06:15 · 上午",
+          "author": "",
+          "body": "",
+          "bodyZh": "",
+          "freeLink": ""
+        },
+        {
+          "id": "20dc0b47",
+          "title": "LLMs as a Cognitive Virus",
+          "zh": "LLMs as a Cognitive Virus",
+          "summary": "",
+          "source": "HN",
+          "url": "https://arxiv.org/abs/2609.03344",
+          "category": "ai",
+          "breaking": false,
+          "time": "9月6日 04:02 · 凌晨",
+          "author": "",
+          "body": "Focus to learn more arXiv-issued DOI via DataCite (pending registration) Submission history From: Luis F Seoane PhD [ view email ] [v1] Thu, 3 Sep 2026 04:03:49 UTC (2,776 KB) Full-text links: Access Paper: View a PDF of the paper titled Large-Language Models as a Cognitive Virus, by Ricard Sol\\ e and 8 other authors View PDF HTML (experimental) TeX Source view license Current browse context: physics.soc-ph < prev | next > new | recent | 2026-09 Change to browse by: cs cs.CY nlin nlin.AO physics q-bio q-bio.PE References & Citations NASA ADS Google Scholar Semantic Scholar export BibTeX citation Loading... BibTeX formatted citation &times; loading... Data provided by: Bookmark Bibliographic Tools Bibliographic and Citation Tools Bibliographic Explorer Toggle Bibliographic Explorer ( What is the Explorer? ) Connected Papers Toggle Connected Papers ( What is Connected Papers? ) Litmaps Toggle Litmaps ( What is Litmaps? ) scite.ai Toggle scite Smart Citations ( What are Smart Citations? ) Code, Data, Media Code, Data and Media Associated with this Article alphaXiv Toggle alphaXiv ( What is alphaXiv? ) Links to Code Toggle CatalyzeX Code Finder for Papers ( What is CatalyzeX? ) DagsHub Toggle DagsHub ( What is DagsHub? ) GotitPub Toggle Gotit.pub ( What is GotitPub? ) Huggingface Toggle Hugging Face ( What is Huggingface? ) ScienceCast Toggle ScienceCast ( What is ScienceCast? ) Demos Demos Replicate Toggle Replicate ( What is Replicate? ) Spaces Toggle Hugging Face Spaces ( What is Spaces? ) Spaces Toggle TXYZ.AI ( What is TXYZ.AI? ) Related Papers Recommenders and Search Tools Link to Influence Flower Influence Flower ( What are Influence Flowers? ) Core recommender toggle CORE Recommender ( What is CORE? ) Author Venue Institution Topic About arXivLabs arXivLabs: experimental projects with community collaborators arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\n\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs .",
           "bodyZh": "",
           "freeLink": ""
         },
@@ -56,75 +101,30 @@
           "freeLink": ""
         },
         {
-          "id": "63c47f7c",
-          "title": "Reversing MikroTik's Silent Patch: The RouterOS 7.23.4 Fix They Wouldn't Explain",
-          "zh": "Reversing MikroTik's Silent Patch: The RouterOS 7.23.4 Fix They Wouldn't Explain",
+          "id": "52bcad0b",
+          "title": "Chrome again exempts Google from user site data settings",
+          "zh": "Chrome again exempts Google from user site data settings",
           "summary": "",
           "source": "HN",
-          "url": "https://npratley.net/reversing-mikrotiks-silent-patch-the-routeros-7-23-4-fix-they-wouldnt-explain/",
+          "url": "https://lapcatsoftware.com/articles/2026/9/1.html",
           "category": "ai",
           "breaking": false,
-          "time": "9月5日 08:03 · 上午",
+          "time": "9月6日 07:39 · 上午",
           "author": "",
-          "body": "",
-          "bodyZh": "",
+          "body": "Six years ago I published a blog post Chrome exempts Google sites from user site data settings that received quite a bit of attention: Michael Tsai , Hacker News The Register , The Verge , and Gizmodo , among others. The blog post was about a Google Chrome bug that mysteriously exempted Google-owned sites from the setting to automatically delete all site data. Eventually, spurred by my report, Google did fix the bug.\n\nYou can probably guess why I’m writing about the bug again: I’ve noticed Chrome doing something similar now. I’ve reproduced this new issue on two different Macs with Chrome version 152.0.7977.83. For testing purposes, I changed the default search engine in Chrome from Google to DuckDuckGo, just to make sure that this setting was not the cause.\n\nOn-device site data settings ( chrome://settings/content/siteData ) shows that the Default behavior is to Delete data sites have saved to your device when you close all windows.\n\nI’m not signed into Chrome and indeed disallow Chrome sign-in.\n\nYou can see on chrome://settings/content/all that no site data is saved.\n\nNow I do a Google search.\n\nThen I close the one and only window in Chrome.\n\nReturning to chrome://settings/content/all , I find some google.com site data! This data persists even if I quit and relaunch Chrome.\n\nIf I delete the Google site data and repeat the whole process, the same issue occurs again.\n\nAs far as I can tell, www.google.com is the only site exempted by Chrome. Looking inside the ~/Library /Application Support /Google /Chrome /Default folder, it appears that the saved site data consists of Cookies, Local Storage, and Session Storage.\n\nI’m not certain when this issue was introduced. My default web browser is Safari, so I don’t use Chrome full-time, though I do use it (and Firefox) frequently for testing.\n\nI’m personally inclined to cite Hanlon’s razor here rather than engage in conspiracy theories. Nonetheless, Google has no excuse for incompetence either, especially given the amount of money made by the company (which I’ll always call Google, not Alphabet) and its engineers. They can avoid receiving bad publicity from me by improving their QA. Perhaps some kind of unit tests for this feature? Move slower and don’t break things.\n\nI wish the government would move fast and break up the Google Search monopoly. Don’t even get me started about how when you’re not signed in to Google, all Google Search results are now opaque https://www.google.com/goto?url= garbage rather than the site URLs!",
+          "bodyZh": "六年前，我发过一篇博客，标题叫《Chrome对Google自家网站豁免了用户站点数据设置》，当时还挺火的——Michael Tsai、Hacker News、The Register、The Verge、Gizmodo都报道了。那篇博文讲的是Chrome浏览器的一个bug：明明是用户设置好要自动删除所有网站数据，可Google自家的网站却莫名其妙地被排除在外。后来，可能因为我这篇报道的推动，Google总算把那个bug修掉了。\n\n你们大概能猜到，我今天为啥又提起这事儿——因为我发现Chrome现在又开始搞类似的名堂了。我在两台不同的Mac上，都用Chrome 152.0.7977.83这个版本，复现了这个问题。为了测试，我特意把Chrome的默认搜索引擎从Google换成了DuckDuckGo，就为了排除是搜索引擎设置的影响。\n\n在设备上的站点数据设置界面（chrome://settings/content/siteData）里，显示默认行为是“关闭所有窗口时，删除网站上保存在你设备上的数据”。\n\n我没有登录Chrome，而且还明文禁止Chrome登录。\n\n你去chrome://settings/content/all页面上看，也确实没有任何网站数据被保存。\n\n然后，我用Google搜了个东西。\n\n接着，我把Chrome里唯一的窗口关掉。\n\n再回到chrome://settings/content/all一看，哎，发现google.com的网站数据出现了！而且，就算我把Chrome彻底退出再重新打开，这些数据也还在。\n\n我要是在设置里把Google的网站数据删掉，再重复一遍上面的流程，这个问题照样复现。\n\n就我能看到的范围来说，www.google.com是唯一一个被Chrome豁免的网站。我翻了翻~/Library/Application Support/Google/Chrome/Default这个文件夹，发现被保存下来的网站数据主要是Cookies、Local Storage和Session Storage。\n\n我也不太清楚这个bug是什么时候开始出现的。我的默认浏览器是Safari，平时不会一直用Chrome，不过我确实经常拿它（还有Firefox）来做测试。\n\n我个人更倾向于用“汉隆剃刀”来解释这事儿，而不是瞎猜什么阴谋论。不过话说回来，Google就算不是故意的，那也没资格用“无能”来当借口——你看看这家公司挣了多少钱（我永远只会叫它Google，不是什么Alphabet），再看看它养的那些工程师。只要他们把测试做好点儿，就能避免我来曝光他们。比如，给这个功能加点单元测试？慢点来，别把东西搞坏。\n\n我真希望政府能“快刀斩乱麻”，直接拆了Google的搜索垄断。别的先不提，就说现在，只要你没登录Google账号，所有搜索结果都变成一串不透明的https://www.google.com/goto?url= 开头的东西，压根看不到真实网址——这事儿我都懒得展开骂了！",
           "freeLink": ""
         },
         {
-          "id": "e4e6c40d",
-          "title": "Portal by Spotify cut my Claude Code token usage by 90%",
-          "zh": "Portal by Spotify cut my Claude Code token usage by 90%",
+          "id": "c8deeb70",
+          "title": "AI handles incidents, engineers lose touch with their systems",
+          "zh": "AI handles incidents, engineers lose touch with their systems",
           "summary": "",
           "source": "HN",
-          "url": "https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90",
+          "url": "https://www.sylvainkalache.com/blog/ai-handles-incidents-engineers-lose-touch-with-their-systems",
           "category": "ai",
           "breaking": false,
-          "time": "9月5日 07:38 · 上午",
-          "author": "",
-          "body": "",
-          "bodyZh": "",
-          "freeLink": ""
-        },
-        {
-          "id": "9fe8632f",
-          "title": "Government Rails Site Hit Hours After CVE Patch",
-          "zh": "Government Rails Site Hit Hours After CVE Patch",
-          "summary": "",
-          "source": "HN",
-          "url": "https://rietta.com/blog/ruby-on-rails-cve-exploited-hours-after-patch/",
-          "category": "ai",
-          "breaking": false,
-          "time": "9月5日 03:06 · 凌晨",
-          "author": "",
-          "body": "",
-          "bodyZh": "",
-          "freeLink": "https://web.archive.org/web/2/https://rietta.com/blog/ruby-on-rails-cve-exploited-hours-after-patch/"
-        },
-        {
-          "id": "2f6a76b3",
-          "title": "Show HN: Moadim.io – A scheduler for agents",
-          "zh": "Show HN: Moadim.io – A scheduler for agents",
-          "summary": "",
-          "source": "HN",
-          "url": "https://moadim.io/",
-          "category": "ai",
-          "breaking": false,
-          "time": "9月5日 07:50 · 上午",
-          "author": "",
-          "body": "Starts the server in the background at http://localhost:5784/ . Requires a Unix-like OS with tmux — Moadim&#x27;s portable in-process scheduler dispatches loops, then launches each agent inside a tmux session. No host cron daemon is required.\n\nPrefer a prebuilt install? Use cargo binstall moadim or npm install -g moadim .\n\n$ curl http://localhost:5784/api/v1/routines Every loop is also a documented HTTP endpoint, with an OpenAPI schema and Swagger UI baked into the daemon.\n\n{ \"name\": \"list_routines\", \"arguments\": {} } The same call as an MCP tool, for any MCP-compatible agent connected to /mcp .\n\nA loop pairs a prompt, a schedule, and an agent — Claude, Codex, Hermes, NanoClaw, or Pi. Each tick launches it in a fresh, isolated workbench, kills hung runs, and reaps the session when it&#x27;s done.\n\nLoops fire from Moadim&#x27;s portable in-process scheduler — no hidden queue, no cloud. Run moadim install to register a launchd / systemd service so the daemon keeps running across logins and reboots.\n\nEvery loop is an MCP tool and a documented HTTP endpoint — Swagger UI, an iCal feed, and a web UI baked into the daemon.",
-          "bodyZh": "把服务器放到后台跑起来，地址是 http://localhost:5784/。前提是你得有个类Unix系统，还得装了 tmux（一个终端复用工具）——Moadim 自带的进程内调度器负责分发循环任务，然后每个 agent 都在单独的 tmux 会话里启动。主机上根本不需要跑 cron 定时守护进程（daemon）。\n\n不想自己编译？那就直接装现成版：cargo binstall moadim 或者 npm install -g moadim，一条命令就搞定。\n\n$ curl http://localhost:5784/api/v1/routines —— 跑这一条，所有循环任务就全列出来了。而且每个循环本身也是一个写好了文档的 HTTP 接口（endpoint），OpenAPI 规范（schema）和 Swagger UI 都直接内置在守护进程里。\n\n{ \"name\": \"list_routines\", \"arguments\": {} } —— 同一个调用也能当作 MCP（Model Context Protocol）工具来使。任何兼容 MCP 的 agent，只要连上 /mcp 这个路径，就能直接这么调用。\n\n一个循环（loop），就是把三样东西绑到一块儿：一段提示词（prompt）、一份执行计划（schedule），再加一个 agent——可以是 Claude、Codex、Hermes、NanoClaw 或者 Pi。每触发一次，就在一个全新、隔离的工作台（workbench）里启动它；要是跑到一半卡死了，直接掐掉；跑完了，就把整个会话顺手回收掉。\n\n循环的触发全靠 Moadim 自带的进程内调度器——背后没有藏着掖着的队列，也不依赖云。跑一下 moadim install，它就会帮你注册成 launchd（macOS）或 systemd（Linux）服务，这样就算你登录、登出、重启电脑，守护进程也能一直在后台待命。\n\n每个循环既是一个 MCP 工具，也是一个带文档的 HTTP 接口——Swagger UI、iCal 订阅源、网页界面全都内置在守护进程里头，想看随时都能看。",
-          "freeLink": ""
-        },
-        {
-          "id": "85756017",
-          "title": "“Next-token predictor” is the wrong mental model for LLMs",
-          "zh": "“Next-token predictor” is the wrong mental model for LLMs",
-          "summary": "",
-          "source": "HN",
-          "url": "https://gmcgoldr.github.io/2026/09/04/llm-next-token-predictors.html",
-          "category": "ai",
-          "breaking": false,
-          "time": "9月5日 01:09 · 凌晨",
+          "time": "9月5日 15:52 · 下午",
           "author": "",
           "body": "",
           "bodyZh": "",
@@ -151,7 +151,7 @@
           "time": "9月4日 01:59 · 凌晨",
           "author": "Yuntian Deng, Pengyu Nie 等",
           "body": "Many recurring text functions are easy to describe but difficult to implement with rules, while calling a large remote model for every input introduces repeated cost, latency, and dependency on a provider. We present compile by training, which turns a natural-language specification into a reusable neural function. At compile time, teacher models generate task-specific examples that are used to train a small adapter for a compact interpreter. The resulting function runs without the teachers and can be stored, versioned, and composed like ordinary software. On FuzzyBench-Hard, a subset on which the Program-as-Weights fast compiler produced no exact matches, compile by training reaches 83.6% semantic accuracy. This higher accuracy comes with a higher compile-time cost: roughly a minute rather than seconds for the fast compiler. We deploy the compiler in a public interactive service and demonstrate compiled functions in a multi-site website helper, a language-controlled 3D avatar, and a bidirectional English-Claudish translator.",
-          "bodyZh": "",
+          "bodyZh": "很多常见的文本功能，说说容易，想用规则去实现起来却很麻烦。而如果每个输入都去调用一次远程大模型，成本会重复叠加，延迟高，还会一直依赖某家模型服务商。所以我们提出了一种新方法：叫“通过训练来编译”（compile by training）。它能把一句自然语言描述，变成一条可以重复使用的神经网络函数。在编译阶段，由“教师模型”（teacher models）生成针对任务的各种样例，再用这些样例去训练一个小型适配器，配合一个精简的解释器来跑。最终得到的函数运行起来不再依赖教师模型，还能像普通软件一样被存储、做版本管理和组合使用。在FuzzyBench-Hard这个测试集上，旧方案“权重即程序”（Program-as-Weights）快速编译器一个精确匹配都没拿到，而“通过训练来编译”达到了83.6%的语义准确率（semantic accuracy）。准确率更高了，编译成本也相应增加：大概要一分钟，而不是快速编译器的几秒钟。我们已把这个编译器部署成公开的在线交互服务，并用编译出来的函数做了几个实际演示：一个跨网站助手、一个由语言控制的3D虚拟人物，还有一个英语和Claudish互译的双向翻译器。",
           "freeLink": ""
         },
         {
@@ -166,7 +166,7 @@
           "time": "9月4日 01:59 · 凌晨",
           "author": "Haoyaun Zhu, Jie Zhang",
           "body": "Language-model judges now gate training data, score generations, and drive leaderboards. The judge is then a measurement instrument, resting on one rarely stated assumption: the same request, sent to the same model name, reads the same tomorrow. We audited that assumption in two preregistered campaigns with every threshold fixed in advance; neither got past validating its instrument. Across 52,988 audited request attempts, same-window repeat rankings agreed at Spearman 0.400 against a required 0.90, and byte-identical next-day replays agreed at 0.78 against a required 0.99, each time with the execution record at ceiling. Three mechanisms explain the gap: a label-to-meaning mapping that biased readouts as strongly as the signal; candidate gaps seven orders of magnitude below the instrument's own noise floor; and byte-identical inputs returning different rankings, a noise that exact-permutation readouts compound. Neither metric substitution nor sampling repaired it on the tested grid. Preregistered follow-ups bound the problem: waiting did not help on the days sampled (0.805 versus 0.800, replicated over five further days); switching providers did not help (four providers share the floor, medians 0.74 to 0.88, predicted by none of the metadata fields they expose); self-hosting on batch-invariant kernels helped only while the server was quiet; and on constructed errors with known gaps, the readout's separation tracks error type, not size. We distill the evidence into a three-level snapshot-identity ladder, eight design rules, and a reporting checklist; a pilot at roughly 2% of the study's call volume would have exposed both unreachable gates in advance. All results concern externally measured behaviour on shared serving infrastructure. On a shared endpoint, a model name is not a frozen instrument; a preregistered evaluation must measure its instrument before freezing any gate on it.",
-          "bodyZh": "",
+          "bodyZh": "现在，用语言模型当裁判（language-model judge）已经成了标配：筛训练数据、给生成内容打分、刷排行榜，全看它。说白了，这裁判就是一把测量尺子，可尺子底下藏着一个很少被点破的假设——同一条请求，发给同一个名字的模型，明天读出来的结果还跟今天一样。我们专门去审这个假设，做了两轮预注册（preregistered）审计，所有阈值都提前锁死；结果两轮连“先校验尺子本身”这关都没过去。总共五万两千九百八十八次请求尝试里，同一时间段内的重复排序，要求斯皮尔曼系数（Spearman）到0.90，实测只有0.400；字节完全一样的请求隔天再发，要求一致性到0.99，实测只有0.78。而且每一次调用记录都显示执行成功、没有异常。差这么多，背后有三个机制：一是标签到含义的映射本身就把读数带偏了，偏的程度跟真正的信号一样大；二是候选答案之间的差距，比尺子的噪声底限（noise floor）还要低七个数量级；三是字节一模一样的输入，居然会返回不同的排序，这种噪声又被精确排列（exact-permutation）式的读法进一步放大。在测试的参数网格上，不管是换成其他评估指标，还是改采样方法，都救不回来。后面按预注册方案做的补充实验，把问题边界也划清楚了：等几天再用没用（抽样测到的几天里结果就是0.805对0.800，后面又补测了五天，还是老样子）；换一家服务商也没用（四家基本在同一水平线上，中位数0.74到0.88，而且它们暴露出来的元数据字段没有一个能预测这个表现）；自己托管（self-hosting）跑、用批次无关的核，也只有服务器空闲时才稍微好点；还有，对人为构造的、差距已知的错误，读数能把它们区分开来的程度跟错误类型有关，跟错误大小没关系。我们把一堆证据提炼成一个三层“快照—身份”阶梯（snapshot-identity ladder）、八条设计规则，外加一份报告检查清单；其实只需要做一个调用量约为本研究百分之二的小规模预试，就能提前发现那两个根本跨不过去的门槛。所有结论都是基于共享服务基础设施上的外部观测行为。记住一句话：在共享接口上，模型名不是一台冻结不变的仪器；你要做预注册评估，就得先把仪器校好，再去冻结任何门槛。",
           "freeLink": ""
         },
         {
@@ -181,7 +181,7 @@
           "time": "9月4日 01:59 · 凌晨",
           "author": "Lihao Liu, Peng Tang 等",
           "body": "Evolutionary prompt optimizers such as GEPA suffer from prompt bloat: each iteration appends rules and caveats, producing prompts up to 3$\\times$ longer yet no more accurate. We trace this to three deficiencies - incomplete error observation, limited search diversity, and unreliable selection - and propose ESPO (Error-Structured Prompt Optimization), which decomposes prompt optimization into three phases: Diagnose clusters all training errors into structural patterns in one round; Propose generates candidates via four complementary strategies with independent biases; Select applies bootstrap stability selection. On seven public NLP benchmarks - Tweet, MMLU, GSM8K, HotpotQA, ScoNe, HoVer, and PUPA - ESPO improves average accuracy by $+$3.76 pp over the state-of-the-art (74.67% vs 70.91% for GEPA), matching or exceeding GEPA on every dataset while producing prompts 47% shorter (1,004 vs 1,878 chars) and faster at inference. Cross-model experiments across four additional student models (Gemma 3 12B, Mistral 14B, Qwen3 32B, Claude Haiku 4.5) show ESPO yields the best average accuracy on every model tested, with the largest gap on Qwen3 GSM8K (15.00% $\\to$ 91.40%). A generalization bound (Appendix) grounds each phase in a corresponding term of the test-time gap, and the ablation confirms a key prediction: adding diversity without bootstrap selection actually hurts performance ($-$1.20%).",
-          "bodyZh": "",
+          "bodyZh": "进化式的提示词优化器（比如GEPA）有一个毛病：提示词越优化越“臃肿”——每跑一轮就往里加规则和注意事项，结果提示词最长能膨胀到原来的3倍，准确率却没提上去。我们把这个问题归结为三个短板：错误观察不完整、搜索多样性不够、筛选机制不可靠。为此我们提出了ESPO（基于错误结构化的提示词优化），把提示词优化拆成三个阶段：诊断阶段，用一轮就把所有训练错误归类成结构化模式；生成阶段，用四种各有偏好的互补策略来构造候选方案；筛选阶段，采用自助法稳定性筛选。在七个公开NLP基准（Tweet、MMLU、GSM8K、HotpotQA、ScoNe、HoVer、PUPA）上，ESPO比目前最先进的方法平均准确率提高了3.76个百分点（74.67%对GEPA的70.91%），而且在每个数据集上都做到不输GEPA甚至更好，同时提示词平均短了47%（1004字符对1878字符），推理也更快。跨模型实验还覆盖了四个额外的学生模型（Gemma 3 12B、Mistral 14B、Qwen3 32B、Claude Haiku 4.5），结果显示ESPO在每个测试模型上都取得了最佳平均准确率，差距最大的是Qwen3上的GSM8K（从15.00%跳到91.40%）。附录里给出了一个泛化界，把每个阶段分别对应到测试期差距的某一项；消融实验也验证了一个关键预测：只增加多样性而不加自助法筛选，反而会掉性能（-1.20%）。",
           "freeLink": ""
         },
         {
@@ -196,7 +196,7 @@
           "time": "9月4日 01:59 · 凌晨",
           "author": "Kevin Du, Alexander Hoyle 等",
           "body": "Reasoning traces from chain-of-thought models appear to offer a legible window into how a model arrives at its answer. A growing body of work treats them as such, using LLM judges to diagnose errors, evaluate faithfulness, and provide step-level supervision via process reward models and generative critics. These practices rely on the text of a reasoning step carrying information about its functional role. But does the text actually encode information about which reasoning steps matter? We operationalize the importance of a reasoning step as its advantage: the change in expected reward, e.g., producing the correct final answer, from including that step, estimated via Monte Carlo rollouts. Basing ground truth on these estimates, we evaluate whether LLM judges can identify high-advantage steps and find that sufficiently capable LLMs can outperform a prevalence baseline but fall well short of a noise ceiling. Fine-tuning a model as a step-level critic yields strong improvement for incorrect responses but remains distant from ceiling for correct responses, suggesting that step importance is only partially recoverable from the text of the reasoning trace. Our findings contribute to a growing body of chain-of-thought faithfulness work that cautions against treating the legibility of reasoning traces as interpretability, especially with implications for process reward modeling.",
-          "bodyZh": "思维链（chain-of-thought）模型留下的推理轨迹，看起来就像一扇清晰的窗口，能让我们看到模型是怎么一步步得出答案的。越来越多研究也这么用，比如让大语言模型（LLM）当裁判去诊断错误、评估回答是否忠实于事实，或者通过过程奖励模型（process reward model）和生成式评审来给每一步推理打分。这些做法都有一个前提：推理步骤的文字本身，承载了它在整体推理中“起了什么作用”的信息。但问题来了——文本真的能反映出哪些推理步骤是重要的吗？\n\n我们把一个推理步骤的重要性，定义成它的“优势值”（advantage）：也就是把这一步加进去之后，期望奖励（比如最终答对的概率）的变化量。这个变化量我们用蒙特卡洛 rollout 来估计。以这个估计值作为“真实答案”，我们去检验大语言模型裁判能不能找出高优势的步骤。结果发现，能力够强的模型确实能超过“按常见比例猜”的基线，但距离“噪声上限”（noise ceiling）还差得很远。拿一个模型专门微调成“按步评审”，在处理错误回答时提升很明显，但在处理正确回答时离上限依然很远。这说明，推理步骤的重要性，只能从推理轨迹的文字中部分还原出来。\n\n我们的发现是给越来越多关于思维链“忠实性”研究的一个提醒：别把推理轨迹“看着清楚”误当成“真正可解释”，尤其对过程奖励建模来说，这个坑要特别小心。",
+          "bodyZh": "思维链模型的推理轨迹，看起来为我们提供了一扇清晰的窗口，让人能窥见模型是怎么一步步得出答案的。现在越来越多的研究也把它当成这么一回事，用大语言模型当裁判去诊断错误、评估忠实度，还通过过程奖励模型（process reward model）和生成式评审（generative critic）给每一步做监督反馈。但这些做法都有一个前提，就是推理步骤里的文本本身包含了它的功能角色信息。可问题是，文本真的能编码出哪些推理步骤是重要的吗？\n\n我们先把“一个推理步骤的重要性”这个事操作化，定义为它的优势值（advantage）：也就是加入这一步之后，预期收益（比如最后能不能答对）的变化，这个值我们用蒙特卡洛展开（Monte Carlo rollouts）来估计。基于这些估计作为真实标准，我们去看大语言模型裁判能不能识别出高优势的步骤。结果发现，能力足够强的LLM确实能超过普遍发生率基线，但距离噪声上限还有很大差距。当我们微调一个模型专门做步骤级评审时，它在错误回答上的提升很明显，但在正确回答上离上限依然差得远。这说明，推理步骤的重要性，仅凭推理轨迹的文字只能部分还原出来。\n\n我们的发现，进一步壮大了关于思维链忠实度（chain-of-thought faithfulness）的研究阵容——这类研究一直在提醒大家：别把推理轨迹的可读性当成可解释性，尤其是对过程奖励建模来说，这点影响很大。",
           "freeLink": ""
         },
         {
@@ -211,7 +211,7 @@
           "time": "9月4日 01:59 · 凌晨",
           "author": "Adheesh Sunil Juvekar, Onkar Kishor Susladkar 等",
           "body": "Video editing spans diverse editing paradigms, yet achieving high-quality instruction-guided and subject-guided editing within a single unified framework remains challenging. We introduce EditVid, a training-free framework combining sparse causal memory for local coherence, correspondence-based post-attention token injection for long-range identity preservation, and soft latent blending for edit locality. The same framework supports instruction-guided and reference-guided edits, including style transfer, attribute modification, object insertion, part-level editing, and subject replacement. On FiVE, EditVid achieves 78.16 FiVE-Acc, compared with 58.95 for the strongest evaluated training-free baseline, while obtaining competitive results on IVEBench. A user study further shows a 51.8\\% overall preference for EditVid over 7 competing methods.",
-          "bodyZh": "视频编辑涉及的思路很多，但要在同一个统一框架里，既做好指令引导的编辑，又做好主体引导的编辑，一直是个不小的难题。我们提出的 EditVid 是一个无需训练（training-free）的框架，它把三招结合了起来：用稀疏因果记忆（sparse causal memory）保证局部连贯性；用基于对应关系的注意力后令牌注入（correspondence-based post-attention token injection）来维持长距离跨帧的身份一致性；再用软潜空间融合（soft latent blending）把编辑影响严格控制在该改的区域。\n\n同一个框架既能做指令引导（instruction-guided）的编辑，也能做参考图引导（reference-guided）的编辑，比如换风格、改属性、插入物体、改局部细节、替换主体都能搞定。在 FiVE 基准上，EditVid 拿到了 78.16 的 FiVE-Acc，而目前表现最强的免训练基线只有 58.95；在 IVEBench 上成绩也很有竞争力。用户调研还显示，和另外 7 个方法相比，有 51.8% 的人整体上更偏好 EditVid。",
+          "bodyZh": "视频编辑这东西，玩法五花八门，但想用一个统一框架同时搞定高质量指令引导（instruction-guided）和主体引导（subject-guided）的编辑，一直挺头疼的。我们搞了个免训练（training-free）框架叫EditVid，结合起来用了好几个招：用稀疏因果记忆（sparse causal memory）保证局部画面连贯，用基于对应关系的注意力后词元注入（post-attention token injection）保长程身份一致，再用软潜在混合（soft latent blending）控制编辑只落在该改的地方。\n\n这个框架特别全能，同一个路子既能做指令引导的编辑，也能做参考图引导（reference-guided）的编辑，像是风格迁移、属性修改、插入物体、局部编辑、替换主体，全都包圆了。在FiVE基准上，EditVid拿下了78.16的FiVE准确率（FiVE-Acc），而那些免训练基线里最强的也只有58.95；在IVEBench上，我们也能跟别人打得有来有回。\n\n另外，用户调研结果也显示，跟另外7个竞争方法放一块儿让用户挑，EditVid有51.8%的整体偏好率，大家都更乐意选它。",
           "freeLink": ""
         },
         {
@@ -226,7 +226,7 @@
           "time": "9月4日 01:58 · 凌晨",
           "author": "Ye-Chan Kim, Seunghee Choi 等",
           "body": "Weakly-Supervised Dense Video Captioning aims to localize and describe multiple events in untrimmed videos given only an ordered set of event-level captions per video. Recent work synthesizes auxiliary transition captions via LLM to provide additional vision-language alignment, but these captions lack visual grounding and are rigidly assigned to every inter-event gap at a fixed location and duration. To address these, we propose Seeing Before Synthesizing (SBS), a framework that adaptively provides visually grounded linguistic guidance only where warranted. Leveraging a VLM, we generate frame-level narratives for the inter-event gaps and detect transitions from the semantic variation across them. For identified transitions, we then refine inter-event temporal masks by blending the temporal midpoint with the semantic change point and selecting the width that maximizes vision-language alignment. Experiments on ActivityNet Captions and YouCook2 demonstrate state-of-the-art performance in both captioning and localization.",
-          "bodyZh": "",
+          "bodyZh": "这个任务就是说“弱监督的密集视频描述”（Weakly-Supervised Dense Video Captioning），意思是在只给出一段没剪过的视频和每个事件按顺序配好的文字标题时，你得自动在视频里把多个事件都定位出来，还要把内容描述清楚。最近有研究想用大语言模型（LLM）来合成一些过渡用的描述，帮模型更好地把画面和文字对上，但这些描述本身没看过真实画面，而且很死板地被硬塞到每个事件的间隙里，位置和时长全固定死了。为了解决这个毛病，我们提出了一个叫“先看再合成”（Seeing Before Synthesizing，简称SBS）的框架，它会看情况才给出有视觉依据的语言指导，不会乱给。具体做法是，我们借助一个视觉语言模型（VLM）先给事件之间的那些空白片段生成逐帧的画面叙述，再根据这些叙述里面的语义起伏找出真正的过渡点在哪。找到过渡点之后，我们把它跟时间上的中间点揉在一起，再挑一个能让画面和文字对齐效果最好的宽度，来把事件间隙的时间掩码调得更准。我们在ActivityNet Captions和YouCook2这两个数据集上做了实验，结果显示我们这套方法在视频描述和事件定位这两项任务上都达到了目前最好的水平。",
           "freeLink": ""
         },
         {
@@ -241,7 +241,7 @@
           "time": "9月4日 01:57 · 凌晨",
           "author": "Joseph Lee, Yidi Huang 等",
           "body": "Gaps remain in our understanding of how large language models (LLMs) acquire knowledge during pre-training. We posit that auxiliary views, reformulations of knowledge, are causally helpful for learning. We design controlled experiments to isolate this. First, we confirm that repetition is necessary for acquisition and clarify that paraphrasing helps only at smaller batch sizes. Second, holding the token budget fixed, allocating tokens from document repetition to auxiliary views improves learning, counterintuitively, even for factual recall. Third, the effectiveness of auxiliary views is not contingent on the strength of the teacher model that generates them. Fourth, we identify forms of knowledge, contextual and foundational, that aid learning in the presence of prior knowledge gaps. Finally, we examine how these effects manifest mechanistically via layer-wise biases and compression. Together, our findings suggest that auxiliary representations of knowledge, which arise naturally in large pre-training corpora, are a key factor in the success of pre-training and offer a plausible explanation for why data diversity matters.",
-          "bodyZh": "关于大语言模型（LLMs）在预训练过程中到底是怎么获取知识的，我们目前的理解还有不少空白。我们提出一个观点：辅助视角（auxiliary views）——说白了，就是对知识换个说法、换种表达——对模型的学习有直接的因果帮助。为了把这一因素单独拎出来验证，我们设计了一组受控实验。首先，我们确认了“重复”是知识习得的必要条件；同时也理清了一点：“改写/换句话讲”（paraphrasing）只有在批次大小（batch size）比较小的时候才管用。其次，在token（把文本切分出来的基本单位）总量固定的情况下，把原本花在重复同一文档上的token，挪去给辅助视角用，居然能让学习效果更好——这跟直觉相反，哪怕是在“事实回忆”这种简单任务上也成立。第三，辅助视角有没有效果，并不取决于生成它的教师模型（teacher model）有多强。第四，我们还区分出了两类知识形态——情境性知识（contextual）和基础性知识（foundational）——当模型已经有先验知识缺口的时候，这两类知识特别能帮上忙。最后，我们还从机制层面分析了这些效果到底怎么体现的：主要体现在逐层偏差（layer-wise biases）和压缩（compression）上。把这些放在一起看，我们的发现说明：大规模预训练语料里天然存在的那些“辅助性知识表达”，正是预训练能成功的一个关键因素，也为“为什么数据多样性这么重要”给出了一个合理解释。",
+          "bodyZh": "我们对大语言模型（LLM）在预训练阶段到底是怎么获取知识的，理解上其实还有不少空白。我们的核心猜想是：辅助视角，也就是对知识的重新表述，对模型学习是有因果性帮助的。为了验证这一点，我们设计了受控实验来做分离测试。\n\n首先，我们确认了重复是知识获取的必要条件，同时澄清了一个细节：改述（paraphrasing）只有在批次规模比较小的时候才有帮助。其次，在固定token预算的前提下，把原本用于重复文档的token转给辅助视角，反而能提升学习效果——这听起来反直觉，但就连事实回忆任务上也成立。\n\n第三，辅助视角的效果，并不取决于生成它们的教师模型有多强。第四，我们还识别出两类知识形态——上下文型（contextual）和基础型（foundational）——在已有知识存在缺口时，它们能有效辅助学习。最后，我们通过逐层的偏置和压缩现象，观察了这些效应在机制层面是如何体现的。\n\n总的来说，我们的发现表明：对知识的辅助性表征，在大型预训练语料里天然就会出现，而这正是预训练能成功的关键因素之一，也为我们解释了为什么数据多样性如此重要。",
           "freeLink": ""
         },
         {
@@ -262,12 +262,6 @@
       ]
     }
   ],
-  "breakingNews": [
-    {
-      "zh": "GPT-6 Astra on OpenRouter",
-      "summary": "",
-      "url": "https://openrouter.ai/openai/gpt-6-astra"
-    }
-  ],
+  "breakingNews": [],
   "llmAvailable": false
 }
