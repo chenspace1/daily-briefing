@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 日报生成器 v3 —— LLM 翻译+概括 + data.json 输出
+// 日报生成器 v3 —— 只做 arXiv，LLM 翻译+概括 + data.json 输出
 import { writeFileSync, existsSync, mkdirSync, readdirSync, rmSync, copyFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
@@ -7,7 +7,7 @@ import { createHash } from 'crypto';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // ── 风格 Prompt（few-shot 训练样本）──
-const STYLE_PROMPT = `你是一个视频创作者的选题助手。你的任务是翻译英文新闻标题并写一句概括。
+const STYLE_PROMPT = `你是一个帮人速读 arXiv 论文的中文编辑。你的任务是翻译英文论文标题并写一句概括。
 
 ## 规则
 - 标题翻译：严谨专业，技术名词保留英文（LLM、Agent、fine-tune等），不要花哨表达
@@ -35,7 +35,9 @@ const STYLE_PROMPT = `你是一个视频创作者的选题助手。你的任务�
 概括: 如果你日常用GPT写代码但嫌Token烧太快，这个取巧的办法实测有效，但代价是代码质量会掉
 
 ## 板块总评
-处理完一个板块的全部文章后，用一句话（50字以内）总结这个板块今天值得关注的方向，格式：板块总评: xxxx`;
+处理完全部论文后，用一句话（50字以内）总结今天这批论文整体在关注什么方向。
+注意：这里全是学术论文，不要写成"某公司发布了 X"这类新闻腔、不要提具体公司，
+谈研究方向、方法或问题本身。格式：板块总评: xxxx`;
 
 // ── LLM 处理（翻译 + 概括 + 总评）──
 // 支持 OpenAI 兼容 API（DeepSeek / 通义千问 / 智谱 等国内 AI）
@@ -240,7 +242,7 @@ function generateDataJSON(allData, summaries) {
 // ── 存档 ──
 const ARCHIVE_DIR = resolve(__dirname, 'archive');
 const KEEP_DAYS = 7;
-const HTML_FILES = ['index.html', 'ai.html', 'paper.html'];
+const HTML_FILES = ['index.html', 'paper.html'];
 
 function archiveCurrent() {
   const d = bjDate(Date.now());
@@ -297,8 +299,8 @@ function buildArchiveIndex() {
 }
 
 // ── 配置 ──
+// 只做 arXiv —— 唯一板块。HN / RSS 已全部移除。
 const CATEGORIES = [
-  { key:'ai',    icon:'🤖', label:'AI 动态', kw:/ai|llm|gpt|chatgpt|codex|claude|openai|anthropic|deepseek|gemini|grok|qwen|llama|kimi|glm|minimax|gemma|mistral|doubao|seed|model|transformer|diffusion|agent|chatbot|neural|rag|fine.?tun|agi/i },
   { key:'paper', icon:'📄', label:'前沿论文', kw:null },
 ];
 
@@ -321,17 +323,7 @@ if (dow === 1) {
 }
 
 // ── 数据获取 ──
-async function fetchHN() {
-  const res = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
-  const ids = await res.json();
-  const items = await Promise.all(
-    ids.slice(0, 50).map(id =>
-      fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(r => r.json()).catch(() => null)
-    )
-  );
-  return items.filter(i => i && i.title && i.url);
-}
-
+// arXiv 官方 API。sortBy=submittedDate 保证是最新提交，max_results=10 取回后取前 8。
 async function fetchArxiv() {
   try {
     const url = 'https://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL&sortBy=submittedDate&max_results=10';
@@ -341,97 +333,24 @@ async function fetchArxiv() {
     return entries.slice(0, 8).map(e => {
       const authors = [...e.matchAll(/<name>(.*?)<\/name>/g)]
         .map(m => m[1].replace(/\s+/g, ' ').trim()).filter(Boolean);
+      // 注意：必须用 [\s\S] 而非 . —— Atom 的 title/summary 会跨行，
+      // 用 . 会静默丢整段摘要（实测 10 条里命中 1 条）。
       return {
-        title: ((e.match(/<title>(.*?)<\/title>/)?.[1] || '').replace(/\s+/g, ' ').trim()),
-        link: (e.match(/<id>(.*?)<\/id>/)?.[1] || ''),
+        title: ((e.match(/<title>([\s\S]*?)<\/title>/)?.[1] || '').replace(/\s+/g, ' ').trim()),
+        link: (e.match(/<id>([\s\S]*?)<\/id>/)?.[1] || '').trim(),
         source: 'arXiv',
         authors,
-        published: (e.match(/<published>(.*?)<\/published>/)?.[1] || ''),
-        abstract: (e.match(/<summary>(.*?)<\/summary>/)?.[1] || '')
+        published: (e.match(/<published>([\s\S]*?)<\/published>/)?.[1] || '').trim(),
+        abstract: (e.match(/<summary>([\s\S]*?)<\/summary>/)?.[1] || '')
           .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
       };
     }).filter(i => i.title);
   } catch (e) { console.error('arXiv 失败:', e.message); return []; }
 }
 
-// ── 正文抓取 ──
-// 仅放行 http/https（防 SSRF / 恶意协议）
-function safeUrl(u) {
-  try {
-    const p = new URL(u);
-    if (p.protocol !== 'http:' && p.protocol !== 'https:') return null;
-    return p.href;
-  } catch { return null; }
-}
-
-// 抓取并校验为 HTML 文本；超时防卡、拒 PDF/图片/JSON 等非 HTML 类型
-async function fetchHtmlText(url, timeoutMs) {
-  const res = await fetch(url, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-      'Accept': 'text/html,application/xhtml+xml,*/*'
-    },
-    redirect: 'follow',
-    signal: AbortSignal.timeout(timeoutMs),
-  });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const ct = (res.headers.get('content-type') || '').toLowerCase();
-  if (!ct.includes('text/html') && !ct.includes('application/xhtml')) {
-    throw new Error('not html: ' + ct);
-  }
-  const text = await res.text();
-  if (!text.trim()) throw new Error('empty body');
-  return text;
-}
-
-// 纯文本 + 分段（不截断），不含图片
-function extractBody(html) {
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<nav[\s\S]*?<\/nav>/gi, ' ')
-    .replace(/<header[\s\S]*?<\/header>/gi, ' ')
-    .replace(/<footer[\s\S]*?<\/footer>/gi, ' ')
-    .replace(/<!--[\s\S]*?-->/g, ' ');
-  const paras = [];
-  for (const m of cleaned.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
-    let t = m[1]
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&')
-      .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>')
-      .replace(/&quot;/gi, '"').replace(/&#\d+;/g, ' ')
-      .replace(/\s+/g, ' ').trim();
-    if (t.length >= 20) paras.push(t); // 过滤超短 / 导航杂讯
-  }
-  return paras.join('\n\n').trim();
-}
-
-// 正文长文阈值（字符）：超过则判定长文，丢弃正文只留链接
-const BODY_MAX_CHARS = 3000;
-
-// 主入口：原文失败 → archive.org 快照兜底；超长则丢弃正文
-async function fetchArticleBody(url) {
-  const safe = safeUrl(url);
-  if (!safe) return { body: '', freeLink: '' };
-  try {                                   // 1. 直接抓原文
-    const body = extractBody(await fetchHtmlText(safe, 12000));
-    if (body) {
-      const tooLong = body.length > BODY_MAX_CHARS;
-      return { body: tooLong ? '' : body, freeLink: '' };
-    }
-  } catch (e) { /* 兜底 */ }
-  try {                                   // 2. archive.org 快照
-    const snap = 'https://web.archive.org/web/2/' + encodeURI(safe);
-    const body = extractBody(await fetchHtmlText(snap, 15000));
-    if (body) {
-      const tooLong = body.length > BODY_MAX_CHARS;
-      return { body: tooLong ? '' : body, freeLink: snap };
-    }
-  } catch (e) { /* 忽略 */ }
-  return { body: '', freeLink: '' };
-}
-
-// ── 正文翻译（逐篇，通俗中文）──
+// ── 摘要翻译（逐篇，通俗中文）──
+// 只做 arXiv 之后，不再抓取任何网页正文：arXiv 条目的 body 就是它的 abstract。
+// （原 HN 正文抓取 + archive.org 兜底 + 长文丢弃逻辑已随 HN 一并移除，见 git 历史）
 // 通俗化 prompt：口语、好懂、适合口播，保留段落
 const BODY_ZH_PROMPT = `你是一位帮人速读外网资讯的中文编辑。请把下面这段英文文章正文逐段翻译成通俗易懂的中文，要求：
 - 口语化、接地气，像读给观众听的口播稿，不要字面直译、不要翻译腔。
@@ -539,35 +458,10 @@ function detailItem(item, idx, allItems) {
 
 // ── 主流程 ──
 console.log('⏳ 拉取数据...');
-const [hnItems, arxivPapers] = await Promise.all([
-  fetchHN(), fetchArxiv(),
-]);
+const paperItems = await fetchArxiv();
 
-// 分类 HN
-const used = new Set();
-const hnData = {};
-for (const cat of CATEGORIES) {
-  if (!cat.kw) continue;
-  hnData[cat.key] = [];
-  for (const item of hnItems) {
-    if (used.has(item.id)) continue;
-    if (cat.kw.test((item.title||'').toLowerCase())) {
-      hnData[cat.key].push({ title:item.title, link:item.url, source:'HN', time:item.time, by:item.by });
-      used.add(item.id);
-    }
-  }
-}
-
-// 论文 = arXiv + HN
-const paperSeen = new Set(arxivPapers.map(p => p.title.slice(0,40)));
-const hnPapers = (hnData.paper || []).filter(p => !paperSeen.has(p.title.slice(0,40)));
-const paperItems = [...arxivPapers, ...hnPapers];
-
-// 汇总（只 AI：ai + paper）
-const allData = {
-  ai:    (hnData.ai || []).slice(0, 8),
-  paper: paperItems.slice(0, 8),
-};
+// 唯一板块：paper
+const allData = { paper: paperItems };
 
 // LLM 翻译 + 概括 + 总评（逐板块处理，避免超时）
 console.log('🤖 LLM 处理中...');
@@ -584,29 +478,19 @@ for (const cat of CATEGORIES) {
   allData[cat.key] = processedData[cat.key];
 }
 
-// ── 富化：抓正文 + 计算时间/作者显示串 + 短文正文翻译（逐条容错）──
+// ── 富化：计算时间/作者显示串 + 摘要翻译（逐条容错）──
 async function enrichArticles(allData) {
-  const tasks = [];
   const toTranslate = [];
   for (const cat of CATEGORIES) {
     for (const a of allData[cat.key]) {
-      if (a.source === 'arXiv') {
-        a.timeStr = a.published ? beijingTimeStr(new Date(a.published).getTime()) : '';
-        a.author  = formatAuthors(a.authors);
-        a.body    = a.abstract || '';         // 论文正文用摘要代替
-        a.freeLink = '';
-        if (a.body) toTranslate.push(a);      // 摘要≤3000 视为短文，翻译
-      } else {                                 // HN（含 paper 板块里的 HN 条目）
-        a.timeStr = a.time ? beijingTimeStr(a.time * 1000) : '';   // HN time 是秒
-        a.author  = '';                        // 作者仅 arXiv 显示
-        tasks.push(fetchArticleBody(a.link).then(r => {
-          a.body = r.body; a.freeLink = r.freeLink;
-          if (r.body) toTranslate.push(a);    // 短文（≤3000）才翻译
-        }));
-      }
+      // 只做 arXiv：论文没有"正文页"可抓，直接用摘要当正文
+      a.timeStr = a.published ? beijingTimeStr(new Date(a.published).getTime()) : '';
+      a.author  = formatAuthors(a.authors);
+      a.body    = a.abstract || '';
+      a.freeLink = '';
+      if (a.body) toTranslate.push(a);         // 摘要 ≤3000 字符，直接翻译
     }
   }
-  await Promise.allSettled(tasks);             // 任一条失败仅空 body，不阻断
 
   // 分批并发翻译短文正文（每批 ≤4 篇，防 Actions 超时）
   if (toTranslate.length) {
