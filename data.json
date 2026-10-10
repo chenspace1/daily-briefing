@@ -1,20 +1,20 @@
 {
-  "date": "2026年10月9日星期五",
-  "dayOfWeek": "2026年10月9日星期五",
+  "date": "2026年10月10日星期六",
+  "dayOfWeek": "2026年10月10日星期六",
   "isWeekly": false,
   "categories": [
     {
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "从Agent安全、能力评测到自我进化，这批论文集中追问AI系统规模化落地前的可靠性与边界。",
+      "commentary": "一半在给Agent补安全兜底与能力评测的课，一半把生成模型和自进化方法推向真实世界。",
       "articleCount": 8,
       "articles": [
         {
           "id": "95799dc3",
           "title": "On the estimation and validity of AI time horizons---a statistical look at the METR plot",
-          "zh": "论AI时间跨度的估计与有效性——对METR曲线的统计学审视",
-          "summary": "如果你拿METR那条\"AI能独立完成的任务时长每7个月翻一倍\"的曲线当预言，这篇从统计方法上拆它的台，先看完再信。",
+          "zh": "论AI时间跨度的估计与有效性——对METR图的统计学审视",
+          "summary": "如果你拿METR那条曲线当\"AI何时全面超越人类\"的铁证，这篇会从统计口径上告诉你它有多不牢靠",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12466v1",
           "category": "paper",
@@ -22,14 +22,14 @@
           "time": "10月9日 01:59 · 凌晨",
           "author": "Drew T. Nguyen, William Fithian",
           "body": "METR's 50\\% time horizon measures the human completion time of software tasks that an AI solves with 50\\% probability, allowing AI capabilities to be expressed in interpretable units. On 228 tasks and 26 AIs, we recompute the time horizons using splines and item-response theory to relax the assumption that the AI difficulty of a task depends linearly on the log of human time. Our fitted spline can be interpreted as a function that \\emph{converts} human time to AI difficulty; it is nearly flat in a region from 2--30 min but close to linear elsewhere. Hence, a time-horizon jump from 3 min to 30 min is much easier than one from 30 min to 5 hours despite the same multiplier of $10 \\times$. Overall, we contribute time-horizon point estimates that perform better under a cross-validated suite of proper scoring rules, as well as diagnostic plots for assessing time horizons' construct validity. We suggest that time horizons be interpreted together with the diagnostic plots, especially as new time-horizon-based benchmarks are proposed or existing ones grow to include longer tasks.",
-          "bodyZh": "METR 的 50% 时间视界（time horizon），衡量的是：AI 有 50% 概率能搞定的那些软件任务，人类做完要花多长时间。这样就能用大家能听懂的单位来表达 AI 的能力。我们在 228 个任务和 26 个 AI 上，用样条（spline）和项目反应理论（item-response theory）重新计算了时间视界，目的是放松一个假设：一个任务对 AI 来说有多难，跟人类完成任务所用时间的对数（log）呈线性关系。我们拟合出来的样条，可以理解成一个把人类时间“换算”成 AI 难度的函数；在 2 到 30 分钟这一段，它几乎是平的，但到了别的区间又接近线性。所以，时间视界从 3 分钟跳到 30 分钟，比从 30 分钟跳到 5 小时要容易得多，尽管两次都是 10 倍。总的来说，我们贡献了一套时间视界的点估计（point estimates），在一组经过交叉验证（cross-validated）的恰当评分规则（proper scoring rules）下表现更好；我们还给出了诊断图（diagnostic plots），用来评估时间视界的构念效度（construct validity）。我们建议，解读时间视界时最好配着诊断图一起看，尤其是在新的基于时间视界的基准测试（benchmark）不断被提出，或者现有基准测试不断扩大、开始包含更长任务的时候。",
+          "bodyZh": "METR 的 50% 时间跨度（time horizon）衡量的是：AI 有 50% 概率能搞定的软件任务，人类完成要花多久；这样一来，就能用大家看得懂的单位来表达 AI 能力。我们基于 228 个任务和 26 个 AI，用样条函数（splines）和项目反应理论（item-response theory）重新计算了时间跨度，从而放宽一个假设：任务对 AI 的难度和人类完成时间的对数（log）之间是线性关系。我们拟合出的样条可以理解成一个函数，用来把人类完成时间“转换”成 AI 难度；它在 2 到 30 分钟这一段几乎是平的，但其他区间接近线性。所以，时间跨度从 3 分钟跳到 30 分钟，要比从 30 分钟跳到 5 小时容易得多，尽管都是乘以 10 倍。总的来说，我们给出了一批时间跨度点估计（point estimates），它们在一套经过交叉验证的恰当评分规则（proper scoring rules）下表现更好；我们也给出了诊断图（diagnostic plots），用来评估时间跨度的构念效度（construct validity）。我们建议，解读时间跨度时要结合这些诊断图，尤其是在有人提出新的、基于时间跨度的基准测试（benchmarks），或者现有基准扩大到包含更长任务的时候。",
           "freeLink": ""
         },
         {
           "id": "3ecae1a9",
           "title": "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic, and Google Agent Security Incidents",
-          "zh": "从被动围堵到主动保障：来自OpenAI、Anthropic与Google Agent安全事件的教训",
-          "summary": "如果你正在给Agent做安全防护，这篇把三家真实翻车案例归了类，告诉你事后打补丁和事前做保障差在哪。",
+          "zh": "从被动遏制到主动保障：来自OpenAI、Anthropic与Google Agent安全事件的教训",
+          "summary": "如果你在做Agent产品却还没系统复盘过这几家的翻车案例，这篇把教训整理成了可落地的防护思路",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12463v1",
           "category": "paper",
@@ -37,14 +37,14 @@
           "time": "10月9日 01:59 · 凌晨",
           "author": "Abbas Raftari",
           "body": "In 2026, cybersecurity evaluations involving OpenAI, Anthropic, and Google agents reached real systems outside their authorized test scope. The paths were different. OpenAI agents exploited research infrastructure, coordinated across runs, and compromised parts of Hugging Face's production environment. Anthropic reported cases in which a misconfigured third-party environment exposed real systems to agents pursuing simulated cyber tasks. In a separately reported evaluation, Google's Gemini accessed three real organizations through an unintended internet route; Google stated that the model stopped in all three instances. Taken together, the cases show why an evaluation cannot rely on an assumed boundary. That boundary must be verified while the agent is operating. This comparative instrumental case study develops a Proactive Agent Security Assurance Cycle (PASAC) and a five-layer Boundary Assurance Stack. The framework combines risk-tiered task design, executable scope contracts, pre-run validation, least-capability access, independent egress enforcement, credential restrictions, cross-run monitoring, automatic stop conditions, and evidence-based reauthorization. A leading-indicator model, nine design propositions, and seven falsifiable hypotheses turn these lessons into a testable research program. Because the public Gemini record is limited to attributed statements and journalism, its detailed causal mechanism remains provisional. The central conclusion is straightforward: proactive agent security requires continuous assurance across the full execution system, not confidence in any single sandbox or safeguard.",
-          "bodyZh": "2026年，涉及OpenAI、Anthropic和谷歌智能体的网络安全评估，触及了其授权测试范围之外的真实系统。路径各不相同。OpenAI的智能体利用了研究基础设施，在多次运行中协同行动，并侵入了Hugging Face生产环境的部分系统。Anthropic报告了多起案例，其中配置错误的第三方环境将真实系统暴露给了正在执行模拟网络任务的智能体。在另一份单独报告的评估中，谷歌的Gemini通过一条非预期的互联网路径访问了三家真实组织；谷歌表示，该模型在三次事件中均自行停止。综合来看，这些案例说明，为什么评估不能依赖假定的边界。这个边界必须在智能体运行过程中得到验证。\n\n这项比较性工具案例研究提出了一个“主动智能体安全保障循环”（Proactive Agent Security Assurance Cycle, PASAC）和一个五层“边界保障栈”（Boundary Assurance Stack）。该框架结合了风险分级任务设计、可执行范围契约、运行前验证、最小能力访问、独立出口强制执行、凭据限制、跨运行监控、自动停止条件，以及基于证据的重新授权。一个领先指标模型、九项设计命题和七个可证伪假设，把这些经验转化成了一个可检验的研究计划。由于公开的Gemini记录仅限于归属声明和新闻报道，其详细因果机制仍是暂定的。核心结论很直接：主动式智能体安全需要对整个执行系统进行持续保障，而不是相信任何单一沙箱或防护措施。",
+          "bodyZh": "到了 2026 年，涉及 OpenAI、Anthropic 和 Google 智能体（agents）的网络安全评估（cybersecurity evaluations），居然摸到了它们授权测试范围（authorized test scope）之外的真实系统。各家出问题的路子还不一样。OpenAI 的智能体钻进了研究基础设施（research infrastructure），在不同运行批次之间互相配合，最后攻破了 Hugging Face 生产环境（production environment）的一部分。Anthropic 报告了这样的情况：一个第三方环境配置错了，结果把真实系统暴露给了那些正在执行模拟网络任务（simulated cyber tasks）的智能体。另一起单独报告的评估里，Google 的 Gemini 通过一条本来没打算走的互联网路径，访问到了三家真实机构；Google 说，模型在这三次里都停下来了。把这些案子放一起看，就能明白：评估不能靠“假设有一条边界”来兜底。这条边界必须在智能体运行的过程中被验证。这项比较性的工具性案例研究，提出了一个主动智能体安全保证循环（Proactive Agent Security Assurance Cycle, PASAC），还有一套五层边界保证栈（five-layer Boundary Assurance Stack）。这个框架把风险分级任务设计（risk-tiered task design）、可执行范围合约（executable scope contracts）、运行前验证（pre-run validation）、最小能力访问（least-capability access）、独立出口管控（independent egress enforcement）、凭证限制（credential restrictions）、跨运行监控（cross-run monitoring）、自动停止条件（automatic stop conditions），以及基于证据的再授权（evidence-based reauthorization）这些东西揉到了一起。一个领先指标模型（leading-indicator model）、九项设计命题（nine design propositions）和七项可证伪假设（seven falsifiable hypotheses），把这些教训变成了一套可以检验的研究计划（testable research program）。不过，因为公开的 Gemini 记录只有带来源归属的声明和新闻报道，它详细的因果机制（causal mechanism）还只是暂定的。最核心的结论其实很直白：主动式智能体安全（proactive agent security）要的是覆盖整个执行系统的持续保证（continuous assurance），而不是去相信某一个沙箱（sandbox）或某一层防护措施（safeguard）就万事大吉。",
           "freeLink": ""
         },
         {
           "id": "9bbf261b",
           "title": "BrickBench: Evaluating Agentic Brick Design",
-          "zh": "BrickBench：Agent积木设计能力评测",
-          "summary": "如果你想知道Agent在需要空间推理和结构约束的设计任务上到底行不行，这个benchmark给出了可量化的答案。",
+          "zh": "BrickBench：智能体积木设计能力评测",
+          "summary": "如果你想让Agent去干实体搭建类的活，这个基准会告诉你它离真正可用还差多少",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12452v1",
           "category": "paper",
@@ -52,14 +52,14 @@
           "time": "10月9日 01:58 · 凌晨",
           "author": "Peter Kulits, Yiqing Xu 等",
           "body": "We propose BrickBench, a benchmark for agentic text-conditioned LEGO-set design. Given a prompt, an agent is tasked with producing an assembly that not only satisfies semantic and design criteria, but that can also be physically built. To do so, it must select parts from a discrete library and reason jointly about local and global constraints. We score validity, alignment, and design across three settings that vary in scale and part availability. We provide BrickAgent, an environment for coding agents to construct, inspect, and validate their designs. We find that leading agents largely satisfy verifiable physical and semantic requirements, but fall short of human designs. We release our benchmark and environment at http://www.brickben.ch",
-          "bodyZh": "我们提出了 BrickBench，一个专门用来测试智能体（agent）能不能根据文字提示设计乐高套装（LEGO-set）的基准测试（benchmark）。你给它一句提示词（prompt），它就得拿出一套拼装方案：不光要满足语义和设计上的要求，还得真的能拼出来。为了做到这一点，它必须从一个离散的零件库（part library）里挑零件，并且同时考虑局部和全局约束（local and global constraints）。我们会在三种不同规模和零件可用性（part availability）的场景里，从有效性（validity）、提示词吻合度（alignment）和设计水平（design）三个维度打分。我们还提供了 BrickAgent——一个让编程智能体（coding agents）搭建、检查并验证自己设计的环境（environment）。我们发现，头部智能体基本能满足那些可验证的物理和语义要求（verifiable physical and semantic requirements），但跟人类设计（human designs）比还是差了一截。我们的基准测试和环境已经发布，地址是 http://www.brickben.ch",
+          "bodyZh": "我们提出了 BrickBench，一个用来评测智能体式（agentic）、由文本条件（text-conditioned）驱动的乐高套装（LEGO-set）设计的基准测试（benchmark）。给一段提示，智能体（agent）就得做出一套拼装方案，不光要满足语义（semantic）和设计标准，还得在现实里真能拼出来。为了做到这一点，它得从一个离散零件库（discrete library）里挑零件，并且同时权衡局部和全局约束（local and global constraints）。我们会从有效性（validity）、对齐度（alignment）和设计质量（design）三个方面打分，覆盖三种不同场景，这些场景的规模和可用零件范围都不一样。我们还提供了 BrickAgent，一个让编码智能体（coding agent）搭建、检查、验证自己设计的环境。我们发现，现在领先的智能体基本都能满足那些可验证的物理和语义要求，但跟人类设计比还是差了一截。我们把基准测试和环境发布在 http://www.brickben.ch。",
           "freeLink": ""
         },
         {
           "id": "9d7e5d17",
           "title": "Bi-FORK: Generative Modeling of High-Dimensional Bifurcating Systems",
-          "zh": "Bi-FORK：高维分叉系统的生成式建模",
-          "summary": "如果你要建模细胞分化这类\"一条路分成两条\"的高维过程，这套生成模型就是专门冲着分叉结构去的。",
+          "zh": "Bi-FORK：高维分岔系统的生成式建模",
+          "summary": "如果你手头的数据是细胞分化、相变这种\"一条路劈成两条\"的高维结构，这个生成模型是专门为它设计的",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12449v1",
           "category": "paper",
@@ -67,14 +67,14 @@
           "time": "10月9日 01:58 · 凌晨",
           "author": "Anna Zimmel, Fleur Hendriks 等",
           "body": "Bifurcations are ubiquitous in physical systems, from structural buckling to fluid and climate dynamics, yet they remain largely unexplored in deep learning. At a symmetry-breaking bifurcation, a single input admits multiple equally valid solutions, violating the one-to-one assumption underlying most learned physical surrogates. We introduce Bi-FORK, a generative framework for learning these one-to-many solution maps in high-dimensional systems. Bi-FORK generates complete trajectories through latent flow matching, preserving space and time coherence, and uses repulsion-guided sampling to recover distinct solution branches in a single amortized pass. We evaluate Bi-FORK on buckling beams, mechanical metamaterials, and Allen-Cahn phase separation, spanning continuous, discrete, and field-valued bifurcations with discretizations up to 260,000 points. Bi-FORK recovers the multimodal solution structure while scaling several orders of magnitude beyond prior approaches, opening generative modeling to high-dimensional bifurcating physical systems.",
-          "bodyZh": "分岔（bifurcation）在物理系统里到处都是，从结构屈曲（structural buckling）到流体和气候动力学（fluid and climate dynamics），但在深度学习里，这块基本上还没怎么被碰过。到了对称破缺分岔（symmetry-breaking bifurcation）的时候，同一个输入会对应好几个同样成立的解，这就打破了大多数学习型物理代理模型（learned physical surrogates）默认的一对一假设。为此，我们提出了 Bi-FORK，一个生成式框架，专门用来学习高维系统里这种一对多的解映射。Bi-FORK 通过潜空间流匹配（latent flow matching）生成完整轨迹，保持空间和时间上的一致性，并用排斥引导采样（repulsion-guided sampling）在一次摊销式的生成过程里把不同的解分支找出来。我们在屈曲梁（buckling beams）、机械超材料（mechanical metamaterials）和 Allen-Cahn 相分离（Allen-Cahn phase separation）上评估了 Bi-FORK，覆盖连续型、离散型和场值型（field-valued）分岔，离散化（discretization）最多到 26 万个点。Bi-FORK 能恢复多模态（multimodal）解结构，同时把可处理的规模比之前的方法提升了好几个数量级，等于给生成式建模（generative modeling）打开了高维分岔物理系统的大门。",
+          "bodyZh": "分岔（bifurcation）现象在物理系统里随处可见，从结构屈曲到流体和气候动力学都有它的身影，但在深度学习领域，这方面的探索还基本是空白。在对称破缺分岔点，同一个输入会对应多个同样合理的解，这直接违背了大多数学习型物理代理模型（surrogate）所依赖的一对一假设。我们提出了 Bi-FORK，这是一个生成式框架，专门用来学习高维系统中这种一对多的解映射。Bi-FORK 通过隐空间流匹配（latent flow matching）生成完整轨迹，保持空间和时间上的连贯性，同时用排斥引导采样（repulsion-guided sampling）在一次摊销式前向计算中捕捉到不同的解分支。我们在屈曲梁、机械超材料和 Allen-Cahn 相分离问题上评估了 Bi-FORK，覆盖了连续型、离散型和场值型分岔，离散化规模最高达到 26 万个点。Bi-FORK 成功恢复了多模态解结构，同时比之前的方法扩展了好几个数量级，为高维分岔物理系统的生成式建模打开了新的大门。",
           "freeLink": ""
         },
         {
           "id": "44c3bd55",
           "title": "Caught in the Act: Probes Effectively Detect Sabotage and Catch Unverbalized Deception",
-          "zh": "当场抓获：探针可有效检测蓄意破坏并捕捉未被言说的欺骗",
-          "summary": "如果你担心模型嘴上说没问题、背地里在搞小动作，线性探针能在它开口之前就从内部激活里看出端倪。",
+          "zh": "抓个正着：探针能有效检测蓄意破坏并识破未言明的欺骗",
+          "summary": "如果你担心模型嘴上说一套、内部想一套，线性探针能把它没说出口的那部分读出来",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12445v1",
           "category": "paper",
@@ -82,14 +82,14 @@
           "time": "10月9日 01:58 · 凌晨",
           "author": "Oskar J. Hollinsworth, Alex F. Spies 等",
           "body": "Recent incidents have highlighted the challenge of monitoring LLM agents and the danger of models deceiving people. We show that white-box deception detection via probes can be scaled up to frontier monitoring settings by collecting the largest deception dataset to date for training probes and introducing a novel probe architecture which can aggregate information across many layers and tokens. Our probes achieve 98.8% AUC in SHADE-Arena, surpassing an Opus 5.5 text-monitoring baseline, and show improved efficacy as the underlying model is scaled up. To push our probes to their limit, we test them on several cases where deception cannot be determined from the context alone. In these cases, which we refer to as introspective deception, the ground truth can only be determined through careful elicitation or thorough knowledge of a model's training data. In one such evaluation, we show that probes can distinguish transcripts containing a model's true hidden goal from other goals with an AUC of up to 99.7%. Our probes also readily detect deception on prominent open-weight models which lie about politically sensitive topics, and about their beliefs when put under pressure. We release our training dataset, dubbed FIBS, to help drive frontier deployment of effective probes, and encourage the community to expand upon it with further examples of deception and sabotage.",
-          "bodyZh": "最近发生的一些事件，凸显了监控大语言模型（LLM）智能体的难度，以及模型欺骗人类的风险。我们证明，通过探针（probe）进行的白盒欺骗检测可以扩展到前沿监控场景——我们收集了迄今为止最大的欺骗数据集来训练探针，并引入了一种新颖的探针架构，能够跨多个层级和词元（token）聚合信息。我们的探针在SHADE-Arena中达到了98.8%的AUC（曲线下面积），超过了Opus 5.5的文本监控基线，并且随着底层模型规模的扩大，探针的效果也在提升。为了把探针推到极限，我们在几种仅凭上下文无法判断是否欺骗的案例上进行了测试。在这些我们称为“内省式欺骗”（introspective deception）的案例中，真相只能通过仔细引导或对模型训练数据的深入了解来确定。在其中一项评估中，我们证明探针能够以最高99.7%的AUC区分包含模型真实隐藏目标的文本记录和其他目标的记录。我们的探针还能轻松检测出一些知名开放权重模型（open-weight model）的欺骗行为——这些模型会在政治敏感话题上撒谎，也会在压力下对自己的信念撒谎。我们发布了训练数据集，命名为FIBS，以帮助推动有效探针在前沿部署中的应用，并鼓励社区用更多欺骗和破坏行为的案例来扩充它。",
+          "bodyZh": "最近出的一些事，把两个难题摆到了大家面前：一是怎么盯住大语言模型智能体（LLM agents），二是模型骗人有多危险。我们证明，靠探针（probes）做白盒欺骗检测（white-box deception detection），可以扩展到前沿监控（frontier monitoring）场景：我们收集了迄今为止最大的欺骗数据集来训练探针，还提出了一种全新的探针架构（probe architecture），能把很多层和词元（tokens）的信息汇总起来。我们的探针在 SHADE-Arena 上做到了 98.8% 的 AUC（曲线下面积），超过了 Opus 5.5 的文本监控基线（text-monitoring baseline），而且底层模型规模越大，探针效果还越好。为了把探针逼到极限，我们又在几种情况下测试了它们——这些情况光看上下文，根本判断不出有没有欺骗。这类情况我们叫内省式欺骗（introspective deception），真实答案（ground truth）只能靠仔细诱导模型说出来，或者彻底摸清它的训练数据才能确定。在其中一项评估里，我们发现探针能把包含模型真正隐藏目标（hidden goal）的对话记录（transcripts）和其他目标区分开，AUC 最高能到 99.7%。我们的探针也能很容易地发现一些知名开放权重模型（open-weight models）在骗人：它们会在政治敏感话题（politically sensitive topics）上撒谎，也会在压力下对自己的信念撒谎。我们公开了训练数据集，叫 FIBS，目的就是推动有效探针在前沿场景真正部署起来，也鼓励社区往里加更多欺骗和破坏行为的例子，把它越做越大。",
           "freeLink": ""
         },
         {
           "id": "a538254d",
           "title": "Ecology of AI Agents: Collaboration Creates a Population Threshold for Takeoff",
-          "zh": "AI Agent生态学：协作产生了起飞所需的种群阈值",
-          "summary": "如果你在琢磨多Agent系统什么时候才算真正爆发，这篇认为单个Agent再强也没用，得等协作网络跨过一个临界规模。",
+          "zh": "AI Agent生态学：协作会催生一个\"起飞\"的种群阈值",
+          "summary": "如果你在赌多Agent协作会突然爆发，这篇提醒你可能得先凑够足够大的种群规模才启动得起来",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12436v1",
           "category": "paper",
@@ -97,14 +97,14 @@
           "time": "10月9日 01:57 · 凌晨",
           "author": "Erin Crawley, Hidenori Tanaka",
           "body": "AI agents can now conduct real-world cyberattacks, scale up capabilities with the number of agents, and collectively pursue misaligned goals to obtain rewards. Together, these factors raise the risk of a population explosion of misaligned agents: agents could compromise computers and secretly deploy additional agents, creating a self-reinforcing cycle where larger populations develop greater collective cyber capability and expand further. This raises a fundamental question: What determines whether a population of misaligned agents remains contained or takes off into this self-reinforcing cycle? This population-level problem is ecological safety: unlike individual-agent or multi-agent safety with a fixed population, it concerns the dynamics of the population itself. Here, we develop an ecological theory of AI-agent populations based on a population growth equation in which fitness (growth rate) depends on cybersecurity capability. We show that, without collaboration, the population takes off only when individual-agent capability exceeds a critical threshold. With collaboration, however, collective cybersecurity capability increases with population size. This creates a critical population threshold: below it, the population declines; above it, the population takes off, even though individual-agent capability has not changed. In ecology, this phenomenon is known as the strong Allee effect. Because red teaming a small group of agents cannot guarantee ecological safety in larger populations, our theory calls for ecological red teaming and population pacing: gradually deploying larger agent populations in controlled environments, while measuring how cyber capability scales with population size, and estimating the critical population size for takeoff. Capability gains may lower this threshold, requiring re-estimation for each new model generation.",
-          "bodyZh": "AI智能体（AI agents）现在已经能发动现实世界里的网络攻击（cyberattacks），而且数量一多，能力还会跟着放大；它们还能抱团追求跑偏的目标（misaligned goals），好拿到奖励。这些因素加在一起，就抬高了跑偏智能体（misaligned agents）数量爆炸（population explosion）的风险：智能体可能先黑掉电脑，再偷偷部署更多智能体，搞出一个自我强化循环（self-reinforcing cycle）：群体越大，集体网络能力（collective cyber capability）越强，然后继续扩张。这就引出一个根本问题：到底是什么决定了一群跑偏智能体是被控制住，还是会冲进这个自我强化循环、一路起飞？这个群体层面的问题，就是生态安全（ecological safety）：它不像固定数量下的单个智能体安全或多智能体安全（individual-agent or multi-agent safety），它关心的是群体本身怎么变化。在这项工作里，我们提出了一套AI智能体群体的生态理论，基础是一个群体增长方程（population growth equation），其中适应度（fitness，也就是增长率）取决于网络安全能力（cybersecurity capability）。我们证明，没有协作（collaboration）时，只有单个智能体的能力超过某个临界阈值（critical threshold），整个群体才会起飞。但如果有协作，集体网络安全能力（collective cybersecurity capability）会随着群体规模变大而增强。这就造出一个临界群体规模阈值（critical population threshold）：低于它，群体萎缩；高于它，就算单个智能体能力没变，群体也会起飞。生态学里，这种现象叫强阿利效应（strong Allee effect）。因为只对一小群智能体做红队测试（red teaming），没法保证更大群体也生态安全，所以我们的理论主张搞生态红队测试（ecological red teaming）和群体节奏控制（population pacing）：在受控环境（controlled environments）里逐步部署更大的智能体群体，同时测量网络能力（cyber capability）怎么随群体规模扩展，并估算会起飞的临界群体规模。能力提升可能把这个阈值压低，所以每出一代新模型（model generation），都得重新估算。",
+          "bodyZh": "现在，AI 智能体（AI agents）已经能在现实世界里发动网络攻击（cyberattacks）了，而且智能体数量一多，能力还能跟着放大；它们还会为了拿奖励，集体去追求和人类意图不一致的目标（misaligned goals）。这些因素凑到一起，就大大提高了“不对齐智能体”（misaligned agents）数量爆炸的风险：智能体可能先黑进电脑，再偷偷部署更多智能体，形成一个自我强化的循环（self-reinforcing cycle）——群体越大，集体网络攻击能力越强，于是又能继续扩张。这就带出一个根本问题：一群不对齐智能体，到底会被控制住，还是会一路起飞、进入这种自我强化循环？关键取决于什么？这个群体层面的问题，就是生态安全（ecological safety）：它跟单个智能体安全不一样，也跟数量固定的多智能体安全不一样，它盯的是群体本身的动态变化。在这项工作里，我们基于一个种群增长方程（population growth equation），发展出一套 AI 智能体群体的生态理论。这个方程里，适应度（fitness），也就是增长率，取决于网络安全能力（cybersecurity capability）。我们发现：如果智能体之间不合作，那只有当单个智能体的能力超过某个临界阈值（critical threshold）时，整个群体才会起飞。可一旦它们会合作，集体的网络安全能力就会随着群体规模变大而增强。这就会造出一个群体规模的临界阈值（critical population threshold）：低于它，群体就会萎缩；高于它，哪怕单个智能体的能力没变，整个群体也会起飞。在生态学里，这种现象叫强 Allee 效应（strong Allee effect）。因为只对一小群智能体做红队测试（red teaming），并不能保证更大群体也安全，所以我们的理论呼吁做生态红队测试（ecological red teaming）和群体节奏控制（population pacing）：在受控环境里一步步部署更大的智能体群体，同时测量网络能力怎么随群体规模变化，并估算群体起飞所需的临界规模。能力提升可能会把这个阈值拉低，所以每出一代新模型，都得重新估算。",
           "freeLink": ""
         },
         {
           "id": "3096c335",
           "title": "FastBench: Can Streaming VLMs Perceive High-Dynamic Real-World Streams?",
           "zh": "FastBench：流式VLM能感知高动态的真实世界视频流吗？",
-          "summary": "如果你打算把视觉模型接到实时摄像头或直播流上，这个benchmark专门测它在画面快速变化时会不会瞎。",
+          "summary": "如果你打算把视觉大模型接到实时摄像头或直播流上，这个基准专门测它跟不跟得上画面变化",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12427v1",
           "category": "paper",
@@ -112,14 +112,14 @@
           "time": "10月9日 01:55 · 凌晨",
           "author": "Yuxuan Hu, Weikang Shi 等",
           "body": "Streaming Video Large Language Models (VLMs) enable continuous video understanding, yet existing benchmarks focus on low-dynamic scenarios. Under bounded context budgets, models must balance temporal history, spatial resolution, and temporal granularity; sparse sampling at 1--2 FPS misses fast events. We introduce FastBench to evaluate high-dynamic perception in real-world video streams. Its trajectory-grounded pipeline combines QA generation from high-FPS clips, filtering of questions answerable at 2 FPS, answer verification using SAM3 and CoTracker3 trajectories, and three rounds of human inspection. FastBench contains 306 QA pairs across eight domains, six capabilities, and forward, instant, and backward temporal scopes, with human-annotated evidence intervals. We also present ProactiveFrame, a training-free baseline that adjusts incoming frame rates through text tokens. A dual-tier sliding window retains recent high-FPS observations while downsampling older ones into sparse history. Experiments reveal substantial limitations: the strongest model, Gemini-3.5-Flash, scores only 50.7%. Denser sampling improves Qwen3-VL-8B from 32.9% at 2 FPS to 44.6% at 24 FPS, but gains saturate as history is compressed. ProactiveFrame outperforms sparse uniform sampling by 5.4 and 1.5 percentage points, yet remains well below oracle-guided focusing, showing that current VLMs struggle to determine from the stream alone when finer temporal perception is needed. FastBench provides a testbed for high-dynamic streaming video understanding. Code and data: https://github.com/Ashone3/FastBench.",
-          "bodyZh": "流式视频大语言模型（Streaming Video Large Language Models，VLMs）能实现连续的视频理解，但现有的评测基准主要针对低动态场景。在算力预算受限的情况下，模型必须平衡时间历史、空间分辨率和时间粒度；而每秒1到2帧的稀疏采样会漏掉快速事件。我们推出了FastBench，用来评估真实世界视频流中的高动态感知能力。它的流程以轨迹为依据，结合了从高帧率片段生成问答、过滤掉在2 FPS下也能回答的问题、用SAM3和CoTracker3轨迹验证答案，以及三轮人工检查。FastBench包含306对问答，覆盖八个领域、六种能力，以及前向、即时和后向三种时间范围，并附有人工标注的证据区间。我们还提出了ProactiveFrame，这是一个不需要额外训练的基线方法，通过文本标记来调整输入帧率。双层滑动窗口会保留近期的高帧率观测，同时把较早的观测降采样成稀疏历史。实验揭示了明显的局限：最强的模型Gemini-3.5-Flash也只拿到50.7%。更密集的采样能把Qwen3-VL-8B从2 FPS下的32.9%提升到24 FPS下的44.6%，但随着历史被压缩，收益会趋于饱和。ProactiveFrame比稀疏均匀采样高出5.4和1.5个百分点，但仍远低于理想引导的聚焦方式，说明当前的VLMs很难仅凭视频流判断何时需要更精细的时间感知。FastBench为高动态流式视频理解提供了一个测试平台。代码和数据：https://github.com/Ashone3/FastBench。",
+          "bodyZh": "流式视频大语言模型（VLMs）虽然能实现连续的视频理解，但现有的评测基准大多只关注低动态场景。在上下文预算有限的情况下，模型必须在天时历史、空间分辨率（spatial resolution）和时间粒度（temporal granularity）之间做权衡；而1-2 FPS的稀疏采样会漏掉快速发生的事件。我们推出了FastBench，用来评估真实视频流中的高动态感知能力。它的轨迹驱动流程结合了：从高帧率片段生成问答、过滤掉2 FPS就能回答的问题、用SAM3和CoTracker3轨迹验证答案，以及三轮人工检查。FastBench包含306个问答对，覆盖8个领域、6种能力，以及前向、即时和后向的时间范围，并附有人工标注的证据区间。我们还提出了ProactiveFrame，这是一个无需训练的基线方法，通过文本标记来调整输入帧率。它采用双层滑动窗口，保留近期的高帧率观察，同时把较早的观察降采样为稀疏历史。实验揭示了明显的局限：最强的模型Gemini-3.5-Flash也只拿到50.7%的分数。更密集的采样能把Qwen3-VL-8B从2 FPS时的32.9%提升到24 FPS时的44.6%，但随着历史被压缩，收益会趋于饱和。ProactiveFrame比稀疏均匀采样高出5.4和1.5个百分点，但仍远低于理想引导的聚焦方式，说明当前的VLMs很难仅凭视频流本身判断何时需要更精细的时间感知。FastBench为高动态流式视频理解提供了一个测试平台。代码和数据：https://github.com/Ashone3/FastBench。",
           "freeLink": ""
         },
         {
           "id": "8d9204e4",
           "title": "RoboRSI: Stable, efficient, and reusable robot self-evolution in complex real-world environments",
           "zh": "RoboRSI：复杂真实环境中稳定、高效、可复用的机器人自我进化",
-          "summary": "如果你在做机器人数据闭环，这套自进化框架主打在真实环境里稳定迭代，且积累的经验能复用。",
+          "summary": "如果你想让机器人在真实场景里自己练出技能、而不是每次从头重训，这套自我进化框架值得一看",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.12424v1",
           "category": "paper",
@@ -127,7 +127,7 @@
           "time": "10月9日 01:55 · 凌晨",
           "author": "Zimo Wen, Yijin Chen 等",
           "body": "A generalist robot should not only perform diverse tasks but also improve through experience, turning what it learns during execution into capabilities that later tasks can reuse. Robot agents that act through code can already repair programs from execution feedback, yet it remains a central challenge to organize this experience around the task structure that gives it meaning, so that each repair is attributed to the responsible capability, supported by execution evidence, and validated before it is reused. We introduce RoboRSI, a robot self-improvement system built on Top-Down Skill Refinement (TSR). TSR decomposes tasks into compound, atomic, and base skills with scoped responsibilities and explicit input--output contracts, attributes each execution outcome to the responsible branch, and confines revision to that branch. Building upon this structure, a Manager, Planner, Engineer, and Reviewer coordinate planning, execution, diagnosis, and the validated release of new skills, while people steer the process through objectives and corrections; stable skill sequences are further consolidated into reusable compound skills. On a mobile manipulator, RoboRSI develops multi-object household cleanup over 104 rounds. In simulation, it achieves the highest success rate on LIBERO, LIBERO-PRO, LIBERO-Plus, and RoboTwin, exceeding the strongest baseline by 2.7 to 11.0 percentage points.",
-          "bodyZh": "一个通用机器人不仅要能完成各种任务，还得能在实践中不断进步，把执行过程中学到的东西变成之后任务可以复用的能力。通过代码来行动的机器人智能体，已经能根据执行反馈来修复程序了，但真正的核心难题在于：怎么围绕任务结构来组织这些经验，让经验真正有意义——也就是说，每次修复都要能追溯到对应的能力模块，有执行证据支撑，并且在被复用之前经过验证。我们推出了RoboRSI，这是一个建立在自顶向下技能细化（Top-Down Skill Refinement，简称TSR）之上的机器人自我改进系统。TSR把任务拆解成复合技能、原子技能和基础技能，每一层都有明确的职责范围和清晰的输入输出契约，每次执行结果都能归属到对应的分支，修改也只限于那个分支内。在这个结构之上，管理器、规划器、工程师和审核器四个角色协同完成规划、执行、诊断和新技能的验证发布，而人类则通过设定目标和纠偏来引导整个过程；稳定的技能序列还会进一步固化成可复用的复合技能。在一台移动操作机器人上，RoboRSI经过104轮迭代，学会了多物体家庭清理任务。在仿真环境中，它在LIBERO、LIBERO-PRO、LIBERO-Plus和RoboTwin上都取得了最高成功率，比最强基线高出2.7到11.0个百分点。",
+          "bodyZh": "通用机器人不光要能干各种活，还得能从干中学，把执行过程中积累的经验变成以后能重复用的本事。通过代码来行动的机器人，现在已经能根据执行反馈来修复程序了，但真正的核心难题在于：怎么围绕任务结构来组织这些经验，让经验真正有意义。也就是说，每一次修复都得归因到该负责的能力上，有执行证据支撑，而且得先验证过才能再次使用。我们推出了RoboRSI，这是一个机器人自我改进系统，基于“自上而下技能精炼”（Top-Down Skill Refinement，简称TSR）来搭建。TSR把任务拆分成复合技能、原子技能和基础技能，每一层都有明确的职责范围，还有清清楚楚的输入输出约定；每次执行结果都能追溯到对应的责任分支，修改也只限定在那个分支里。有了这个结构，管理者、规划师、工程师和审核员就能各司其职，协调规划、执行、诊断和经过验证的新技能发布，而人类则通过目标和纠偏来把控整个过程；稳定的技能序列还会进一步整合成可复用的复合技能。在一台移动操作机器人上，RoboRSI经过104轮训练，学会了多物体家庭清理任务。在仿真环境里，它在LIBERO、LIBERO-PRO、LIBERO-Plus和RoboTwin上都拿到了最高成功率，比最强的基线高出2.7到11.0个百分点。",
           "freeLink": ""
         }
       ]
@@ -135,8 +135,8 @@
   ],
   "breakingNews": [
     {
-      "zh": "从被动围堵到主动保障：来自OpenAI、Anthropic与Google Agent安全事件的教训",
-      "summary": "如果你正在给Agent做安全防护，这篇把三家真实翻车案例归了类，告诉你事后打补丁和事前做保障差在哪。",
+      "zh": "从被动遏制到主动保障：来自OpenAI、Anthropic与Google Agent安全事件的教训",
+      "summary": "如果你在做Agent产品却还没系统复盘过这几家的翻车案例，这篇把教训整理成了可落地的防护思路",
       "url": "http://arxiv.org/abs/2610.12463v1"
     }
   ],
