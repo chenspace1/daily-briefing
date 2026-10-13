@@ -1,20 +1,20 @@
 {
-  "date": "10月5日 — 10月11日",
-  "dayOfWeek": "10月5日 — 10月11日",
-  "isWeekly": true,
+  "date": "2026年10月13日星期二",
+  "dayOfWeek": "2026年10月13日星期二",
+  "isWeekly": false,
   "categories": [
     {
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "本批论文集中在LLM能力边界、内部机制可解释性与Agent工具可靠性等基础问题上的深挖。",
+      "commentary": "本批论文聚焦LLM/VLM的能力边界与内部机制可解释性，以及Agent工具检索的可靠性评估。",
       "articleCount": 8,
       "articles": [
         {
           "id": "106ff599",
           "title": "Can Language Models Play the Wikipedia Game?",
           "zh": "语言模型能玩\"维基百科游戏\"吗？",
-          "summary": "如果你想知道LLM的常识推理和链接跳转能力到底行不行，这个用维基百科导航做测试的玩法值得一看",
+          "summary": "如果你想知道LLM有没有真本事做多步规划和页面导航，这个用\"从A词条跳链接到B词条\"的经典任务能给个直观参照。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13948v1",
           "category": "paper",
@@ -22,14 +22,14 @@
           "time": "10月10日 01:59 · 凌晨",
           "author": "Alexander Hickey, Joanna Knight 等",
           "body": "Language models increasingly support or automate information retrieval from document collections too large to index. This task is difficult when it requires specialist linguistic or scientific knowledge. We used the Wikipedia Game to test language models on an analogous information retrieval task. In the game, players must reach a target article using only article links. We compared sentence embedding models and LLMs across five Wikipedia languages and five academic-literature datasets. We construct very large local graphs of Wikipedia pages and of paper citations using OpenAlex and provide code to build and navigate them. This allows the study of language models' navigation capabilities without relying on third-party APIs. We compared the models with human and TF-IDF benchmarks. The Wikipedia Game format enables robust comparisons across techniques, languages, and domains. No model significantly outperformed humans, although the best models (GPT-o3 mini, GPT-4o, QwQ:32B, and DeepSeek-R1:70B) achieved comparable success. Performance and rankings varied across languages and topics, with implications for practitioners utilising these techniques.",
-          "bodyZh": "语言模型（language models）现在越来越能帮忙，甚至能自动从那种大得根本没法建索引的文档库里找信息。可一旦这事儿需要很专业的语言学或科学知识，就变得挺难。我们拿“维基百科游戏”（Wikipedia Game）来考语言模型，让它们做一种类似的信息检索（information retrieval）任务。这个游戏里，玩家只能靠文章之间的链接，一步步走到目标文章。我们比了句子嵌入模型（sentence embedding models）和大语言模型（LLMs），覆盖五种维基百科语言和五个学术文献数据集。我们还用 OpenAlex 搭了超大规模的本地图谱，一张是维基百科页面，一张是论文引用关系，并且把代码也放出来，方便大家自己搭建和在里面导航。这样一来，研究语言模型的“找路”能力，就不用依赖第三方接口（APIs）了。我们还拿这些模型跟人类表现以及 TF-IDF 基准（benchmark）做了对比。维基百科游戏这套玩法，能让我们跨技术、跨语言、跨领域做比较稳的对比。结果呢，没有哪个模型明显比人强，不过最好的那几个模型（GPT-o3 mini、GPT-4o、QwQ:32B 和 DeepSeek-R1:70B）已经能跟人打成平手。不同语言、不同主题下，表现和排名都不一样，这对实际用这些技术的人很有参考意义。",
+          "bodyZh": "语言模型（language models）现在越来越能帮我们从那些大到根本没法建索引的文档库里找信息，甚至还能把这件事自动化。可一旦任务需要专业的语言学或科学知识，就变得很难。我们拿“维基百科游戏”（Wikipedia Game）来测试语言模型，让它们做一种类似的信息检索（information retrieval）任务。游戏里，玩家只能靠文章链接，一路点到目标文章。我们比较了句子嵌入模型（sentence embedding models）和大语言模型（LLMs），覆盖五种维基百科语言和五个学术文献数据集。我们还用 OpenAlex 建出了超大规模的本地图谱，一张是维基百科页面图谱，一张是论文引用图谱，并把搭建和浏览这些图谱的代码公开出来。这样一来，研究语言模型的“导航”能力就不用再靠第三方 API（application programming interface）了。我们拿人类表现和 TF-IDF 基准（benchmarks）来跟这些模型对比。维基百科游戏这套玩法，能让我们跨技术、跨语言、跨领域做比较扎实的对比。结果呢，没有哪个模型能明显超过人类；不过最好的那几个模型（GPT-o3 mini、GPT-4o、QwQ:32B 和 DeepSeek-R1:70B）成功率已经跟人差不多。而且不同语言、不同主题下，模型的表现和排名都会变，这对实际用这些技术的人很有参考价值。",
           "freeLink": ""
         },
         {
           "id": "6fd88dd8",
           "title": "Hide and Seek: HIDE Concepts to SEEK explanations for black box models",
-          "zh": "捉迷藏：隐藏概念以寻求黑箱模型的可解释性",
-          "summary": "如果你要给黑箱模型做归因解释，这篇提出的\"藏概念\"思路可能比传统显著性图更靠谱",
+          "zh": "捉迷藏：隐藏概念以求得黑箱模型的可解释性",
+          "summary": "如果你要给黑箱模型做解释又怕解释本身是编的，这篇用\"先把概念藏起来再找\"的办法去验证解释是否真的对应模型内部。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13935v1",
           "category": "paper",
@@ -37,14 +37,14 @@
           "time": "10月10日 01:56 · 凌晨",
           "author": "Bhanu Tokas, Rahul Nair 等",
           "body": "Interpreting machine learning model predictions is a central challenge, particularly for black-box vision models. Concept-based attribution methods interpret models using human-understandable concepts. Existing concept-based methods can only interpret classification and regression models. They require access to model weights or large concept-annotated datasets, and most methods cannot provide image-level attribution. We propose Hide and Seek (HnS), a new method for concept-level attribution that does not require access to model weights or labeled concept datasets. HnS can interpret a wide range of vision models. Given a concept and image set, HnS retrieves concept-aligned images using a vision-language model, localizes the concept within each image, masks the localized region, and measures attribution from the change in the black-box model's output between the original and masked images. This enables faithful attribution by directly measuring the model's behavior and supporting local attributions. We validated HnS on CelebA and COCO-Stuff. Compared to existing methods, HnS showed better agreement with ground-truth attributions. We demonstrated the applicability of HnS on diverse tasks, including image captioning and satellite image segmentation, where no existing concept attribution method can be used. We provided our anonymous code in the supplementary material.",
-          "bodyZh": "解读机器学习模型的预测结果一直是个大难题，特别是对于那些黑箱视觉模型来说。基于概念的解释方法通过人类能理解的概念来解读模型。但现有的这些方法只能解释分类和回归模型，它们要么需要获取模型权重，要么需要大量标注了概念的数据集，而且大多数方法无法提供图像级别的归因分析。我们提出了一种新方法，叫做“Hide and Seek”（简称HnS），用于概念级别的归因分析，不需要访问模型权重，也不需要标注好的概念数据集。HnS能解释多种类型的视觉模型。给定一个概念和一组图像，HnS会利用视觉-语言模型检索出与概念相匹配的图像，在每个图像中定位该概念所在的位置，把定位到的区域遮住，然后通过比较原始图像和被遮挡图像之间黑箱模型输出的变化来衡量归因。这样一来，就能通过直接观察模型的行为来实现忠实的归因分析，并且支持局部归因。我们在CelebA和COCO-Stuff数据集上验证了HnS。与现有方法相比，HnS在归因结果上与真实标注更加一致。我们还展示了HnS在多种任务上的适用性，包括图像描述生成和卫星图像分割，这些任务目前没有任何现有的概念归因方法可以使用。我们在补充材料中提供了匿名代码。",
+          "bodyZh": "想搞清楚机器学习模型到底为啥做出某个预测，一直是个大难题，尤其是那种黑箱式的视觉模型（black-box vision models）。基于概念的归因方法（concept-based attribution methods）就是用人类能看懂的概念来解释模型。可现有的这类方法只能解释分类和回归模型，而且必须能拿到模型权重（model weights），或者得有一大堆标注好概念的数据集（concept-annotated datasets），大部分方法还没法给出图像级别的归因（image-level attribution）。我们提出了一个叫 Hide and Seek（简称 HnS）的新方法，专门做概念级别的归因（concept-level attribution），既不用拿到模型权重，也不需要标注好的概念数据集。HnS 能解释的视觉模型范围很广。给它一个概念和一组图像，它会先用视觉-语言模型（vision-language model）找出跟这个概念对得上的图像，再在每张图里定位出这个概念出现的位置，把这块区域遮住，然后比较原图和遮住之后那张图在黑箱模型里输出的变化，由此算出归因。这样做的好处是，它直接去测模型的行为，所以归因更靠谱，还能支持局部归因。我们在 CelebA 和 COCO-Stuff 上验证了 HnS。跟现有方法一比，HnS 的结果和真实归因（ground-truth attributions）更吻合。我们还展示了 HnS 能用在不同任务上，包括图像描述（image captioning）和卫星图像分割（satellite image segmentation），这些任务以前根本没有任何概念归因方法可用。我们的匿名代码放在补充材料里了。",
           "freeLink": ""
         },
         {
           "id": "19752882",
           "title": "RSI-Anything: Unlocking Recursive Self-Improvement with World Models",
           "zh": "RSI-Anything：用世界模型解锁递归自我改进",
-          "summary": "如果你在琢磨模型怎么自己迭代变强，这篇把世界模型当成自我改进的引擎，值得关注可行性",
+          "summary": "如果你在盯\"模型自己训练自己\"这条路线，这篇把世界模型当成自我改进的引擎，值得看看它怎么定义和度量\"进步\"。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13912v1",
           "category": "paper",
@@ -52,14 +52,14 @@
           "time": "10月10日 01:50 · 凌晨",
           "author": "Taoyong Cui, Pinxian Zeng 等",
           "body": "Recursive self-improvement (RSI) aims to transform interaction experience into persistent improvements, yet external feedback is costly and world-model predictions may become unreliable as policies evolve. We introduce RSI-Anything, a domain-general framework built on JEPA-Anything that uses predictive world models to guide action and learning-data selection. Observed feedback drives policy or workflow improvement and conditional world-model adaptation, while component and compatibility checks govern the retention of updated policy-model pairs. Across diverse computational and scientific domains, RSI-Anything demonstrates substantial gains. In code repair, with the coder fixed, success increases from 26.3% with a static verifier to 29.2% through predictive selection and 31.2% after world-model adaptation, at comparable test usage. Graphical user interface (GUI) evaluations showed higher task completion, while average actions decrease by 39.4%. Across five successive policy versions, laboratory-planning scores more than double from 21.80% to 46.01%. In reaction optimization, RSI-Anything achieves 96.15% mean best observed yield versus 82.16% for Bayesian optimization under the same 40-experiment budget. An end-to-end immune-science application further connects workflow evolution and predictive modeling with therapeutic hypothesis generation. These results demonstrate how predictive world models and retained system updates enable recursive improvement across diverse environments.",
-          "bodyZh": "递归自我改进（Recursive Self-improvement，RSI）想干的事，就是把一次次互动体验，变成能一直带着走、越用越强的提升。但外部反馈（external feedback）成本太高，而且策略（policy）一变，世界模型（world model）的预测就可能越来越不准。我们提出了 RSI-Anything，一个建立在 JEPA-Anything 上的领域通用框架（domain-general framework）。它会用预测性世界模型（predictive world models）来指导行动，也指导学习数据该怎么选。观察到的反馈会推动策略或工作流（workflow）改进，也会触发有条件的世界模型适配（conditional world-model adaptation）；同时，组件和兼容性检查（component and compatibility checks）会决定更新后的策略-模型配对（policy-model pair）留不留。在各种各样的计算和科学领域里，RSI-Anything 都拿到了很明显的提升。比如代码修复（code repair）里，在编码器（coder）固定不变的情况下，成功率从用静态验证器（static verifier）时的 26.3%，通过预测性选择（predictive selection）提到 29.2%，再经过世界模型适配后到 31.2%，测试用量还差不多。图形用户界面（Graphical User Interface，GUI）评测里，任务完成率（task completion）更高，平均动作数（average actions）却少了 39.4%。连续五个策略版本下来，实验室规划（laboratory planning）得分从 21.80% 翻倍还多，涨到 46.01%。在反应优化（reaction optimization）里，同样 40 次实验预算（experiment budget）下，RSI-Anything 的平均最佳观测产率（mean best observed yield）达到 96.15%，而贝叶斯优化（Bayesian optimization）是 82.16%。一个端到端的免疫科学（immune-science）应用，还把工作流演化（workflow evolution）、预测建模（predictive modeling）和治疗假设生成（therapeutic hypothesis generation）串了起来。这些结果说明，预测性世界模型加上能保留下来的系统更新，能让系统在不同环境里实现递归改进（recursive improvement）。",
+          "bodyZh": "递归自我改进（Recursive Self-improvement，RSI）想做的，是把互动体验变成能持续保留下来的进步；可麻烦在于，外部反馈成本很高，而且随着策略（policy）不断演进，世界模型（world model）的预测也可能变得越来越不可靠。我们提出了 RSI-Anything，这是一个基于 JEPA-Anything 搭建的、能跨领域通用的框架，它用预测式世界模型来指导行动，也指导挑选学习数据。观察到的反馈会推动策略或工作流（workflow）改进，也会带动世界模型做条件式自适应；与此同时，组件检查和兼容性检查会决定要不要保留更新后的策略-模型配对。在各种各样的计算和科学领域里，RSI-Anything 都带来了明显提升。在代码修复中，把代码生成器（coder）固定不变，成功率会从静态验证器的 26.3%，通过预测式选择提到 29.2%，再经过世界模型自适应达到 31.2%，而测试用量差不多。图形用户界面（Graphical User Interface，GUI）评测显示，任务完成率更高，同时平均操作数还下降了 39.4%。在连续五个策略版本中，实验室规划得分从 21.80% 涨到 46.01%，翻了一倍多。在反应优化（reaction optimization）里，同样 40 次实验预算下，RSI-Anything 的平均最佳观测产率达到 96.15%，而贝叶斯优化（Bayesian optimization）是 82.16%。一个端到端的免疫科学应用，还进一步把工作流程演化和预测建模，跟治疗假设生成连到了一起。这些结果说明，预测式世界模型加上保留下来的系统更新，能让递归改进在各种不同环境里都真正跑起来。",
           "freeLink": ""
         },
         {
           "id": "ecdf71f5",
           "title": "When VLMs Destroy What They Know: Spatial Representations Fall Below Lexical Priors",
-          "zh": "当视觉语言模型摧毁自己已知的东西：空间表征跌破词汇先验",
-          "summary": "如果你以为VLM天然懂空间关系，这篇说微调反而会让它的空间表征退到比语言先验还差",
+          "zh": "当VLM毁掉自己已知的东西：空间表征跌到词汇先验之下",
+          "summary": "如果你默认VLM看图理解空间关系是稳的，这篇提醒你某些干预会让它连原本掌握的空间信息都答错，甚至退回到靠词面猜。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13910v1",
           "category": "paper",
@@ -67,14 +67,14 @@
           "time": "10月10日 01:50 · 凌晨",
           "author": "Shubh Garg, Chen Shani",
           "body": "Vision-Language Models (VLMs) increasingly analyze and reason about images, yet it remains unclear whether their internal representations faithfully encode the structured relations required for such reasoning. We introduce EICS (Evaluation-Invariant Concept Stability), a metric for testing whether representations consistently encode concepts under controlled one-concept interventions, and CASP-VL (Causally controlled Spatial Perturbations for Vision-Language models), a benchmark of causally controlled spatial perturbations derived from Visual Genome scene graphs. Across multiple VLM architectures, we find that spatial relations are represented substantially less faithfully than lexical information, even when the same models score well above chance on compositional benchmarks. Further analysis shows that the relation is identifiable at the predicate's own tokens but is lost when the sentence is aggregated into a global representation, whether through the (EOS) token or by mean pooling. These findings reveal a systematic failure invisible to output-based evaluation: VLMs do not preserve, in the representation used downstream, relational information that is present in their own input.",
-          "bodyZh": "视觉语言模型（Vision-Language Models, VLMs）越来越会分析和推理图像了，但有个问题还没弄明白：它们内部的表示，到底有没有忠实地编码出这种推理所需要的结构化关系？为此，我们提出了 EICS（Evaluation-Invariant Concept Stability，评估不变概念稳定性）——一个用来检测表示的指标：在受控的、一次只动一个概念的干预下，看它能不能始终一致地编码概念；同时还提出了 CASP-VL（Causally controlled Spatial Perturbations for Vision-Language models，面向视觉语言模型的因果控制空间扰动）——一个基于 Visual Genome 场景图（scene graphs）构建的、经过因果控制的空间扰动基准。我们在多种 VLM 架构上测试后发现：空间关系被编码的忠实程度，明显不如词汇信息；而且就算这些模型在组合式基准测试（compositional benchmarks）上得分远高于随机水平，也还是这样。进一步分析显示，关系在谓词自己的 token（词元）上还能被识别出来，可一旦整句话被聚合成全局表示——不管是走 (EOS) token，还是用平均池化（mean pooling）——这个关系就丢了。这些发现揭示了一种基于输出的评估根本看不见的系统性失败：VLM 在自己输入里明明存在的关系信息，并没有在下游（downstream）使用的表示里保留下来。",
+          "bodyZh": "视觉语言模型（Vision-Language Models，VLMs）现在越来越能看图、分析图，甚至对图做推理，但有个问题一直说不清：它们内部那套表示，到底有没有忠实地把这种推理所需要的结构化关系（structured relations）给编码进去？为此，我们提出了 EICS（Evaluation-Invariant Concept Stability，评测不变的概念稳定性）——这是一个指标，用来测试在受控的、每次只动一个概念的情况下，模型的表示能不能稳定地把概念编码出来；我们还提出了 CASP-VL（Causally controlled Spatial Perturbations for Vision-Language models，面向视觉语言模型的因果控制空间扰动）——这是一个基准测试，里面的空间扰动是从 Visual Genome 场景图（scene graphs）里拿出来的，并且做了因果控制。我们在多种 VLM 架构上发现，空间关系（spatial relations）被表示出来的忠实程度，明显不如词汇信息（lexical information），哪怕同一个模型在组合类基准测试（compositional benchmarks）上得分远高于瞎猜。进一步分析显示，这种关系在谓词自己对应的词元（tokens）上还能识别出来，可一旦整句话被聚合成全局表示（global representation），不管是通过 EOS 标记（EOS token），还是用平均池化（mean pooling），它就丢了。这些发现暴露出一种基于输出的评测（output-based evaluation）根本看不见的系统性失败：VLMs 在自己下游（downstream）要用的那套表示里，并没有保住明明存在于它们输入里的关系信息。",
           "freeLink": ""
         },
         {
           "id": "e1a9467a",
           "title": "Revisiting Tabular Deep Regression: Objectives and the Limits of Global Early Stopping",
-          "zh": "重访表格数据深度回归：目标函数与全局早停的局限",
-          "summary": "如果你还在表格任务上无脑套深度回归+早停，这篇会告诉你这套组合的边界在哪",
+          "zh": "重新审视表格数据深度回归：目标函数与全局早停的局限",
+          "summary": "如果你还在表格数据上跑深度回归并习惯性开全局早停，这篇指出这个默认操作可能一直在悄悄拖你的效果。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13909v1",
           "category": "paper",
@@ -82,14 +82,14 @@
           "time": "10月10日 01:49 · 凌晨",
           "author": "Danil Rudenko, Georgii Bulgakov 等",
           "body": "While deep learning models for tabular data have recently received significant research attention, the choice of objective functions for regression tasks remains an understudied degree of freedom. Several lines of research offer alternatives to the standard Mean Squared Error (MSE), but differences in datasets, backbones, and evaluation protocols make their practical benefits difficult to compare. In this work, we address this gap by performing a systematic re-evaluation of regression objectives across a broad collection of established tabular datasets and multiple neural backbones. Our comparison reveals that many proposed objectives provide limited or inconsistent gains over a properly tuned MSE baseline, while quantile loss yields consistent aggregate improvements over MSE across the tested backbones. We then identify a limitation that remains even with this strong objective: regions with different levels of target noise can reach their best predictive performance at different training epochs. Consequently, a single global early-stopping checkpoint can impose a compromise between uncertainty regions, even when the objective can represent heteroskedastic target distributions. Motivated by this limitation, we introduce a heteroskedasticity-aware extension of quantile loss that uses input-dependent label smoothing as a potential remedy and improves over quantile loss on several backbones. Overall, our results provide a modern empirical picture of regression objectives for tabular deep learning and highlight how differences in optimal stopping times across uncertainty regions can limit the effectiveness of global early stopping. The code is available at https://github.com/yandex-research/tabular-regression.",
-          "bodyZh": "最近，针对表格数据（tabular data）的深度学习模型（deep learning models）吸引了不少研究关注，但在回归任务（regression tasks）里，目标函数（objective functions）到底该怎么选，这个自由度其实一直没被好好研究。已经有几路研究提出了标准均方误差（Mean Squared Error, MSE）之外的替代方案，但因为数据集、骨干网络（backbones）和评估协议（evaluation protocols）各不相同，这些方案到底能带来多少实际好处，很难直接比较。在这项工作里，我们补上了这个缺口：在大量经典表格数据集和多种神经骨干网络上，系统性地重新评估了各种回归目标函数。我们的对比显示，很多被提出的目标函数，跟一个认真调好的 MSE 基线相比，提升要么有限，要么时好时坏；而分位数损失（quantile loss）在测试的各个骨干网络上，整体上能稳定优于 MSE。接着我们又发现了一个限制，哪怕用了这么强的目标函数也仍然存在：目标噪声（target noise）水平不同的区域，可能在训练到不同轮数时达到最好的预测表现。这样一来，哪怕目标函数能够表示异方差（heteroskedastic）的目标分布，一个全局的早停检查点（early-stopping checkpoint）还是会让不同不确定性区域（uncertainty regions）之间相互妥协。受这个限制启发，我们引入了一种能感知异方差的分位数损失扩展，用依赖输入的标签平滑（label smoothing）作为可能的补救办法，并且在好几个骨干网络上比普通分位数损失更好。总的来说，我们的结果给表格深度学习的回归目标函数提供了一幅现代的经验图景，也突出说明了：不同不确定性区域的最佳停止时间不一样，会限制全局早停的效果。代码在 https://github.com/yandex-research/tabular-regression。",
+          "bodyZh": "虽然最近针对表格数据（tabular data）的深度学习模型吸引了不少研究关注，但在回归任务（regression tasks）里，目标函数（objective functions）到底该怎么选，仍然是一块没怎么被好好研究的自由度（degree of freedom）。已经有不少研究提出了替代标准均方误差（Mean Squared Error, MSE）的方案，可因为用的数据集、骨干网络（backbones）和评估协议（evaluation protocols）都不一样，很难判断这些方案到底有没有实际好处。在这项工作里，我们就把这个缺口补上：我们在大量成熟的表格数据集（tabular datasets）上，用多种神经骨干网络（neural backbones），对回归目标函数做了一次系统性的重新评估。我们的对比发现，很多被提出的目标函数，跟一个调好参数的 MSE 基线比起来，提升要么很有限，要么不稳定；而分位数损失（quantile loss）则在测试的这些骨干网络上，整体上稳定优于 MSE。接着，我们还发现了一个即使用了这个很强目标函数也仍然存在的问题：目标噪声（target noise）水平不同的区域，可能会在不同的训练轮次达到各自最好的预测表现。这样一来，就算目标函数能表示异方差目标分布（heteroskedastic target distributions），一个单一的全局早停检查点（global early-stopping checkpoint）也会让不同不确定性区域之间互相妥协。受这个限制启发，我们提出了一个能感知异方差性的分位数损失扩展（heteroskedasticity-aware extension of quantile loss），它用依赖输入的标签平滑（input-dependent label smoothing）作为一种可能的补救办法，并且在好几个骨干网络上都比分位数损失更好。总的来说，我们的结果给出了表格深度学习里回归目标函数的一幅现代实证图景，也突出了不同不确定性区域之间最优停止时间（optimal stopping times）的差异，会怎样限制全局早停（global early stopping）的效果。代码在 https://github.com/yandex-research/tabular-regression。",
           "freeLink": ""
         },
         {
           "id": "b46a5b14",
           "title": "Structural Automata for Neural Semantic Parsing",
           "zh": "面向神经语义解析的结构自动机",
-          "summary": "如果你做语义解析，这篇把结构自动机接进神经网络，可能在组合泛化上有新解法",
+          "summary": "如果你做语义解析想同时要神经方法的泛化性和形式结构的可控性，这篇给了一个把自动机结构嵌进模型的路子。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13896v1",
           "category": "paper",
@@ -97,14 +97,14 @@
           "time": "10月10日 01:42 · 凌晨",
           "author": "Xiao Zhang",
           "body": "Neural semantic parsers generate meaning representations token by token, yet well-formedness depends on references, scope, and graph relations that unfold during generation. Constrained decoding prevents locally invalid tokens but does not guarantee that a valid prefix can be completed within a fixed output-length limit. We investigate structural automata at three stages of DRS parsing (decoding, post hoc processing, and training) and additionally evaluate decoding on AMR. For decoding, we introduce accepting-path decoding (APD), which maintains a verified completion within the remaining length limit and follows the model's preferred token whenever that token can also be completed. APD guarantees an accepted output without retracting tokens. Under tight length limits, it improves Smatch++ over local masking by 5.1 and 2.4 points on DRS and by 6.4 and 3.2 points on AMR, comparable to rollback under the same limit, which retracts tokens. For post hoc processing, invalid outputs concentrate on the same inputs: eight unconstrained samples yield no valid output for 10.2% of inputs with limited training data, compared with 0.4% with full data, where filtering comes within 0.2 Smatch++ points of APD. For training, penalizing automaton-rejected tokens improves development Smatch++ by 3.6-11.0 points after 10% of training, but this advantage diminishes as cross-entropy alone reduces the probability assigned to rejected tokens from 14% to below 2% within the first sixth of training with limited data.",
-          "bodyZh": "神经语义解析器（neural semantic parsers）生成语义表示（meaning representations）时，是一个词元（token）接一个词元地往外生成，但它生成得合不合法，还得看生成过程中逐步展开的指代（references）、作用域（scope）和图关系（graph relations）。受限解码（constrained decoding）能挡住局部不合法的词元，可它没法保证一个合法前缀（prefix）一定能在固定输出长度限制内补完。我们研究了 DRS（话语表示结构，Discourse Representation Structure）解析在三个阶段的“结构自动机”（structural automata）：解码（decoding）、事后处理（post hoc processing）和训练（training），另外还在 AMR（Abstract Meaning Representation，抽象语义表示）上评估了解码效果。在解码这块，我们提出了接受路径解码（accepting-path decoding，APD）。它会始终保留一条能在剩余长度限制内走通的、经过验证的补全路径，并且只要模型偏好的词元也能补完，就跟着它走。APD 不用回撤词元，也能保证给出一个被接受的输出。在长度限制很紧的时候，它在 DRS 上比局部屏蔽（local masking）把 Smatch++ 提高了 5.1 分和 2.4 分，在 AMR 上提高了 6.4 分和 3.2 分，和同样限制下会回撤词元的回滚（rollback）方法差不多。在事后处理这块，不合法输出会集中在同一批输入上：训练数据有限时，对 10.2% 的输入来说，八个无约束样本（unconstrained samples）都产不出合法输出；而数据充足时，这个比例是 0.4%，这时过滤（filtering）方法的 Smatch++ 跟 APD 只差 0.2 分以内。在训练这块，惩罚被自动机拒绝的词元，能让训练进行到 10% 后的开发集 Smatch++ 提高 3.6 到 11.0 分；不过这个优势会慢慢变小，因为就算只靠交叉熵（cross-entropy），在数据有限时，训练的前六分之一里，模型分给被拒词元的概率也会从 14% 降到 2% 以下。",
+          "bodyZh": "神经语义解析器（neural semantic parsers）是一个词元（token）接一个词元地生成意义表示（meaning representations），但它到底合不合法、结构完不完整（well-formedness），要看生成过程中逐步展开的引用（references）、作用域（scope）和图关系（graph relations）。受约束解码（constrained decoding）能挡住局部不合法的词元（invalid tokens），但没法保证一个合法前缀（valid prefix）在固定的输出长度上限（fixed output-length limit）里一定补得完。我们研究了 DRS 解析（DRS parsing）三个阶段的“结构自动机”（structural automata）——解码（decoding）、事后处理（post hoc processing）和训练（training）——另外还在 AMR（Abstract Meaning Representation）上评估了解码。在解码这一步，我们提出了“可接受路径解码”（accepting-path decoding, APD）：它会在剩余长度限制内始终维持一条已经验证过能走完的补全路径；只要模型偏好的那个词元最后也能补完，就优先跟着它走。APD 能保证输出一个可接受的结果，而且不用撤回已经生成的词元。在长度限制很紧时，它相比局部屏蔽（local masking）让 Smatch++ 提升：DRS 上提高 5.1 和 2.4 个点，AMR 上提高 6.4 和 3.2 个点；这跟同样限制下会撤回词元的回滚（rollback）差不多。在事后处理阶段，不合法的输出会集中在同一批输入上：训练数据有限时，八个不受约束的采样（unconstrained samples）会在 10.2% 的输入上根本给不出合法输出；而数据充足时，这个比例只有 0.4%，这时过滤（filtering）跟 APD 的 Smatch++ 只差 0.2 个点。在训练阶段，惩罚那些被自动机拒绝的词元（automaton-rejected tokens），在训练到 10% 之后能让开发集 Smatch++ 提高 3.6 到 11.0 个点；但这个优势会慢慢变小，因为只靠交叉熵（cross-entropy）时，在数据有限、训练刚过六分之一的时候，模型分给被拒绝词元的概率就会从 14% 降到 2% 以下。",
           "freeLink": ""
         },
         {
           "id": "f3005943",
           "title": "Task Context Shapes Component Roles in Language Models",
-          "zh": "任务上下文塑造语言模型的组件角色",
-          "summary": "如果你关心LLM内部哪块负责什么，这篇说组件分工不是固定的，会随任务上下文变化",
+          "zh": "任务上下文塑造语言模型内部组件的角色",
+          "summary": "如果你好奇LLM里哪块模块负责什么，这篇说明分工不是固定的，而是随任务上下文动态变化，别按固定标签去理解内部结构。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13895v1",
           "category": "paper",
@@ -112,14 +112,14 @@
           "time": "10月10日 01:40 · 凌晨",
           "author": "Sovesh Mohapatra, Dani S Bassett",
           "body": "Large language models reuse the same attention heads across tasks, but identifying these shared heads does not explain what they do differently in each task. A natural source of inspiration is task-dependent interactions among shared brain regions, which motivate a network view of language-model computation. Here, we compare fixed model components across tasks using identical graph facts, statements specifying which directed connections are present. We measure how interventions affect attention heads and the activation state in later layers (influence), as well as the answer (importance). Task changes redistribute the influence in five open-weight models spanning four families and 1.5-14 billion parameters. In Gemma-2-9B and Qwen3-14B, an activation edit changes an early internal activation vector and switches which fact the model reads while the written instruction stays fixed. The same heads then respond to different graph facts and influence later components differently. For each prompt, we construct two linear response maps, one before the edit and one after it. Each map predicts a later head's response from a measured change in an earlier head. For a separate factual intervention, the map for the corresponding condition reduces mean squared prediction error by 53.6% in Gemma and 5.0% in Qwen compared with the average of the two maps. These findings show that task context changes both which graph facts the shared components respond to and how their outputs affect later computation. A network account may help explain how models use shared parameters to perform different computations. Measurements of task-dependent influence could also guide interventions intended to alter one behavior while preserving others.",
-          "bodyZh": "大型语言模型（large language models）在不同任务里会复用同一批注意力头（attention heads），可就算把这些共享的注意力头找出来，也说不清它们在每个任务里到底干了什么不一样的事。一个很自然的灵感来源，是共享脑区（shared brain regions）之间会随任务变化的互动（task-dependent interactions）；这也促使我们用网络视角（network view）来看语言模型的计算。我们在这里用同一组图事实（graph facts）——也就是明确说明哪些有向连接（directed connections）存在的陈述——来比较固定模型组件（fixed model components）在不同任务里的表现。我们会测量干预（interventions）怎样影响注意力头，以及后面几层的激活状态（activation state），这算“影响力”（influence）；同时也会看它怎样影响答案，这算“重要性”（importance）。任务一换，影响力就会在五个开放权重模型（open-weight models）里重新分配；这些模型来自四个家族，参数规模从 15 亿到 140 亿不等。在 Gemma-2-9B 和 Qwen3-14B 里，一次激活编辑（activation edit）会改动一个早期内部激活向量（internal activation vector），让模型读取的事实发生切换，而写在提示里的指令保持不变。同样的注意力头这时会对不同的图事实作出反应，也会用不同方式影响后面的组件。对每个提示词（prompt），我们都会构建两张线性响应映射（linear response maps）：一张是编辑前的，一张是编辑后的。每张映射都能根据前面某个注意力头测到的变化，去预测后面某个注意力头的反应。对于另一项单独的事实干预（factual intervention），跟两张映射的平均值相比，对应条件的那张映射能把均方预测误差（mean squared prediction error）在 Gemma 里降低 53.6%，在 Qwen 里降低 5.0%。这些发现说明，任务上下文（task context）会同时改变两件事：共享组件会对哪些图事实作出反应，以及它们的输出会怎样影响后续计算。一种网络视角的解释，也许能帮我们理解模型怎么用共享参数（shared parameters）完成不同计算。测量任务依赖的影响力（task-dependent influence），也可能指导我们做干预：只改掉某一个行为，同时保住其他行为。",
+          "bodyZh": "大型语言模型在不同任务中会重复使用相同的注意力头，但光是找出这些共享的注意力头，并不能解释它们在每个任务里到底做了哪些不同的事。一个很自然的灵感来源，是大脑中共享区域之间那种随任务变化的互动方式，这也促使我们从“网络”的角度去理解语言模型的计算过程。在这里，我们使用相同的图事实，也就是明确说明哪些有向连接存在的陈述，来比较不同任务中固定的模型组件。我们会测量干预措施如何影响注意力头以及后续层中的激活状态（称为影响力），同时也会测量它对答案的影响（称为重要性）。任务一变，五个开放权重模型中的影响力分布就会重新洗牌，这些模型横跨四个家族，参数规模从15亿到140亿不等。在Gemma-2-9B和Qwen3-14B中，一次激活编辑会改变一个早期的内部激活向量，从而切换模型读取的事实，而写好的指令保持不变。接着，相同的注意力头会对不同的图事实作出反应，并以不同方式影响后续组件。对于每个提示，我们构建两个线性响应映射，一个在编辑前，一个在编辑后。每个映射都根据早期注意力头中测量到的变化，来预测后续某个注意力头的响应。对于另一个独立的事实干预，与两个映射的平均值相比，对应条件下的映射在Gemma中将均方预测误差降低了53.6%，在Qwen中降低了5.0%。这些发现表明，任务上下文既会改变共享组件响应哪些图事实，也会改变它们的输出如何影响后续计算。一种网络式的解释，可能有助于说明模型如何利用共享参数来执行不同的计算。对任务依赖型影响力的测量，也可能指导那些想要改变一种行为、同时保留其他行为的干预措施。",
           "freeLink": ""
         },
         {
           "id": "809bf976",
           "title": "RATED: Reliability-Aware AI Agent Tool Retrieval via Execution Dynamics",
           "zh": "RATED：基于执行动态的可靠性感知AI Agent工具检索",
-          "summary": "如果你在搭Agent的工具检索，这篇提醒你光看语义相似度不够，还得看工具实际跑起来靠不靠谱",
+          "summary": "如果你在给Agent搭工具库做检索，别只看工具描述像不像，这篇说要看它实际调用时的执行表现来判可靠性。",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2610.13889v1",
           "category": "paper",
@@ -127,7 +127,7 @@
           "time": "10月10日 01:38 · 凌晨",
           "author": "Weiliang Chen, Song Liao",
           "body": "As AI agents increasingly rely on external tools, accurate retrieval is essential for reliable behavior. Existing methods optimize semantic relevance but largely ignore tool availability during execution. To address this gap, we propose RATED (Reliability-Aware Tool Retrieval via Execution Dynamics), a retrieval framework that combines robust semantic matching with dynamic reliability adaptation. RATED employs a frozen dual-encoder with contrastive fine-tuning for semantic matching, and a lightweight contextual bandit module that re-ranks candidates based on real-time execution feedback. This design enables rapid adaptation to runtime tool failures without expensive model retraining. We introduce EcoAgent, a benchmark of 5,172 real-world tools and over 210,000 query-tool pairs for offline retrieval and dynamic reliability evaluation. Experimental results demonstrate that RATED achieves a 52.2% relative MRR improvement over the ToolLLM API retriever on real-world queries, and reduces fault selection rate from 86.2% to 2.9% under severe API outage scenarios with a 30% failure rate, while incurring negligible latency overhead of less than 1 ms over encode-only inference. The code and dataset are available at https://github.com/Elliotes/EcoAgent.",
-          "bodyZh": "现在 AI 智能体（AI agents）越来越依赖外部工具，所以想让它行为靠谱，检索得准就是关键。可现有方法大多只盯着语义相关性（semantic relevance）做优化，基本没管工具在执行的时候到底还能不能用。为了补上这个缺口，我们提出了 RATED（Reliability-Aware Tool Retrieval via Execution Dynamics，基于执行动态的可靠性感知工具检索），一个把稳健的语义匹配和动态可靠性自适应结合起来的检索框架。RATED 用了一个冻结的双编码器（dual-encoder），再配上对比微调（contrastive fine-tuning）来做语义匹配；同时加了一个轻量的上下文老虎机模块（contextual bandit module），根据实时执行反馈给候选工具重新排序。这个设计让它能快速适应运行时工具故障，而不用花大价钱重新训练模型。我们还推出了 EcoAgent，一个包含 5,172 个真实世界工具、超过 210,000 个查询-工具对（query-tool pairs）的基准（benchmark），用于离线检索和动态可靠性评估。实验结果表明，在真实查询上，RATED 相比 ToolLLM API（应用程序接口，Application Programming Interface）检索器，MRR（平均倒数排名，Mean Reciprocal Rank）相对提升了 52.2%；在 30% 失败率的严重 API 中断场景下，把故障选择率从 86.2% 降到 2.9%，而且相比仅编码推理（encode-only inference），额外延迟小到可以忽略，不到 1 毫秒。代码和数据集在 https://github.com/Elliotes/EcoAgent 可以拿到。",
+          "bodyZh": "现在AI智能体（AI agents）越来越依赖外部工具，所以想让它靠谱干活，能不能准确检索到合适的工具就特别关键。可现有方法大多只顾着优化语义相关性（semantic relevance），基本没管工具在真正执行的时候到底能不能用。为了补上这个缺口，我们提出了RATED（Reliability-Aware Tool Retrieval via Execution Dynamics，基于执行动态的可靠性感知工具检索）：一个把稳健的语义匹配和动态可靠性自适应结合起来的检索框架。RATED用一个冻结的双编码器（frozen dual-encoder）加上对比微调（contrastive fine-tuning）来做语义匹配，再配一个轻量的上下文多臂老虎机（contextual bandit）模块，根据实时执行反馈给候选工具重新排序。这个设计能对运行时工具故障快速做出调整，而且不用花大价钱重新训练模型。我们还推出了EcoAgent，一个包含5,172个真实世界工具、超过210,000个查询-工具对（query-tool pairs）的基准（benchmark），用来做离线检索和动态可靠性评估。实验结果显示，在真实查询上，RATED相比ToolLLM API检索器，MRR（Mean Reciprocal Rank，平均倒数排名）相对提升了52.2%；在故障率30%的严重API中断（API outage）场景下，把故障选择率（fault selection rate）从86.2%降到2.9%，而且相比只做编码的推理（encode-only inference），额外延迟开销（latency overhead）不到1毫秒，几乎可以忽略。代码和数据集在 https://github.com/Elliotes/EcoAgent 可以拿到。",
           "freeLink": ""
         }
       ]
