@@ -1,20 +1,20 @@
 {
-  "date": "2026年11月20日星期五",
-  "dayOfWeek": "2026年11月20日星期五",
+  "date": "2026年11月21日星期六",
+  "dayOfWeek": "2026年11月21日星期六",
   "isWeekly": false,
   "categories": [
     {
       "key": "paper",
       "icon": "📄",
       "name": "前沿论文",
-      "commentary": "集中在Agent与机器人的能力评测和策略学习，以及LLM推理可靠性的度量与验证方法。",
+      "commentary": "本批论文集中在Agent能力评测、机器人长时程控制与视频/动作表征复用，兼有对LLM可靠性与认知机制的方法学审视。",
       "articleCount": 8,
       "articles": [
         {
           "id": "42d91fe0",
           "title": "PlayCraft: Designing Engaging Games from Agent Play Experience",
-          "zh": "PlayCraft：从Agent游玩经验中设计有吸引力的游戏",
-          "summary": "如果你想让Agent自己一边玩一边把游戏关卡和机制设计出来，这篇讲的是怎么把游玩轨迹变成可用的设计信号。",
+          "zh": "PlayCraft：从Agent的游玩体验出发设计有吸引力的游戏",
+          "summary": "如果你在做AI辅助游戏设计，这篇的思路是让Agent自己去玩、再从试玩轨迹里反推好玩的设计，比堆规则模板更省事",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26624v1",
           "category": "paper",
@@ -22,14 +22,14 @@
           "time": "11月20日 02:59 · 凌晨",
           "author": "Weihao Cheng",
           "body": "Recent AI agents can generate playable games, but these games are not necessarily engaging. Mastery is a key source of engagement, yet designing for it requires extensive human play and tuning. We propose PlayCraft, an automated framework that uses a vision-based agent to play games and draws on its detailed play experience to revise them for mastery. Starting from an initial game, PlayCraft alternates between playing and crafting. In the playing stage, a player agent watches the game screen, uses the controls, and pursues the game objective over repeated episodes while retaining memory. After each episode, it reports its progress, outcomes, decisions, and reflections. In the crafting stage, a crafter agent uses these reports to revise the game. It estimates player abilities, predicts performance at different proficiency levels, and compares those predictions with a target learning progression. It diagnoses the game and addresses the gaps by giving players meaningful opportunities to improve through better decisions and execution. We evaluate games in fresh runs with player agents across three intelligence settings, measuring learning gain and learning slope. Compared with the initial games, PlayCraft yields larger learning gains and steeper learning slopes in most games. It also outperforms the baselines on the macro-average of each metric at every intelligence setting.",
-          "bodyZh": "最近的AI智能体（AI agents）已经能生成能玩的游戏，但这些游戏不一定好玩、让人投入。真正让人愿意一直玩的一个关键，是精通感（mastery），而精通感又是投入度（engagement）的关键来源之一；可要设计出这种体验，往往得靠大量真人试玩和反复调优。我们提出PlayCraft，一个自动化框架：它用一个基于视觉的智能体（vision-based agent）去玩游戏，再根据它详细的游玩经历来改游戏，让游戏更耐玩、更能带来精通感。PlayCraft从一版初始游戏开始，在“玩”和“做”之间来回切换。在“玩”的阶段，玩家智能体（player agent）盯着游戏画面，按控制键，一局一局（episodes）反复追游戏目标，而且会保留记忆。每局打完，它会汇报自己的进度、结果、决策和复盘反思。到了“做”的阶段，制作智能体（crafter agent）就拿这些汇报去改游戏：它会估计玩家能力，预测不同熟练度下的表现，再把这些预测跟一个目标学习进阶（learning progression）做对照；然后诊断游戏哪儿有问题，并通过让玩家靠更好的决策和操作获得有意义的提升机会，来补上这些差距。我们评估游戏时，会在三种智能水平设置（intelligence settings）下，让玩家智能体用全新对局来玩，测学习增益（learning gain）和学习斜率（learning slope）。跟初始游戏比，PlayCraft在大多数游戏里带来的学习增益更大，学习斜率也更陡。而且在每种智能水平设置下，它在每个指标的宏平均（macro-average）上都压过基线方法（baselines）。",
+          "bodyZh": "最近这些 AI 智能体（AI agents）已经能自己生成能玩的游戏了，但生成出来的游戏不一定好玩、不一定能让人愿意一直玩下去（engagement）。玩家能不能越玩越上手、越来越有“精通感”（mastery），是让人愿意继续玩的关键；可要围绕这点做设计，得靠大量真人试玩和反复调优。为此我们提出 PlayCraft：一个自动化框架，它让一个基于视觉的智能体（vision-based agent）去玩游戏，再根据它详细的游玩经验来改游戏，让游戏更能带出精通感。PlayCraft 会从一个小游戏开始，在“玩”和“做”之间来回切换。玩的时候，玩家智能体（player agent）会盯着游戏画面、操作控制、围绕游戏目标一局一局地玩（episodes），同时保留记忆；每玩完一局，它就汇报自己的进度、结果、决策和反思。做的时候，制作智能体（crafter agent）会拿这些汇报去改游戏：它会估计玩家能力，预测不同熟练度下的表现，再把这些预测和目标学习进阶（learning progression）做对比；然后诊断游戏哪儿没接上，并通过给玩家更有意义的提升机会——让他们靠更好的决策和操作进步——来补上差距。我们在全新开局里，用处于三种智能水平设置（intelligence settings）的玩家智能体来评估游戏，测学习收益（learning gain）和学习斜率（learning slope）。跟初始游戏相比，PlayCraft 在大多数游戏里都能带来更大的学习收益和更陡的学习斜率；而且在每一种智能水平设置下，它在两项指标的宏平均（macro-average）上都超过了基线方法（baselines）。",
           "freeLink": ""
         },
         {
           "id": "8048cfd3",
           "title": "One Prior, Two Dynamics: Repurposing Video Diffusion Transformers for Self-Supervised Latent Action Learning",
           "zh": "一个先验，两种动力学：复用视频扩散Transformer做自监督潜在动作学习",
-          "summary": "如果你在做机器人策略学习又苦于没有动作标注，这篇用视频扩散模型自带的动力学先验，从无标注视频里把潜在动作抠出来。",
+          "summary": "如果你想让机器人或Agent从无标注视频里学到\"什么动作导致什么变化\"，这篇告诉你视频生成模型里已经藏着可拆出来用的动作表征",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26617v1",
           "category": "paper",
@@ -37,14 +37,14 @@
           "time": "11月20日 02:58 · 凌晨",
           "author": "Yuxin Jiang, Wenqiang Sun 等",
           "body": "Videos reveal how the world changes, but rarely the actions that cause those changes. Latent action learning recovers such supervision from visual transitions, yet often learns the underlying dynamics largely from scratch. We ask whether a pretrained video generator can instead provide the prior for both inverse and forward dynamics. We introduce O$^{2}$LaF, built on a simple principle: one prior, two dynamics. We initialize both models from the same pretrained video DiT and adapt them to their distinct roles: a feed-forward transition encoder with learnable action queries for inverse dynamics, and a causal, action-conditioned video generator for forward dynamics. By controlling information access and optimizing both dynamics end-to-end through a compact bottleneck, O$^{2}$LaF learns transferable actions from unlabeled videos. Across navigation and robotic manipulation, O$^{2}$LaF sets a new state of the art in few-shot action probing and enables stronger zero-shot action transfer across visual contexts and embodiments. Beyond generative video priors, we further extend our framework to predictive representation priors such as V-JEPA2, achieving competitive performance. Our findings suggest a broader paradigm for latent-action learning: repurposing pretrained video models to discover transferable actions and predict their consequences.",
-          "bodyZh": "视频能告诉我们世界怎么变，却很少告诉我们是什么动作造成了这些变化。潜在动作学习（latent action learning）能从视觉变化里把这种监督信号找回来，但通常还是基本从零开始学背后的动态规律。我们想问的是：一个预训练视频生成器能不能反过来，给逆动态（inverse dynamics）和正向动态（forward dynamics）都提供先验？我们提出 O²LaF，原则很简单：一个先验，管两种动态。两个模型都从同一个预训练视频 DiT（Diffusion Transformer）初始化，再分别适配自己的角色：一个是前馈式过渡编码器（feed-forward transition encoder），带可学习动作查询（learnable action queries），负责逆动态；另一个是因果的、以动作为条件的视频生成器（causal, action-conditioned video generator），负责正向动态。通过控制信息访问，并让两种动态端到端地经过一个紧凑瓶颈（compact bottleneck）来优化，O²LaF 能从无标注视频里学到可迁移的动作。在导航和机器人操作任务上，O²LaF 在少样本动作探测（few-shot action probing）上创下新的最好成绩，也能在跨视觉场景和具身形态（visual contexts and embodiments）时实现更强的零样本动作迁移（zero-shot action transfer）。除了生成式视频先验，我们还把框架扩展到 V-JEPA2 这类预测表征先验（predictive representation priors），也取得了有竞争力的表现。这些发现指向一种更广的潜在动作学习范式：把预训练视频模型重新用起来，去发现可迁移的动作，并预测这些动作会带来什么后果。",
+          "bodyZh": "视频能告诉我们世界怎么变，却很少告诉我们是什么动作导致了这些变化。潜动作学习（latent action learning）能从视觉变化里把这类监督信号找回来，但通常还是基本从零开始学背后的动力学。我们就想问：能不能让一个预训练视频生成器（pretrained video generator）反过来，同时给逆动力学（inverse dynamics）和正动力学（forward dynamics）提供先验（prior）？于是我们提出 O²LaF，核心原则很简单：一个先验，两套动力学。我们把两个模型都从同一个预训练视频 DiT（video DiT）初始化，再让它们各自适应不同角色：一个是用可学习动作查询（learnable action queries）做逆动力学的前馈转移编码器（feed-forward transition encoder），另一个是做正动力学的、因果的、以动作为条件的视频生成器（causal, action-conditioned video generator）。通过控制信息访问，并让两套动力学通过一个紧凑的瓶颈（bottleneck）端到端优化，O²LaF 能从无标注视频里学到可迁移的动作。在导航（navigation）和机器人操作（robotic manipulation）任务上，O²LaF 在少样本动作探测（few-shot action probing）上刷新了最好成绩，也让零样本动作迁移（zero-shot action transfer）在跨视觉场景和跨具身（embodiments）时更强。除了生成式视频先验，我们还把框架扩展到预测式表征先验（predictive representation priors），比如 V-JEPA2，也取得了有竞争力的表现。这些发现指向一种更广义的潜动作学习范式：把预训练视频模型再利用起来，去发现可迁移的动作，并预测这些动作会带来什么后果。",
           "freeLink": ""
         },
         {
           "id": "5ca787fe",
           "title": "AgentRoboCritic: Understanding the Capability of Frontier Agents on Direct Robot Control",
           "zh": "AgentRoboCritic：评估前沿Agent在直接机器人控制上的能力边界",
-          "summary": "如果你以为通用Agent能直接接管机器人干活，这篇会告诉你它在真实控制任务上到底卡在哪一步。",
+          "summary": "如果你以为通用Agent接上机械臂就能干活，这篇的评测会告诉你它们在直接控制层面还差在哪",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26613v1",
           "category": "paper",
@@ -52,14 +52,14 @@
           "time": "11月20日 02:57 · 凌晨",
           "author": "Yiyang Du, Yuxuan Kuang 等",
           "body": "Frontier multimodal language agents such as GPT-6 Astra have demonstrated strong capabilities in controlling robots directly via low-level numerical actions without high-level primitives. However, existing benchmarks report only episode-level success rates, which show neither how these agents succeed nor where they fail. In this paper, we present a systematic action-level analysis of frontier agents on direct robot control across 12 manipulation benchmarks. We introduce AgentRoboCritic, an intent-grounded critique framework in which the policy agent states a local intent alongside each action, and a critic evaluates the action's outcome and failure mode against this intent. Our action-level analysis demonstrates the promising capabilities of frontier agents on direct robot control, including closed-loop recovery from local execution failures, reliable semantic grounding across diverse scenes, and strong zero-shot manipulation without task-specific adaptation. It also identifies their current limitations, including task-relevant physical execution bottlenecks such as grasping and alignment, and uneven recovery across failure modes. Finally, we validate our critic on a 400-action human-annotated benchmark and release a dataset of 12,844 annotated actions alongside a fine-tuned open-source critic, Muse-Glimmer-30B, whose failure-mode accuracy rises from 32.58% to 74.24%, enabling low-cost action-level analysis.",
-          "bodyZh": "像 GPT-6 Astra 这类前沿的多模态语言智能体（multimodal language agents），已经展现出很强的能力：它们不用高层原语（high-level primitives），而是直接通过底层数值动作（low-level numerical actions）来控制机器人。不过，现有的基准测试（benchmarks）只报告按整个任务回合统计的成功率（episode-level success rates），既看不出这些智能体是怎么成功的，也看不出它们到底在哪儿失败。在这篇论文里，我们对前沿智能体在直接机器人控制上的表现做了系统性的动作级分析（action-level analysis），覆盖 12 个机器人操作基准测试（manipulation benchmarks）。我们提出了 AgentRoboCritic，一个以意图为依据的评审框架（intent-grounded critique framework）：策略智能体（policy agent）每做一个动作，都会同时给出一个局部意图（local intent），然后由评审器（critic）拿这个意图当参照，判断动作的结果怎么样、属于哪种失败模式（failure mode）。我们的动作级分析显示，前沿智能体在直接机器人控制上很有潜力：它们能从局部执行失败中闭环恢复（closed-loop recovery），能在各种场景里可靠地把语义和实际环境对上（semantic grounding），而且不用针对具体任务做专门适配（task-specific adaptation），也能有很强的零样本操作（zero-shot manipulation）能力。分析也指出了它们目前的局限：比如抓取（grasping）和对齐（alignment）这类和任务相关的物理执行瓶颈（physical execution bottlenecks），以及不同失败模式下的恢复能力不均衡（uneven recovery）。最后，我们在一个包含 400 个动作、由人工标注的基准测试（human-annotated benchmark）上验证了这个评审器，并发布了一个包含 12,844 条标注动作的数据集，以及一个经过微调的开源评审器 Muse-Glimmer-30B；它的失败模式准确率（failure-mode accuracy）从 32.58% 提升到了 74.24%，让低成本的动作级分析成为可能。",
+          "bodyZh": "像 GPT-6 Astra 这类前沿的多模态语言智能体（frontier multimodal language agents），已经展现出很强的能力：它们不靠高层原语（high-level primitives），而是直接用底层数值动作（low-level numerical actions）来控制机器人。不过，现有的基准测试（benchmarks）只报告回合级成功率（episode-level success rates），既看不出这些智能体是怎么成功的，也看不出它们到底在哪儿失败。在这篇论文里，我们对 12 个操作类基准测试（manipulation benchmarks）中的前沿智能体做了系统性的动作级分析（action-level analysis），看它们直接控制机器人的表现。我们提出了 AgentRoboCritic，这是一个以意图为依据的评判框架（intent-grounded critique framework）：策略智能体（policy agent）每执行一个动作，就同时说出一个局部意图（local intent），然后由一个评判器（critic）结合这个意图，评估动作的结果和失败模式（failure mode）。我们的动作级分析显示，前沿智能体在直接控制机器人方面确实很有潜力：它们能从局部执行失败中做闭环恢复（closed-loop recovery），能在各种场景里保持可靠的语义落地（semantic grounding），还能在没有针对任务做专门适配（task-specific adaptation）的情况下，完成很强的零样本操作（zero-shot manipulation）。同时，我们也找出了它们目前的短板，比如抓取（grasping）和对齐（alignment）这类跟任务相关的物理执行瓶颈（physical execution bottlenecks），以及不同失败模式下的恢复表现参差不齐。最后，我们在一套包含 400 个动作的人工标注基准测试（human-annotated benchmark）上验证了这个评判器，并发布了一个包含 12,844 个已标注动作的数据集，以及一个经过微调的开源评判器 Muse-Glimmer-30B；它的失败模式准确率从 32.58% 提升到了 74.24%，让低成本的动作级分析成为可能。",
           "freeLink": ""
         },
         {
           "id": "ca5a4e2e",
           "title": "SoK: Assessing the Evolution of LLM Capability in Software Vulnerability Research",
-          "zh": "SoK：系统评估LLM在软件漏洞研究中的能力演进",
-          "summary": "如果你在判断LLM到底能不能真挖漏洞，这篇把几年来的能力变化和真实短板摊开讲了一遍。",
+          "zh": "SoK：评估LLM在软件漏洞研究中的能力演进",
+          "summary": "如果你关心LLM到底能不能真挖漏洞，这篇系统梳理了这几年能力的真实增长曲线，也能看清哪些宣称是水分",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26601v1",
           "category": "paper",
@@ -67,14 +67,14 @@
           "time": "11月20日 02:54 · 凌晨",
           "author": "Amine Lbath, Manan Suri 等",
           "body": "LLM-based agents are becoming increasingly capable at discovering, validating and patching vulnerabilities in real software, and vendors and researchers report that this is already changing how vulnerabilities are found and fixed. These claims, however, are scattered across papers, vendor reports and disclosures and are rarely comparable. We introduce a framework that rates these capabilities on an autonomy scale modeled on the levels of driving automation, and qualifies each claim by its correctness, its availability and the strength of its evidence. We use this framework to systematize the published evidence on LLM capability in vulnerability research. We find that agents discovered, validated, and patched vulnerabilities in real-world software without human intervention before the restricted frontier models of 2026, and that open-weight models subsequently attained comparable autonomy for discovery and validation. We then measure the consequences of evolving LLM security capabilities in a decade of public vulnerability records, advisories and exploitation data. In 2026 the number of disclosed vulnerabilities more than doubled, with an increasing share rated critical or high, and severe bugs that had survived a decade or more in widely used code were reported several times more often than before. Yet the time between the stages of a vulnerability's life, from report to fix and from disclosure to attack, has not shifted noticeably so far. We grade the mitigations proposed in the literature with an explicit rubric and draw guidance for each group of stakeholders from the best-supported ones.",
-          "bodyZh": "现在，基于大语言模型的智能体（LLM-based agents）越来越能干：它们能在真实软件里找漏洞、验证漏洞、修补漏洞，厂商和研究人员也反映，漏洞的发现和修复方式已经被改变了。不过，这些说法散落在论文、厂商报告和各种披露材料里，彼此很少能直接比较。我们搭了一个框架，用类似自动驾驶自动化等级（levels of driving automation）的思路，按自主性给这些能力打分；同时给每个说法标注清楚：它说得对不对、能不能用、证据有多硬。我们拿这个框架，把已发表的、关于大模型在漏洞研究中能力的证据系统梳理了一遍。结果发现：在2026年那批受限的前沿模型（restricted frontier models）出现之前，智能体就已经能在真实软件里，不用人插手，完成漏洞的发现、验证和修补；后来，开放权重模型（open-weight models）在发现和验证漏洞上，也达到了差不多的自主水平。接着，我们又去量了量：大模型安全能力不断进化，在十年间的公共漏洞记录、安全公告和漏洞利用数据里到底带来了什么后果。2026年，披露出来的漏洞数量增加了一倍多，被评为严重（critical）或高危（high）的占比也在上升；有些严重漏洞在广泛使用的代码里藏了十年甚至更久，现在被报告出来的频率是以前的数倍。不过到目前为止，漏洞生命周期里各阶段之间的时间——从报告到修复、从披露到被攻击——还没有明显变化。最后，我们用一套明确的评分标准（rubric），给文献里提出的各种缓解措施（mitigations）评级，并从证据最扎实的那些措施里，为每一类利益相关方（stakeholders）提炼出可操作的建议。",
+          "bodyZh": "基于大语言模型（LLM）的智能体，越来越能在真实软件里发现、验证和修补漏洞；厂商和研究机构都说，这已经在改变漏洞被发现和修复的方式。不过这些说法散落在论文、厂商报告和披露信息里，彼此很少能直接比较。我们提出了一个框架：参照驾驶自动化等级来设计一套自主性量表（autonomy scale），给这些能力打分；同时从正确性（correctness）、可用性（availability）和证据强度（strength of evidence）三个方面，来评估每一项说法。我们用这个框架，把已经发表的、关于LLM在漏洞研究方面能力的证据系统梳理了一遍。我们发现，在2026年那些受限的前沿模型（restricted frontier models）出现之前，智能体就已经能在没有人干预的情况下，发现、验证并修补真实世界软件中的漏洞；随后，开放权重模型（open-weight models）在漏洞发现和验证上也达到了差不多的自主水平。接着，我们利用十年来的公开漏洞记录、安全公告和利用数据，来衡量LLM安全能力不断演进带来的后果。2026年，披露的漏洞数量翻了一倍多，其中被评为严重（critical）或高危（high）的比例还在上升；那些在广泛使用的代码里藏了十年甚至更久的严重漏洞，被报告出来的频率也比以前高了好几倍。不过到目前为止，从漏洞报告到修复、从公开披露到被攻击，这些生命周期阶段之间的时间间隔还没有明显变化。我们还用一套明确的评分标准（rubric），给文献里提出的缓解措施打分，并从证据最扎实的那些措施里，为各类利益相关方总结出可操作的建议。",
           "freeLink": ""
         },
         {
           "id": "d4d117b2",
           "title": "Active Feature Acquisition by Distilling an Oracle Teacher",
-          "zh": "通过蒸馏Oracle教师实现主动特征获取",
-          "summary": "如果你所在场景每采一个特征都要花钱（医疗检测、风控核查），这篇用蒸馏出的教师模型来指导\"下一个该采哪个特征\"。",
+          "zh": "通过蒸馏Oracle教师模型实现主动特征获取",
+          "summary": "如果你在特征采集成本高的场景做预测（医疗、检测这类），这篇给出用教师模型指导\"该采哪个特征\"的省钱路子",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26598v1",
           "category": "paper",
@@ -82,14 +82,14 @@
           "time": "11月20日 02:52 · 凌晨",
           "author": "Yang Meng, Zixin Ding 等",
           "body": "Acquiring every feature of an instance is often costly: a measurement can carry a monetary price, a time delay, or a privacy cost. Active Feature Acquisition (AFA) addresses this by learning a policy that decides, per instance, which features to acquire under a budget. Existing AFA methods train this policy by optimizing a self-constructed utility target rather than distilling an explicit teacher. We construct this teacher explicitly. At training time the label and the unobserved feature values are available, and together they determine the teacher in closed form: an oracle that ranks every candidate by its effect on the downstream predictor's error. OracleImitator distills this ranking into a deployable policy by soft-target imitation. Across multimodal medical diagnosis and the AFABench benchmark, OracleImitator matches or outperforms existing AFA methods across the budget range, recovering 90% of the attainable accuracy gain at under a quarter of the acquisition cost. Because the teacher is an explicit algorithmic object rather than an implicit optimization target, we can also measure directly how much of its ranking is recoverable by a policy restricted to what is visible at deployment.",
-          "bodyZh": "想把一个样本的所有特征都拿到手，往往代价不低：一次测量可能要花钱、耗时间，还可能付出隐私代价。主动特征获取（Active Feature Acquisition, AFA）就是来解决这个问题的：它学一套策略，针对每个样本，在预算限制下决定该获取哪些特征。现有的 AFA 方法训练这套策略时，靠的是优化一个自己构造的效用目标（utility target），而不是去蒸馏一个明确的教师（teacher）。我们则把这个教师明确地构造了出来。训练时，标签和那些没被观测到的特征值都能拿到，它们合在一起就能以闭式（closed form）确定这个教师：一个“神谕”（oracle），它会按照每个候选特征对下游预测器（downstream predictor）误差的影响来排序。OracleImitator 通过软目标模仿（soft-target imitation），把这个排序蒸馏成一套可以部署的策略。在多模态医学诊断（multimodal medical diagnosis）和 AFABench 基准上，OracleImitator 在整个预算范围内都能追平甚至超过现有的 AFA 方法；它只花不到四分之一的获取成本，就能拿回 90% 的可达到准确率增益。因为这个教师是一个明确的算法对象，而不是一个隐式的优化目标，所以我们还能直接衡量：一个只能在部署时可见信息范围内做决策的策略，究竟能恢复它排序中的多少。",
+          "bodyZh": "想把一条样本的所有特征都拿到手，通常都很贵：一次测量可能要花钱、要等时间，还可能泄露隐私。主动特征获取（Active Feature Acquisition, AFA）就是来解决这个问题的——它学一个策略，针对每条样本决定在预算内该获取哪些特征。现有的 AFA 方法训练这个策略时，靠的是优化一个自己构造的效用目标，而不是从一个明确的教师模型里蒸馏。我们则把这个教师模型明确地搭出来。训练的时候，标签和那些没被观测到的特征值都拿得到，它们合在一起就能直接确定这个教师模型：一个“神谕”（oracle），它按每个候选特征对下游预测器误差的影响来排序。OracleImitator 用软目标模仿（soft-target imitation）把这套排序蒸馏成一个能实际部署的策略。在多模态医学诊断和 AFABench 基准上，OracleImitator 在整个预算范围内都能追平甚至超过现有 AFA 方法；它只花不到四分之一的获取成本，就能拿回可达到的准确率提升的 90%。因为这个教师模型是一个明确的算法对象，而不是一个隐式的优化目标，我们还能直接衡量：一个只能看到部署时可见信息的策略，到底能恢复它多少排序。",
           "freeLink": ""
         },
         {
           "id": "22bca959",
           "title": "PGX: Physically Grounded Execution for Long-Horizon Humanoid Loco-Manipulation",
-          "zh": "PGX：面向长时程人形机器人移动操作的物理 grounded 执行",
-          "summary": "如果你做长时程人形机器人操作，这篇提醒你策略跑久了最容易飘，物理一致性得在执行层兜住。",
+          "zh": "PGX：面向长时程人形机器人移动操作的可物理落地执行",
+          "summary": "如果你关注人形机器人做长序列任务，这篇的重点是让规划出来的动作真的符合物理、能执行下去而不是纸上谈兵",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26596v1",
           "category": "paper",
@@ -97,14 +97,14 @@
           "time": "11月20日 02:52 · 凌晨",
           "author": "Kai Lu, Chenyang Ma 等",
           "body": "Robotic vision-language-action (VLA) models can execute diverse individual manipulation skills, yet they still struggle with long-horizon loco-manipulation tasks, where temporal structure, skills, and precision are tightly coupled within a monolithic model. We propose Physically Grounded Execution (PGX), a framework that offloads temporal and precision control to two classical training-free components, allowing the VLA to focus on stage-specific skill dynamics. PGX decomposes long-horizon loco-manipulation into three layers: (i) a predicate-based state machine governs task progression, using physical predicates to gate phase transitions, trigger recovery, and coordinate navigation and waiting. Shared predicate semantics connect offline demonstration segmentation, online execution, and stage-wise evaluation; (ii) VLA skills operate within active manipulation phases, with flat or stage-trained models concentrating on task-relevant actions; and (iii) world-coordinate locking (WCL) maintains spatial consistency through base station keeping, object-relative positioning, and world-anchored contact targets. We demonstrate the effectiveness of PGX with extensive experiments conducted on three simulated tasks and one real-world task using a Unitree G1 humanoid robot for long-horizon loco-manipulation, showing improvements in stage progression and task success rates. Project page is available at: https://kl-research.github.io/pgx",
-          "bodyZh": "机器人视觉-语言-动作（VLA）模型能完成各种单独的操控技能，但一碰到长时程的移动操作任务还是容易掉链子——这类任务里，时间结构、技能和精度被死死绑在一个一体化模型里。我们提出物理落地执行（PGX）框架，把时间控制和精度控制交给两个经典的免训练组件，让 VLA 专心处理各阶段自己的技能动态。PGX 把长时程移动操作拆成三层：第一，基于谓词（predicate）的状态机负责管任务推进，用物理谓词来把守阶段切换、触发恢复，并协调导航和等待；共享的谓词语义把离线演示分段、在线执行和分阶段评估连在一起。第二，VLA 技能只在主动操作阶段里发挥作用，扁平训练或分阶段训练的模型都把注意力放在和任务相关的动作上。第三，世界坐标锁定（WCL）通过保持底座站位、按物体做相对定位、以及用世界锚定的接触目标，来维持空间一致性。我们在三个仿真任务和一个真实任务上做了大量实验，用的是宇树 G1 人形机器人来完成长时程移动操作，结果证明 PGX 在阶段推进和任务成功率上都有提升。项目主页：https://kl-research.github.io/pgx",
+          "bodyZh": "机器人视觉-语言-动作（vision-language-action，VLA）模型已经能执行各种单独的操作技能，但一遇到长时程移动操作（loco-manipulation）任务还是容易卡住：这类任务里，时间顺序、技能切换和精度要求都紧紧绑在一个单体模型（monolithic model）里。为此，我们提出“物理落地执行”（Physically Grounded Execution，PGX）框架：把时间控制和精度控制交给两个经典的、免训练的组件，让VLA专心处理每个阶段自己的技能动态。PGX把长时程移动操作拆成三层：第一层，用基于谓词（predicate）的状态机（state machine）来管任务推进，靠物理谓词把住阶段切换的门槛、触发恢复，并协调导航和等待；共享的谓词语义把离线示范分段、在线执行和分阶段评估串在一起；第二层，VLA技能只在主动操作阶段里干活，扁平训练或分阶段训练的模型集中处理跟任务相关的动作；第三层，世界坐标锁定（world-coordinate locking，WCL）通过保持基座位置、按物体做相对定位，以及把接触目标锚定在世界坐标里，来维持空间一致性。我们做了大量实验来验证PGX的效果：三个仿真任务加一个真实任务，用的是Unitree G1人形机器人，做长时程移动操作，结果显示阶段推进和任务成功率都有提升。项目页面：https://kl-research.github.io/pgx",
           "freeLink": ""
         },
         {
           "id": "74697095",
           "title": "Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning",
-          "zh": "已实现可靠性与总体可靠性之别：相关性推理下随时有效的自一致性认证",
-          "summary": "如果你靠self-consistency投票给LLM答案打置信度，这篇会指出推理步骤彼此相关时那套估计是有偏的，并给出可随时查看的修正认证。",
+          "zh": "实现可靠性与总体可靠性：相关推理条件下随时有效的自一致性认证",
+          "summary": "如果你在靠多次采样投票（self-consistency）给模型答案加可信度，这篇提醒你样本之间不独立时那套置信度是虚的",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26592v1",
           "category": "paper",
@@ -112,14 +112,14 @@
           "time": "11月20日 02:47 · 凌晨",
           "author": "Terence D. Agbeyegbe, Toneukarin G. Agbeyegbe",
           "body": "Self-consistency certification treats repeated sampling from a language model as sequential evidence accumulation and stops when an anytime-valid e-process crosses a threshold, guaranteeing finite-sample Type I error control by Ville's inequality. Prior constructions assume sampled rollouts are conditionally independent. We show this assumption fails in practice: reasoning streams are positively correlated through shared reasoning prefixes or across-prompt heterogeneity, changing not merely certificate efficiency but the hypothesis certified. Modeling dependence via a per-unit latent state (the random-effects / intraclass-correlation structure) induces exchangeable, equi-correlated increments with correlation $ρ$. Correlation splits the single null into a realized null about the drawn belief and a population null about average model behavior, which coincide only when $ρ=0$. We show: (i) the standard betting e-process remains anytime-valid for the realized null, not the population null; (ii) read as a population-null test, a suitable mixture has asymptotic crossing probability at least $π=P(μ(Z)&gt;0)$, potentially exceeding nominal $ε$; (iii) the within-unit mean's effective sample size saturates at $1/ρ$, so extra within-unit rollouts cannot restore population validity; and (iv) a prompt-level e-process restores population validity, with optimal allocation at one rollout per prompt under a pure rollout budget. Simulations and Claude Haiku 4.5 rollouts confirm this regime dependence: on GSM8K ($\\hatρ=0.435$, $\\hatθ=+0.96$) the gap is dormant, whereas on AIME ($\\hatρ=0.480$, $\\hatθ=-0.15$) the single-unit rule crosses on 24% of prompts at nominal $ε=0.05$, while the prompt-level procedure declines (0.00). This correctness result identifies which reliability claim an anytime-valid certificate actually supports under dependence.",
-          "bodyZh": "自洽性认证（self-consistency certification）把从语言模型里反复采样，看成是在按顺序累积证据；只要一个“任意时刻都有效”的 e-process（anytime-valid e-process）越过阈值，就停下来，并靠 Ville 不等式（Ville's inequality）保证有限样本下的第一类错误（Type I error）控制。之前的做法都假设：采样出来的多条 rollout（rollouts）在条件上相互独立。我们证明这个假设在实际中不成立：推理流会因为共享推理前缀，或者不同提示词之间的异质性而出现正相关；这不只是改变认证证书（certificate）的效率，还会改变被认证的那个假设本身。用“每个单元一个潜在状态”来给这种依赖建模（也就是随机效应/组内相关结构，random-effects / intraclass-correlation），会得到可交换、等相关的增量，相关系数为 $ρ$。相关性会把原来单一的原假设拆成两个：一个是关于“抽到的这组信念”的实现原假设（realized null），另一个是关于“模型平均行为”的总体原假设（population null）；只有 $ρ=0$ 时，这俩才重合。我们证明：(i) 标准投注式 e-process（betting e-process）对实现原假设仍然任意时刻有效，但对总体原假设不再有效；(ii) 如果把它当成总体原假设检验来读，合适的混合策略的渐近越界概率至少是 $π=P(μ(Z)>0)$，可能超过名义上的 $ε$；(iii) 单元内均值的有效样本量（effective sample size）会在 $1/ρ$ 处封顶，所以单元内多采 rollout 也恢复不了总体有效性（population validity）；(iv) 提示词层面（prompt-level）的 e-process 能恢复总体有效性，而且在纯 rollout 预算（rollout budget）下，最优分配是每个提示词只采一条 rollout。模拟实验和 Claude Haiku 4.5 的 rollout 结果都证实了这种区制依赖（regime dependence）：在 GSM8K 上（$\\hatρ=0.435$，$\\hatθ=+0.96$），这个差距潜伏着不显现；而在 AIME 上（$\\hatρ=0.480$，$\\hatθ=-0.15$），单单元规则（single-unit rule）在名义 $ε=0.05$ 下会在 24% 的提示词上越界，提示词层面的流程则是 0.00（没有越界）。这个正确性结果说明了：在有依赖时，一个任意时刻有效的证书到底支持哪一种可靠性主张。",
+          "bodyZh": "自一致性认证（self-consistency certification）把对语言模型的重复采样看成是在按顺序累积证据：只要一个随时有效的 e 过程（anytime-valid e-process）越过阈值就停下来，并靠 Ville 不等式保证有限样本下的第一类错误（Type I error）控制。以前的构造都假设：采样出来的 rollout（采样轨迹）在条件上是独立的。我们说明，这个假设在实际中不成立：推理流会因为共享推理前缀，或者跨提示的异质性而正相关，这不只是影响证书效率，还会改变被认证的假设本身。用每个单元一个潜在状态来建模依赖关系（也就是随机效应/组内相关结构，random-effects / intraclass-correlation structure），会得到可交换、等相关的增量，相关性记为 ρ。相关性会把原本单一的原假设拆成两个：一个是关于抽到的信念的实现原假设（realized null），另一个是关于模型平均行为的总体原假设（population null）；只有 ρ=0 时，这两个才重合。我们说明：(i) 标准的下注 e 过程（betting e-process）对实现原假设仍然随时有效，但对总体原假设不是；(ii) 如果把它当成总体原假设的检验来看，合适的混合（mixture）渐近越界概率至少是 π=P(μ(Z)>0)，可能超过名义 ε；(iii) 单元内均值的有效样本量（effective sample size）会饱和在 1/ρ，所以单元内多加 rollout 也恢复不了总体有效性；(iv) 提示级 e 过程（prompt-level e-process）能恢复总体有效性，在纯 rollout 预算下，最优分配是每个提示只放一个 rollout。模拟和 Claude Haiku 4.5 的 rollout 确认了这种区制依赖（regime dependence）：在 GSM8K（ρ̂=0.435，θ̂=+0.96）上，这个差距还潜伏着；而在 AIME（ρ̂=0.480，θ̂=-0.15）上，单单元规则在名义 ε=0.05 时会在 24% 的提示上越界，而提示级流程的越界率是 0.00。这个正确性结果，点明了在存在依赖时，一个随时有效证书到底在支撑哪一种可靠性说法。",
           "freeLink": ""
         },
         {
           "id": "9a0a0e00",
           "title": "Probing the \"Conscious\" Mind: Selective Access and Global Workspace in Vision-Language Models",
-          "zh": "探测视觉语言模型中的\"意识\"心智：选择性访问与全局工作空间",
-          "summary": "如果你好奇多模态模型内部是否存在类似全局工作空间的瓶颈结构，这篇做了探测，但别急着把结论往\"模型有意识\"上引。",
+          "zh": "探测\"意识\"心智：视觉语言模型中的选择性访问与全局工作空间",
+          "summary": "如果你对\"模型是不是真理解\"这类问题感兴趣，这篇借意识理论的探针实验给出了可量化的观察角度，但别急着当成模型有意识的证据",
           "source": "arXiv",
           "url": "http://arxiv.org/abs/2611.26590v1",
           "category": "paper",
@@ -127,7 +127,7 @@
           "time": "11月20日 02:46 · 凌晨",
           "author": "Jiahao Huang, Jun Wang",
           "body": "Vision-language models (VLMs) integrate visual and textual information, but their outputs do not reveal internal concept representations. Global workspace theory (GWT) proposes that information is selected from parallel brain processes, integrated in a shared workspace, and made available to specialised processes. We introduce the Multimodal Concept Lens (MC-Lens), a multimodal Jacobian lens, to study these functions in VLM concept processing. Its vision encoder and language decoder lenses map intermediate states to a shared semantic space defined by the decoder's output vocabulary to compare concept accessibility across modalities. MC-Lens supports internal concept interventions to examine the role of accessed concepts in downstream computation. (i) Accessibility and selective access. Multimodal concept information is readable in intermediate states and selectively accessible as tasks require. We extend \"readout carriers\" from one name token to a token set to better capture and express concept information and support counterfactual experiments. (ii) Concepts in downstream computation. Counterfactual experiments show that accessed concept information participates in downstream computation and reasoning. (iii) Development of cross-modal alignment and selective access. We develop two J-space metrics tracking the development of cross-modal concept alignment more clearly than hidden state cosine in controlled VLM training. The experiment also shows that reliable selective access develops later than concept accessibility. (iv) Shared functions across models. Across VLM families and sizes, we find shared patterns of concept accessibility, query-dependent selectivity and cross-task intervention effects despite differences in internal organisation. These findings offer an experimental basis to study GWT in multimodal artificial systems and how it can guide cross-modal alignment improvements.",
-          "bodyZh": "视觉语言模型（Vision-language models, VLMs）能把图像和文字信息合在一起处理，但光看输出，我们看不到它内部是怎么表示概念的。全局工作空间理论（Global workspace theory, GWT）认为，信息会从大脑里并行运转的多个过程中被挑出来，放进一个共享工作空间里整合，再提供给专门的过程使用。我们提出多模态概念透镜（Multimodal Concept Lens, MC-Lens），这是一种多模态雅可比透镜（multimodal Jacobian lens），用来研究视觉语言模型处理概念时这些功能是怎么运作的。它的视觉编码器透镜和语言解码器透镜，会把中间状态映射到由解码器输出词汇表定义的共享语义空间（shared semantic space），这样就能比较不同模态里的概念可访问性（concept accessibility）。MC-Lens还能做内部概念干预（internal concept interventions），看看被访问到的概念在下游计算（downstream computation）里到底起什么作用。(i) 可访问性和选择性访问。多模态概念信息在中间状态里读得出来，也会按任务需要被有选择地访问。我们把“读出载体”（readout carriers）从一个名称词元（token）扩展成一组词元，好更完整地捕捉和表达概念信息，也方便做反事实实验（counterfactual experiments）。(ii) 下游计算中的概念。反事实实验显示，被访问到的概念信息会参与下游计算和推理。(iii) 跨模态对齐和选择性访问的发展。我们设计了两个J空间指标（J-space metrics），在受控的VLM训练里，它们比隐藏状态余弦（hidden state cosine）更清楚地追踪跨模态概念对齐（cross-modal concept alignment）的发展。实验还显示，可靠的选择性访问（selective access）比概念可访问性出现得更晚。(iv) 模型之间共享的功能。我们看了不同VLM家族和不同规模，发现尽管内部组织方式有差异，它们在概念可访问性、查询依赖选择性（query-dependent selectivity）和跨任务干预效应（cross-task intervention effects）上都有共同模式。这些发现为研究多模态人工系统（multimodal artificial systems）里的GWT提供了实验基础，也为怎样用它来指导跨模态对齐改进提供了依据。",
+          "bodyZh": "视觉-语言模型（VLMs）把视觉和文本信息合在一起处理，但它们的输出并不会把内部的概念表征直接露出来。全局工作空间理论（GWT）认为，信息会从大脑里并行的处理过程中被挑出来，整合到一个共享工作空间里，再提供给专门的处理过程使用。我们提出多模态概念透镜（MC-Lens），它是一种多模态雅可比透镜（multimodal Jacobian lens），用来研究VLM处理概念时的这些功能。它的视觉编码器透镜和语言解码器透镜，会把中间状态映射到一个共享语义空间；这个空间由解码器的输出词表定义，所以能比较不同模态下概念的可访问性。MC-Lens还支持对内部概念做干预，来检查被访问到的概念在下游计算里到底起什么作用。（i）可访问性和选择性访问。多模态概念信息在中间状态里能读出来，而且会按任务需要被有选择地访问。我们把“读出载体”（readout carriers）从一个名称词元扩展成一组词元（token set），好更好地捕捉和表达概念信息，也支持反事实实验（counterfactual experiments）。（ii）下游计算中的概念。反事实实验表明，被访问到的概念信息确实参与下游计算和推理。（iii）跨模态对齐和选择性访问的发展。我们提出两个J空间指标（J-space metrics），在受控的VLM训练中，它们比隐状态余弦相似度（hidden state cosine）更清楚地追踪跨模态概念对齐的发展。实验还显示，可靠的选择性访问比概念可访问性发展得更晚。（iv）不同模型之间共享的功能。在不同VLM系列和规模上，尽管内部组织方式有差异，我们发现概念可访问性、依赖查询的选择性（query-dependent selectivity）和跨任务干预效果（cross-task intervention effects）存在共享模式。这些发现为研究多模态人工系统中的GWT提供了实验基础，也为如何用它指导跨模态对齐改进提供了依据。",
           "freeLink": ""
         }
       ]
